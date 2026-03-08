@@ -44,13 +44,13 @@ const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
       <div class="w-px h-5 bg-border-subtle hidden sm:block"></div>
 
       <a
-        href={`https://app.${appDomain}/auth/login`}
+        href={`https://${appDomain}/login`}
         class="text-sm font-medium text-text-secondary hover:text-text transition hidden md:block"
       >
         {t.navSignIn}
       </a>
       <a
-        href={`https://app.${appDomain}/auth/signup`}
+        href={`https://${appDomain}/login`}
         class="btn btn-primary text-sm !py-2 !px-4 hidden sm:inline-flex"
       >
         {t.navGetStarted}
@@ -82,10 +82,10 @@ const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
         {t.navPricing}
       </a>
       <div class="pt-3 border-t border-border-subtle mt-3 flex flex-col gap-2">
-        <a href={`https://app.${appDomain}/auth/login`} class="btn btn-secondary w-full justify-center text-sm">
+        <a href={`https://${appDomain}/login`} class="btn btn-secondary w-full justify-center text-sm">
           {t.navSignIn}
         </a>
-        <a href={`https://app.${appDomain}/auth/signup`} class="btn btn-primary w-full justify-center text-sm">
+        <a href={`https://${appDomain}/login`} class="btn btn-primary w-full justify-center text-sm">
           {t.navGetStarted}
         </a>
       </div>
