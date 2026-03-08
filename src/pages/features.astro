@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import FeatureShowcase from '../components/sections/FeatureShowcase.astro';
+import Integrations from '../components/sections/Integrations.astro';
+import Stats from '../components/sections/Stats.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Features — Nero" lang="en">
+  <Navbar lang="en" />
+  <main>
+    <!-- Page header -->
+    <section class="pt-32 pb-16 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="section-label mb-4">Features</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text mt-4">
+          Built for teams that <span class="text-gradient">move fast</span>
+        </h1>
+        <p class="mt-5 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
+          Nero combines task management, CRM, inbox, and AI into one platform — so your team can stop switching between tools and start shipping.
+        </p>
+      </div>
+    </section>
+
+    <Stats lang="en" />
+    <FeatureShowcase lang="en" />
+    <Integrations lang="en" />
+    <CTA lang="en" />
+  </main>
+  <Footer lang="en" />
+</BaseLayout>

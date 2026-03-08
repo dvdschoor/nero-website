@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import type { Lang } from '../i18n/translations';
+import { useTranslations, getLocalizedPath, getAlternateLang } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+}
+
+const { title, description, lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const desc = description || t.siteDescription;
+const altLang = getAlternateLang(lang);
+const altPath = getLocalizedPath(Astro.url.pathname.replace(`/${lang}`, '') || '/', altLang);
+---
+
+<!doctype html>
+<html lang={lang} class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={desc} />
+    <meta name="theme-color" content="#4F46E5" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nero" />
+
+    <!-- i18n alternate links -->
+    <link rel="alternate" hreflang={altLang} href={altPath} />
+    <link rel="alternate" hreflang={lang} href={Astro.url.pathname} />
+
+    <title>{title}</title>
+
+    <!-- Plus Jakarta Sans (matching Flutter app font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-bg text-text font-sans">
+    <slot />
+  </body>
+</html>

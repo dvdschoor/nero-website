@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import FeatureShowcase from '../../components/sections/FeatureShowcase.astro';
+import Integrations from '../../components/sections/Integrations.astro';
+import Stats from '../../components/sections/Stats.astro';
+import CTA from '../../components/sections/CTA.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout title="Functies — Nero" lang="nl">
+  <Navbar lang="nl" />
+  <main>
+    <section class="pt-32 pb-16 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="section-label mb-4">Functies</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text mt-4">
+          Gebouwd voor teams die <span class="text-gradient">snel werken</span>
+        </h1>
+        <p class="mt-5 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
+          Nero combineert taakbeheer, CRM, inbox en AI in een platform — zodat je team kan stoppen met schakelen en kan beginnen met leveren.
+        </p>
+      </div>
+    </section>
+
+    <Stats lang="nl" />
+    <FeatureShowcase lang="nl" />
+    <Integrations lang="nl" />
+    <CTA lang="nl" />
+  </main>
+  <Footer lang="nl" />
+</BaseLayout>

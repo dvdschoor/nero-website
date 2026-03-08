@@ -1,0 +1,40 @@
+---
+import type { Lang } from '../../i18n/translations';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const isNl = lang === 'nl';
+
+const stats = [
+  {
+    value: '5+',
+    label: isNl ? 'Communicatiekanalen' : 'Communication channels',
+  },
+  {
+    value: '6',
+    label: isNl ? 'AI-functies ingebouwd' : 'Built-in AI features',
+  },
+  {
+    value: '3',
+    label: isNl ? 'Valuta ondersteund' : 'Currencies supported',
+  },
+  {
+    value: '2',
+    label: isNl ? 'Talen' : 'Languages',
+  },
+];
+---
+
+<section class="py-16 px-6 border-y border-border-subtle bg-surface">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+    {stats.map((stat) => (
+      <div class="text-center">
+        <div class="text-3xl md:text-4xl font-extrabold text-gradient">{stat.value}</div>
+        <div class="mt-1 text-sm text-text-secondary">{stat.label}</div>
+      </div>
+    ))}
+  </div>
+</section>

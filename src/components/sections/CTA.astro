@@ -1,0 +1,40 @@
+---
+import type { Lang } from '../../i18n/translations';
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nero.app';
+---
+
+<section class="py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="relative rounded-2xl overflow-hidden px-8 py-16 md:px-16 md:py-20 text-center">
+      <!-- Gradient background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-800 to-primary-950 -z-10"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+
+      <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">
+        {t.ctaTitle}
+      </h2>
+      <p class="mt-4 text-primary-200 text-lg max-w-xl mx-auto">
+        {t.ctaSubtitle}
+      </p>
+      <div class="mt-8">
+        <a
+          href={`https://app.${appDomain}/auth/signup`}
+          class="btn btn-lg bg-white text-primary font-semibold hover:bg-primary-50 transition"
+        >
+          {t.ctaCta}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

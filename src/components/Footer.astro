@@ -1,0 +1,85 @@
+---
+import type { Lang } from '../i18n/translations';
+import { useTranslations, getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const columns = [
+  {
+    title: t.footerProduct,
+    links: [
+      { label: t.footerFeatures, href: getLocalizedPath('/features', lang) },
+      { label: t.footerPricing, href: getLocalizedPath('/pricing', lang) },
+      { label: t.footerChangelog, href: getLocalizedPath('/changelog', lang) },
+    ],
+  },
+  {
+    title: t.footerCompany,
+    links: [
+      { label: t.footerAbout, href: getLocalizedPath('/about', lang) },
+      { label: t.footerBlog, href: getLocalizedPath('/blog', lang) },
+      { label: t.footerCareers, href: getLocalizedPath('/careers', lang) },
+    ],
+  },
+  {
+    title: t.footerLegal,
+    links: [
+      { label: t.footerPrivacy, href: getLocalizedPath('/privacy', lang) },
+      { label: t.footerTerms, href: getLocalizedPath('/terms', lang) },
+    ],
+  },
+];
+---
+
+<footer class="border-t border-border-subtle bg-surface">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+      <!-- Brand column -->
+      <div class="col-span-2 md:col-span-1">
+        <a href={getLocalizedPath('/', lang)} class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-md bg-primary flex items-center justify-center">
+            <span class="text-white font-extrabold text-xs">N</span>
+          </div>
+          <span class="text-lg font-bold text-text">nero</span>
+        </a>
+        <p class="mt-3 text-sm text-text-tertiary leading-relaxed max-w-[200px]">
+          {t.siteDescription}
+        </p>
+      </div>
+
+      <!-- Link columns -->
+      {columns.map((col) => (
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-text-tertiary mb-4">
+            {col.title}
+          </h4>
+          <ul class="space-y-2.5">
+            {col.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-text-secondary hover:text-text transition"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-6 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span class="text-xs text-text-tertiary">
+        &copy; {year} Nero. {t.footerCopyright}
+      </span>
+    </div>
+  </div>
+</footer>
