@@ -1,0 +1,89 @@
+---
+import type { Lang } from '../../i18n/translations';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const isNl = lang === 'nl';
+
+const faqs = isNl ? [
+  {
+    q: 'Hoe leert Nero mijn bedrijfsprocedures?',
+    a: 'Je voegt je procedures, playbooks en SLA\'s toe aan de kennisbank. Nero gebruikt deze als actieve input voor triage, prioritering en antwoordsuggesties. Hoe meer context je toevoegt, hoe slimmer Nero wordt.',
+  },
+  {
+    q: 'Vervangt Nero mijn huidige tools?',
+    a: 'Nero combineert taakbeheer, inbox, kennisbank, contactbeheer en deal-tracking in een platform. De meeste teams vervangen 3-5 losse tools. Je kunt ook beginnen met een onderdeel en geleidelijk uitbreiden.',
+  },
+  {
+    q: 'Is mijn data veilig?',
+    a: 'Ja. Alle data wordt per organisatie geisoleerd met row-level security. We gebruiken Supabase als backend met enterprise-grade encryptie. Je data wordt nooit gedeeld met andere organisaties of gebruikt voor AI-training.',
+  },
+  {
+    q: 'Kan ik Nero voor meerdere klanten of organisaties gebruiken?',
+    a: 'Absoluut. Nero is multi-tenant gebouwd. Elke organisatie heeft een eigen workspace met volledig gescheiden data. Je kunt direct schakelen tussen organisaties vanuit een account.',
+  },
+  {
+    q: 'Welke communicatiekanalen worden ondersteund?',
+    a: 'E-mail, Slack, WhatsApp en telefoon. Alles komt samen in een inbox waar AI triageert op basis van je procedures. Nieuwe integraties worden regelmatig toegevoegd.',
+  },
+  {
+    q: 'Wat als ik eerst wil uitproberen?',
+    a: 'Het Starter-plan is gratis voor teams tot 3 personen. Je hebt direct toegang tot taakbeheer, inbox en basis AI-triage. Upgraden kan op elk moment zonder dataverlies.',
+  },
+] : [
+  {
+    q: 'How does Nero learn my business procedures?',
+    a: 'You add your procedures, playbooks, and SLAs to the knowledge base. Nero uses these as active input for triage, prioritization, and reply suggestions. The more context you add, the smarter Nero gets.',
+  },
+  {
+    q: 'Does Nero replace my current tools?',
+    a: 'Nero combines task management, inbox, knowledge base, contact management, and deal tracking in one platform. Most teams replace 3-5 separate tools. You can also start with one part and gradually expand.',
+  },
+  {
+    q: 'Is my data secure?',
+    a: 'Yes. All data is isolated per organization with row-level security. We use Supabase as our backend with enterprise-grade encryption. Your data is never shared with other organizations or used for AI training.',
+  },
+  {
+    q: 'Can I use Nero for multiple clients or organizations?',
+    a: 'Absolutely. Nero is built multi-tenant. Each organization has its own workspace with fully isolated data. You can instantly switch between organizations from one account.',
+  },
+  {
+    q: 'Which communication channels are supported?',
+    a: 'Email, Slack, WhatsApp, and phone. Everything converges in one inbox where AI triages based on your procedures. New integrations are added regularly.',
+  },
+  {
+    q: 'What if I want to try it first?',
+    a: 'The Starter plan is free for teams up to 3 people. You get instant access to task management, inbox, and basic AI triage. Upgrade anytime without losing data.',
+  },
+];
+---
+
+<section class="py-24 px-6 bg-surface-alt/50">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-14" data-animate>
+      <span class="section-label mb-4">FAQ</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-text mt-4">
+        {isNl ? 'Veelgestelde vragen' : 'Frequently asked questions'}
+      </h2>
+    </div>
+
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <details class="card group" data-animate style={`transition-delay: ${i * 60}ms`}>
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none">
+            <span class="text-sm font-semibold text-text">{faq.q}</span>
+            <svg class="w-5 h-5 text-text-tertiary flex-shrink-0 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 -mt-1">
+            <p class="text-sm text-text-secondary leading-relaxed">{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

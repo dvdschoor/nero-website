@@ -239,3 +239,39 @@ h3 { letter-spacing: -0.01em; }
   background-image: radial-gradient(circle, var(--color-border) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* ─── Accessibility: Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-reveal {
+    animation: none;
+    opacity: 1;
+  }
+
+  .animate-float {
+    animation: none;
+  }
+
+  .animate-pulse-glow {
+    animation: none;
+  }
+
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card-hover:hover,
+  .feature-card:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+}
+
+/* ─── Focus Styles ─── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

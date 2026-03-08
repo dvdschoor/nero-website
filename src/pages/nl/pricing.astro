@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import CTA from '../../components/sections/CTA.astro';
+import FAQ from '../../components/sections/FAQ.astro';
 import Footer from '../../components/Footer.astro';
 
 const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
@@ -66,7 +67,7 @@ const plans = [
 <BaseLayout title="Prijzen — Nero" lang="nl">
   <Navbar lang="nl" />
   <main>
-    <section class="pt-32 pb-16 px-6">
+    <section class="pt-36 pb-16 px-6">
       <div class="max-w-3xl mx-auto text-center">
         <span class="section-label mb-4">Prijzen</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text mt-4">
@@ -127,6 +128,7 @@ const plans = [
       </div>
     </section>
 
+    <FAQ lang="nl" />
     <CTA lang="nl" />
   </main>
   <Footer lang="nl" />

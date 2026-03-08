@@ -1,0 +1,99 @@
+---
+import type { Lang } from '../../i18n/translations';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const isNl = lang === 'nl';
+
+const testimonials = isNl ? [
+  {
+    quote: 'Nero heeft onze intake volledig geautomatiseerd. Wat vroeger 2 uur per dag kostte, doet de AI nu in seconden — en beter.',
+    name: 'Thomas V.',
+    role: 'Operations Lead',
+    company: 'Digital Agency',
+    initials: 'TV',
+    color: 'bg-primary-300',
+  },
+  {
+    quote: 'De dagelijkse briefing is een gamechanger. Mijn team weet precies waar ze moeten beginnen, zonder dat ik alles handmatig moet coordineren.',
+    name: 'Sarah K.',
+    role: 'Founder',
+    company: 'SaaS Startup',
+    initials: 'SK',
+    color: 'bg-accent-light/40',
+  },
+  {
+    quote: 'Eindelijk een tool die onze kennisbank daadwerkelijk gebruikt. Nero triageert op basis van onze procedures — precies zoals we het willen.',
+    name: 'Marc D.',
+    role: 'Service Manager',
+    company: 'IT Services',
+    initials: 'MD',
+    color: 'bg-primary-200',
+  },
+] : [
+  {
+    quote: 'Nero fully automated our intake process. What used to take 2 hours a day, AI now handles in seconds — and better.',
+    name: 'Thomas V.',
+    role: 'Operations Lead',
+    company: 'Digital Agency',
+    initials: 'TV',
+    color: 'bg-primary-300',
+  },
+  {
+    quote: 'The daily briefing is a game changer. My team knows exactly where to start, without me having to manually coordinate everything.',
+    name: 'Sarah K.',
+    role: 'Founder',
+    company: 'SaaS Startup',
+    initials: 'SK',
+    color: 'bg-accent-light/40',
+  },
+  {
+    quote: 'Finally a tool that actually uses our knowledge base. Nero triages based on our procedures — exactly how we want it.',
+    name: 'Marc D.',
+    role: 'Service Manager',
+    company: 'IT Services',
+    initials: 'MD',
+    color: 'bg-primary-200',
+  },
+];
+---
+
+<section class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14" data-animate>
+      <span class="section-label mb-4">
+        {isNl ? 'Wat teams zeggen' : 'What teams say'}
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold text-text mt-4">
+        {isNl ? 'Teams die Nero al' : 'Teams already'}
+        <span class="text-gradient">{isNl ? ' gebruiken' : ' using Nero'}</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {testimonials.map((t, i) => (
+        <div class="card card-hover p-6 flex flex-col" data-animate style={`transition-delay: ${i * 100}ms`}>
+          <!-- Quote icon -->
+          <svg class="w-8 h-8 text-primary/15 mb-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
+          </svg>
+
+          <p class="text-text-secondary text-sm leading-relaxed flex-1">"{t.quote}"</p>
+
+          <div class="flex items-center gap-3 mt-6 pt-5 border-t border-border-subtle">
+            <div class={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center flex-shrink-0`}>
+              <span class="text-xs font-bold text-primary-900">{t.initials}</span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-text">{t.name}</div>
+              <div class="text-xs text-text-tertiary">{t.role}, {t.company}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
