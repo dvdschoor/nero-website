@@ -20,7 +20,10 @@ const altPath = getLocalizedPath(Astro.url.pathname.replace(`/${lang}`, '') || '
 <html lang={lang} class="antialiased">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={desc} />
     <meta name="theme-color" content="#4F46E5" />
@@ -47,5 +50,20 @@ const altPath = getLocalizedPath(Astro.url.pathname.replace(`/${lang}`, '') || '
   </head>
   <body class="min-h-screen bg-bg text-text font-sans">
     <slot />
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

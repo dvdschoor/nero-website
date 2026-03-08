@@ -24,7 +24,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
       if (memberships && memberships.length === 1) {
         // Single org — redirect straight to the app
         const slug = (memberships[0] as any).organizations?.slug;
-        const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nero.app';
+        const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
         return context.redirect(`https://${slug}.${appDomain}`);
       }
 

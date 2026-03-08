@@ -2,8 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Hero from '../../components/sections/Hero.astro';
+import Stats from '../../components/sections/Stats.astro';
 import Features from '../../components/sections/Features.astro';
 import HowItWorks from '../../components/sections/HowItWorks.astro';
+import Integrations from '../../components/sections/Integrations.astro';
 import CTA from '../../components/sections/CTA.astro';
 import Footer from '../../components/Footer.astro';
 import { useTranslations } from '../../i18n/utils';
@@ -15,8 +17,10 @@ const t = useTranslations('nl');
   <Navbar lang="nl" />
   <main>
     <Hero lang="nl" />
+    <Stats lang="nl" />
     <Features lang="nl" />
     <HowItWorks lang="nl" />
+    <Integrations lang="nl" />
     <CTA lang="nl" />
   </main>
   <Footer lang="nl" />

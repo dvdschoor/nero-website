@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar.astro';
 import CTA from '../../components/sections/CTA.astro';
 import Footer from '../../components/Footer.astro';
 
-const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nero.app';
+const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
 
 const plans = [
   {
@@ -14,9 +14,9 @@ const plans = [
     description: 'Voor individuen en kleine teams die beginnen.',
     features: [
       'Tot 3 teamleden',
-      'Taakbeheer & inbox',
-      'Contact- & bedrijfs-CRM',
-      'Basis AI-triage',
+      'Taakoperaties & uniforme inbox',
+      'Contact- & bedrijfsbeheer',
+      'Basis AI-triage & prioritering',
       '1 workspace',
     ],
     cta: 'Aan de slag',
@@ -27,14 +27,14 @@ const plans = [
     name: 'Pro',
     price: '\u20AC29',
     period: '/gebruiker/maand',
-    description: 'Voor groeiende teams die het volledige platform nodig hebben.',
+    description: 'Voor groeiende teams die het volledige ops-platform nodig hebben.',
     features: [
       'Onbeperkt teamleden',
       'Alles in Starter',
       'Deal-pipelines & forecasting',
-      'Sprint planning',
-      'Volledige AI-suite (triage, concepten, briefings)',
-      'Kennisbank',
+      'Sprint planning & AI-taaksuggesties',
+      'Volledige AI ops-suite (triage, concepten, dagelijkse briefings)',
+      'Operationele kennisbank',
       'Multi-channel integraties',
       'Prioriteit support',
     ],
@@ -57,7 +57,7 @@ const plans = [
       'Maatwerk onboarding',
     ],
     cta: 'Neem contact op',
-    href: 'mailto:hello@nero.app',
+    href: 'mailto:hello@nerops.ai',
     highlighted: false,
   },
 ];

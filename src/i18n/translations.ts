@@ -9,7 +9,7 @@ export const translations = {
   en: {
     // Meta
     siteTitle: 'Nero',
-    siteDescription: 'The modern CRM for teams that move fast.',
+    siteDescription: 'The AI operations platform that runs your team like a seasoned ops manager.',
 
     // Nav
     navFeatures: 'Features',
@@ -18,10 +18,10 @@ export const translations = {
     navGetStarted: 'Get started',
 
     // Hero
-    heroBadge: 'Now with AI-powered triage',
-    heroTitle: 'Your team\'s CRM,',
-    heroTitleAccent: 'finally simple.',
-    heroSubtitle: 'Tasks, contacts, deals, and inbox — all in one place. Built for teams that want to move fast without the bloat.',
+    heroBadge: 'AI-powered operations',
+    heroTitle: 'Your AI',
+    heroTitleAccent: 'ops manager.',
+    heroSubtitle: 'Nero learns your procedures, triages incoming work, and keeps your team on track — like an ops manager that never sleeps.',
     heroCta: 'Start for free',
     heroCtaSecondary: 'See how it works',
 
@@ -29,37 +29,37 @@ export const translations = {
     socialProofTitle: 'Trusted by teams who ship',
 
     // Features
-    featuresLabel: 'Features',
-    featuresTitle: 'Everything your team needs',
-    featuresSubtitle: 'No more juggling between five different tools. Nero brings it all together.',
+    featuresLabel: 'Platform',
+    featuresTitle: 'One system to run your operations',
+    featuresSubtitle: 'Tasks, inbox, knowledge, and relationships — all managed by AI that understands your business.',
 
-    featureInboxTitle: 'Smart Inbox',
-    featureInboxDesc: 'All your emails, tasks, and notifications unified. AI triages and prioritizes what matters most.',
-    featureTasksTitle: 'Task Management',
-    featureTasksDesc: 'Sprints, kanban, and list views. Assign, track, and close tasks with your team in real-time.',
-    featureContactsTitle: 'CRM & Contacts',
-    featureContactsDesc: 'Full contact and company management with deal tracking, activity history, and smart associations.',
-    featureAiTitle: 'AI Triage',
-    featureAiDesc: 'Let AI analyze incoming work, suggest priorities, and draft replies — so you can focus on what matters.',
-    featureKnowledgeTitle: 'Knowledge Base',
-    featureKnowledgeDesc: 'Build and share articles with your team. Searchable, organized, and always up to date.',
-    featureWorkspaceTitle: 'Multi-Workspace',
-    featureWorkspaceDesc: 'Manage multiple organizations from one account. Switch instantly, keep data fully isolated.',
+    featureInboxTitle: 'AI-Powered Inbox',
+    featureInboxDesc: 'Every channel flows into one inbox. AI triages, prioritizes, and drafts replies based on your procedures.',
+    featureTasksTitle: 'Intelligent Task Ops',
+    featureTasksDesc: 'AI suggests priorities, assigns work, and breaks down projects. Sprints, kanban, and standups built in.',
+    featureContactsTitle: 'Relationships & Deals',
+    featureContactsDesc: 'Track contacts, companies, and deals. AI surfaces context from your knowledge base for every interaction.',
+    featureAiTitle: 'AI That Knows Your Business',
+    featureAiDesc: 'Trained on your procedures and knowledge base. It triages work, suggests actions, and briefs your team daily.',
+    featureKnowledgeTitle: 'Operational Knowledge Base',
+    featureKnowledgeDesc: 'Your procedures, playbooks, and documentation — searchable and used by AI to make smarter decisions.',
+    featureWorkspaceTitle: 'Multi-Organization',
+    featureWorkspaceDesc: 'Run multiple organizations from one account. Fully isolated data, instant switching.',
 
     // How it works
     howItWorksLabel: 'How it works',
-    howItWorksTitle: 'Up and running in minutes',
-    howItWorksSubtitle: 'No complex setup. No consultants. Just sign up and start working.',
-    howStep1Title: 'Create your workspace',
-    howStep1Desc: 'Sign up, name your organization, and invite your team — all in under two minutes.',
-    howStep2Title: 'Connect your tools',
-    howStep2Desc: 'Import contacts, connect your email, and let AI categorize your existing data.',
-    howStep3Title: 'Start shipping',
-    howStep3Desc: 'Manage tasks, close deals, and collaborate — everything your team needs in one place.',
+    howItWorksTitle: 'From chaos to clarity in minutes',
+    howItWorksSubtitle: 'No consultants. No months of setup. Nero learns as you work.',
+    howStep1Title: 'Set up your workspace',
+    howStep1Desc: 'Create your organization, invite your team, and connect your email and channels.',
+    howStep2Title: 'Feed it your knowledge',
+    howStep2Desc: 'Add your procedures, playbooks, and SLAs. Nero uses this to triage work and make decisions.',
+    howStep3Title: 'Let Nero operate',
+    howStep3Desc: 'Incoming work gets triaged automatically. Tasks are prioritized. Your team gets a daily AI briefing with what to focus on.',
 
     // CTA
-    ctaTitle: 'Ready to simplify your workflow?',
-    ctaSubtitle: 'Join teams who switched from scattered tools to one streamlined platform.',
+    ctaTitle: 'Stop managing operations manually.',
+    ctaSubtitle: 'Let Nero handle the triage, prioritization, and coordination — so your team can focus on the work that matters.',
     ctaCta: 'Get started for free',
 
     // Footer
@@ -86,7 +86,7 @@ export const translations = {
   nl: {
     // Meta
     siteTitle: 'Nero',
-    siteDescription: 'Het moderne CRM voor teams die snel werken.',
+    siteDescription: 'Het AI-operationsplatform dat je team runt als een ervaren ops manager.',
 
     // Nav
     navFeatures: 'Functies',
@@ -95,10 +95,10 @@ export const translations = {
     navGetStarted: 'Aan de slag',
 
     // Hero
-    heroBadge: 'Nu met AI-gestuurde triage',
-    heroTitle: 'Het CRM van je team,',
-    heroTitleAccent: 'eindelijk simpel.',
-    heroSubtitle: 'Taken, contacten, deals en inbox — alles op een plek. Gebouwd voor teams die snel willen werken zonder rommel.',
+    heroBadge: 'AI-gedreven operations',
+    heroTitle: 'Je AI',
+    heroTitleAccent: 'ops manager.',
+    heroSubtitle: 'Nero leert je procedures, triageert inkomend werk en houdt je team op koers — als een ops manager die nooit slaapt.',
     heroCta: 'Start gratis',
     heroCtaSecondary: 'Bekijk hoe het werkt',
 
@@ -106,37 +106,37 @@ export const translations = {
     socialProofTitle: 'Vertrouwd door teams die leveren',
 
     // Features
-    featuresLabel: 'Functies',
-    featuresTitle: 'Alles wat je team nodig heeft',
-    featuresSubtitle: 'Stop met jongleren tussen vijf tools. Nero brengt het samen.',
+    featuresLabel: 'Platform',
+    featuresTitle: 'Een systeem voor al je operations',
+    featuresSubtitle: 'Taken, inbox, kennis en relaties — allemaal beheerd door AI die je bedrijf begrijpt.',
 
-    featureInboxTitle: 'Slimme Inbox',
-    featureInboxDesc: 'Al je e-mails, taken en meldingen op een plek. AI triageert en prioriteert wat belangrijk is.',
-    featureTasksTitle: 'Taakbeheer',
-    featureTasksDesc: 'Sprints, kanban en lijstweergaven. Wijs toe, volg en sluit taken af met je team in real-time.',
-    featureContactsTitle: 'CRM & Contacten',
-    featureContactsDesc: 'Volledig contact- en bedrijfsbeheer met dealtracking, activiteitenhistorie en slimme koppelingen.',
-    featureAiTitle: 'AI Triage',
-    featureAiDesc: 'Laat AI inkomend werk analyseren, prioriteiten voorstellen en antwoorden opstellen.',
-    featureKnowledgeTitle: 'Kennisbank',
-    featureKnowledgeDesc: 'Bouw en deel artikelen met je team. Doorzoekbaar, georganiseerd en altijd up-to-date.',
-    featureWorkspaceTitle: 'Multi-Workspace',
-    featureWorkspaceDesc: 'Beheer meerdere organisaties vanuit een account. Schakel direct, data volledig gescheiden.',
+    featureInboxTitle: 'AI-Gedreven Inbox',
+    featureInboxDesc: 'Elk kanaal komt samen in een inbox. AI triageert, prioriteert en stelt antwoorden op op basis van je procedures.',
+    featureTasksTitle: 'Intelligente Task Ops',
+    featureTasksDesc: 'AI stelt prioriteiten voor, wijst werk toe en breekt projecten op. Sprints, kanban en standups ingebouwd.',
+    featureContactsTitle: 'Relaties & Deals',
+    featureContactsDesc: 'Volg contacten, bedrijven en deals. AI haalt context uit je kennisbank bij elke interactie.',
+    featureAiTitle: 'AI Die Je Bedrijf Kent',
+    featureAiDesc: 'Getraind op je procedures en kennisbank. Triageert werk, stelt acties voor en brieft je team dagelijks.',
+    featureKnowledgeTitle: 'Operationele Kennisbank',
+    featureKnowledgeDesc: 'Je procedures, playbooks en documentatie — doorzoekbaar en gebruikt door AI voor slimmere beslissingen.',
+    featureWorkspaceTitle: 'Multi-Organisatie',
+    featureWorkspaceDesc: 'Beheer meerdere organisaties vanuit een account. Volledig gescheiden data, direct schakelen.',
 
     // How it works
     howItWorksLabel: 'Hoe het werkt',
-    howItWorksTitle: 'Binnen minuten operationeel',
-    howItWorksSubtitle: 'Geen complexe setup. Geen consultants. Aanmelden en aan de slag.',
-    howStep1Title: 'Maak je workspace',
-    howStep1Desc: 'Meld je aan, geef je organisatie een naam en nodig je team uit — in minder dan twee minuten.',
-    howStep2Title: 'Verbind je tools',
-    howStep2Desc: 'Importeer contacten, koppel je e-mail en laat AI je bestaande data categoriseren.',
-    howStep3Title: 'Begin met werken',
-    howStep3Desc: 'Beheer taken, sluit deals en werk samen — alles wat je team nodig heeft op een plek.',
+    howItWorksTitle: 'Van chaos naar duidelijkheid in minuten',
+    howItWorksSubtitle: 'Geen consultants. Geen maanden setup. Nero leert terwijl je werkt.',
+    howStep1Title: 'Stel je workspace in',
+    howStep1Desc: 'Maak je organisatie, nodig je team uit en koppel je e-mail en kanalen.',
+    howStep2Title: 'Voed het met je kennis',
+    howStep2Desc: 'Voeg je procedures, playbooks en SLA\'s toe. Nero gebruikt dit om werk te triageren en beslissingen te nemen.',
+    howStep3Title: 'Laat Nero opereren',
+    howStep3Desc: 'Inkomend werk wordt automatisch getriageerd. Taken worden geprioriteerd. Je team krijgt een dagelijkse AI-briefing.',
 
     // CTA
-    ctaTitle: 'Klaar om je workflow te vereenvoudigen?',
-    ctaSubtitle: 'Sluit je aan bij teams die van losse tools naar een gestroomlijnd platform zijn overgestapt.',
+    ctaTitle: 'Stop met handmatig operations managen.',
+    ctaSubtitle: 'Laat Nero de triage, prioritering en coordinatie afhandelen — zodat je team zich kan richten op werk dat ertoe doet.',
     ctaCta: 'Start gratis',
 
     // Footer

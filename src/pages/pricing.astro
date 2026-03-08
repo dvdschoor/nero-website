@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import CTA from '../components/sections/CTA.astro';
 import Footer from '../components/Footer.astro';
 
-const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nero.app';
+const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
 
 const plans = [
   {
@@ -14,9 +14,9 @@ const plans = [
     description: 'For individuals and small teams getting started.',
     features: [
       'Up to 3 team members',
-      'Task management & inbox',
-      'Contact & company CRM',
-      'Basic AI triage',
+      'Task operations & unified inbox',
+      'Contact & company management',
+      'Basic AI triage & prioritization',
       '1 workspace',
     ],
     cta: 'Get started',
@@ -27,14 +27,14 @@ const plans = [
     name: 'Pro',
     price: '\u20AC29',
     period: '/user/month',
-    description: 'For growing teams that need the full platform.',
+    description: 'For growing teams that need the full ops platform.',
     features: [
       'Unlimited team members',
       'Everything in Starter',
       'Deal pipelines & forecasting',
-      'Sprint planning',
-      'Full AI suite (triage, drafts, briefings)',
-      'Knowledge base',
+      'Sprint planning & AI task suggestions',
+      'Full AI ops suite (triage, drafts, daily briefings)',
+      'Operational knowledge base',
       'Multi-channel integrations',
       'Priority support',
     ],
@@ -57,7 +57,7 @@ const plans = [
       'Custom onboarding',
     ],
     cta: 'Contact us',
-    href: 'mailto:hello@nero.app',
+    href: 'mailto:hello@nerops.ai',
     highlighted: false,
   },
 ];
