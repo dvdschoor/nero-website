@@ -3,10 +3,22 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 
 const sidebar = [
   {
-    label: 'Integrations',
+    label: 'Email',
     items: [
       { title: 'Email (SendGrid)', href: '/docs/messaging-integrations#email' },
+      { title: 'Personal Sender Email', href: '/docs/messaging-integrations#personal-sender' },
+    ],
+  },
+  {
+    label: 'Messaging',
+    items: [
       { title: 'WhatsApp & SMS (Twilio)', href: '/docs/messaging-integrations#whatsapp-sms' },
+    ],
+  },
+  {
+    label: 'Reference',
+    items: [
+      { title: 'Troubleshooting', href: '/docs/messaging-integrations#troubleshooting' },
       { title: 'FAQ', href: '/docs/messaging-integrations#faq' },
     ],
   },
@@ -74,13 +86,36 @@ const sidebar = [
           <li><strong>API Key</strong> &mdash; paste the key from Step 1</li>
           <li><strong>Sender Email</strong> &mdash; the verified email from Step 2</li>
           <li><strong>Sender Name</strong> &mdash; how your name appears to recipients (e.g. <code>Your Company</code>)</li>
+          <li><strong>Region</strong> &mdash; select your SendGrid region (see below)</li>
         </ul>
       </li>
-      <li>Click <strong>Save</strong> &mdash; Nero validates your key automatically</li>
+      <li>Click <strong>Save &amp; Connect</strong> &mdash; Nero validates your key and sends a test email automatically</li>
     </ol>
+
+    <!-- Region selection -->
+    <h3>Region selection</h3>
+    <p>SendGrid has two data regions: <strong>Global (US)</strong> and <strong>Europe (EU)</strong>.</p>
+    <p><strong>How to determine your region:</strong></p>
+    <ul>
+      <li>If your SendGrid dashboard URL is <code>app.sendgrid.com</code> &rarr; you're on <strong>Global (US)</strong></li>
+      <li>If your SendGrid dashboard URL is <code>app.eu.sendgrid.com</code> &rarr; you're on <strong>Europe (EU)</strong></li>
+    </ul>
+    <blockquote>
+      <strong>Important:</strong> You must select the correct region in Nero. Selecting the wrong region will result in a "User is not authorized to send mail based on their regional attribute" error. Free and Essentials plans do <strong>not</strong> support EU Data Residency &mdash; only Pro plans and above. If you're on a free or Essentials plan, select <strong>Global (US)</strong>.
+    </blockquote>
 
     <div class="flex items-center gap-3 mb-3">
       <span class="step-number text-sm">4</span>
+      <h3 class="!mt-0 !mb-0">Send a test email</h3>
+    </div>
+    <ol class="mb-8">
+      <li>After connecting, click <strong>Send Test</strong> on the SendGrid card</li>
+      <li>Enter a recipient email address (e.g. your own email)</li>
+      <li>Check your inbox &mdash; you should receive a test email from Nero</li>
+    </ol>
+
+    <div class="flex items-center gap-3 mb-3">
+      <span class="step-number text-sm">5</span>
       <h3 class="!mt-0 !mb-0">Receive incoming emails (optional)</h3>
     </div>
     <p>To receive email replies in Nero, set up SendGrid Inbound Parse:</p>
@@ -101,6 +136,49 @@ Priority: 10</code></pre>
     </ul>
 
     <p>Incoming emails to your sender address will now appear in Nero conversations.</p>
+  </section>
+
+  <hr />
+
+  <!-- ===== PERSONAL SENDER EMAIL ===== -->
+  <section id="personal-sender" data-animate>
+    <h2>Personal Sender Email</h2>
+    <p>Every team member in Nero sends emails from their <strong>own</strong> email address &mdash; not a shared inbox. This ensures recipients see a recognizable sender and can reply directly to the right person.</p>
+
+    <h3>How it works</h3>
+    <ul>
+      <li>Each user must configure a personal <strong>Sender Email</strong> in their profile (e.g. <code>dylan@yourcompany.com</code>, <code>lisa@yourcompany.com</code>)</li>
+      <li>This email is used as the "From" address for all outbound emails sent by that user</li>
+      <li>Without a sender email configured, the user <strong>cannot send emails</strong> &mdash; the compose button is disabled and an error message is shown</li>
+      <li>This applies everywhere: email replies, compose sheets, and test emails from settings</li>
+    </ul>
+
+    <h3>Setup per team member</h3>
+    <ol>
+      <li>Click on your <strong>profile avatar</strong> (top-right) &rarr; <strong>Edit Profile</strong></li>
+      <li>Fill in the <strong>Sender Email</strong> field with your personal email address (e.g. <code>you@yourcompany.com</code>)</li>
+      <li>Click <strong>Save</strong></li>
+    </ol>
+
+    <blockquote>
+      <strong>Important:</strong> The sender email must be verified in SendGrid. If your organization uses <strong>Domain Authentication</strong> (recommended), all addresses on that domain are automatically verified. If you use <strong>Single Sender Verification</strong>, each user's email must be verified individually in SendGrid.
+    </blockquote>
+
+    <h3>Domain Authentication (recommended)</h3>
+    <p>With Domain Authentication, any email address on your verified domain can be used as a sender. This is the easiest way to let your whole team send from their own addresses:</p>
+    <ol>
+      <li>In <strong>SendGrid Dashboard</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Sender Authentication</strong> &rarr; <strong>Domain Authentication</strong></li>
+      <li>Follow the DNS setup instructions (add CNAME records)</li>
+      <li>Once verified, all <code>@yourcompany.com</code> addresses work automatically &mdash; no per-user verification needed</li>
+    </ol>
+
+    <h3>What if a user doesn't have a sender email set?</h3>
+    <ul>
+      <li>The <strong>Email Compose</strong> sheet shows a red warning: <em>"Set your sender email in profile settings before sending emails."</em></li>
+      <li>The <strong>Send</strong> button is disabled</li>
+      <li>Attempting to send from the conversation view shows an error snackbar</li>
+      <li>The backend also enforces this &mdash; even if bypassed in the UI, the edge function rejects the request</li>
+    </ul>
 
     <div class="rounded-lg bg-surface-alt px-4 py-3 text-sm text-text-secondary mb-2">
       <strong>Pricing</strong> &mdash; SendGrid offers 100 emails/day free. Paid plans start at ~$20/month for 50,000 emails.
@@ -151,13 +229,33 @@ Priority: 10</code></pre>
 
     <h4>For WhatsApp</h4>
     <ol class="mb-8">
-      <li>Go to <strong>Twilio Console</strong> &rarr; <strong>Messaging</strong> &rarr; <strong>Try it out</strong> &rarr; <strong>Send a WhatsApp message</strong></li>
-      <li>For testing, Twilio provides a sandbox number</li>
-      <li>For production: connect your own WhatsApp Business number via <strong>Messaging</strong> &rarr; <strong>Senders</strong> &rarr; <strong>WhatsApp Senders</strong></li>
+      <li>Go to <strong>Twilio Console</strong> &rarr; <strong>Messaging</strong> &rarr; <strong>Senders</strong> &rarr; <strong>WhatsApp Senders</strong></li>
+      <li>Follow the registration flow to connect your WhatsApp Business number</li>
+      <li>For testing: you can use Twilio's sandbox under <strong>Messaging</strong> &rarr; <strong>Try it out</strong> &rarr; <strong>Send a WhatsApp message</strong></li>
     </ol>
 
     <div class="flex items-center gap-3 mb-3">
       <span class="step-number text-sm">3</span>
+      <h3 class="!mt-0 !mb-0">Create a Messaging Service</h3>
+    </div>
+    <ol class="mb-8">
+      <li>Go to <strong>Twilio Console</strong> &rarr; <strong>Messaging</strong> &rarr; <strong>Services</strong></li>
+      <li>Click <strong>Create Messaging Service</strong></li>
+      <li>Name it (e.g. <code>Nero</code>)</li>
+      <li>Add your phone number(s) as Senders (Step 2 in the wizard)</li>
+      <li>In <strong>Step 3 &mdash; Set up integration</strong>:
+        <ul>
+          <li>Select <strong>Send a webhook</strong></li>
+          <li><strong>Request URL</strong>: <code>https://nerops.ai/api/webhooks/twilio</code></li>
+          <li><strong>HTTP Method</strong>: HTTP Post</li>
+        </ul>
+      </li>
+      <li>Complete the remaining steps</li>
+    </ol>
+    <p>This ensures incoming WhatsApp and SMS messages are forwarded to Nero.</p>
+
+    <div class="flex items-center gap-3 mb-3">
+      <span class="step-number text-sm">4</span>
       <h3 class="!mt-0 !mb-0">Connect in Nero</h3>
     </div>
     <ol class="mb-8">
@@ -171,14 +269,20 @@ Priority: 10</code></pre>
           <li><strong>SMS Number</strong> &mdash; your SMS-enabled number (optional, can be the same)</li>
         </ul>
       </li>
-      <li>Click <strong>Save</strong> &mdash; Nero validates your credentials automatically</li>
+      <li>Click <strong>Save &amp; Connect</strong> &mdash; Nero validates your credentials automatically</li>
     </ol>
 
     <div class="flex items-center gap-3 mb-3">
-      <span class="step-number text-sm">4</span>
-      <h3 class="!mt-0 !mb-0">Set up webhooks for incoming messages</h3>
+      <span class="step-number text-sm">5</span>
+      <h3 class="!mt-0 !mb-0">Test your connection</h3>
     </div>
-    <p>To receive incoming WhatsApp and SMS messages in Nero:</p>
+    <ol class="mb-8">
+      <li>Click <strong>Test</strong> on the Twilio card to verify your credentials are valid</li>
+      <li>Send a WhatsApp message to your configured number from your phone &mdash; it should appear in Nero</li>
+    </ol>
+
+    <h3>Alternative: Webhook via Phone Number (without Messaging Service)</h3>
+    <p>If you prefer not to use a Messaging Service:</p>
     <ol>
       <li>In <strong>Twilio Console</strong> &rarr; <strong>Phone Numbers</strong> &rarr; <strong>Manage</strong> &rarr; <strong>Active Numbers</strong></li>
       <li>Click on your phone number</li>
@@ -191,10 +295,86 @@ Priority: 10</code></pre>
       </li>
       <li>Click <strong>Save</strong></li>
     </ol>
-    <p>For WhatsApp, the webhook is configured through your WhatsApp Sender settings in the same way.</p>
 
     <div class="rounded-lg bg-surface-alt px-4 py-3 text-sm text-text-secondary mb-2">
       <strong>Pricing</strong> &mdash; Twilio charges per message: ~$0.005/SMS, ~$0.005/WhatsApp (conversation-based pricing). New accounts get trial credit.
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- ===== TROUBLESHOOTING ===== -->
+  <section id="troubleshooting" data-animate>
+    <h2>Troubleshooting</h2>
+
+    <h3>SendGrid</h3>
+    <div class="overflow-x-auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Error</th>
+            <th>Cause</th>
+            <th>Fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>User is not authorized to send mail based on their regional attribute</code></td>
+            <td>Wrong region selected in Nero</td>
+            <td>Check your SendGrid dashboard URL: <code>app.sendgrid.com</code> = Global (US), <code>app.eu.sendgrid.com</code> = EU. Free/Essentials plans only support Global.</td>
+          </tr>
+          <tr>
+            <td><code>The from address does not match a verified Sender Identity</code></td>
+            <td>Sender email not verified</td>
+            <td>Go to SendGrid &rarr; Settings &rarr; Sender Authentication and verify your sender email or domain</td>
+          </tr>
+          <tr>
+            <td><code>Permission denied, not enough scope</code></td>
+            <td>API key missing permissions</td>
+            <td>Create a new API key with Full Access or at least Mail Send permission</td>
+          </tr>
+          <tr>
+            <td><code>Failed to encrypt credentials</code></td>
+            <td>Server-side issue</td>
+            <td>Try disconnecting and reconnecting the integration</td>
+          </tr>
+          <tr>
+            <td>Not receiving incoming emails</td>
+            <td>DNS or Inbound Parse not configured</td>
+            <td>Check MX record points to <code>mx.sendgrid.net</code> and Inbound Parse URL is set to <code>https://nerops.ai/api/webhooks/sendgrid</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Twilio</h3>
+    <div class="overflow-x-auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Error</th>
+            <th>Cause</th>
+            <th>Fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Invalid Twilio credentials</code></td>
+            <td>Wrong Account SID or Auth Token</td>
+            <td>Double-check your credentials in the Twilio Console dashboard</td>
+          </tr>
+          <tr>
+            <td>Not receiving WhatsApp messages</td>
+            <td>Webhook not configured</td>
+            <td>Set the webhook URL to <code>https://nerops.ai/api/webhooks/twilio</code> in your Messaging Service or Phone Number settings</td>
+          </tr>
+          <tr>
+            <td><code>Message delivery failed</code></td>
+            <td>Recipient not opted-in (WhatsApp)</td>
+            <td>WhatsApp requires the recipient to have messaged your number first within the last 24 hours, or you must use an approved template</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
@@ -255,18 +435,82 @@ Priority: 10</code></pre>
 
       <details class="card group">
         <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
-          I'm not receiving incoming messages — what should I check?
+          I sent a test email but didn't receive it — what should I check?
           <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </summary>
         <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
-          <ul class="mt-1">
-            <li>Verify your webhook URL is correct in Twilio/SendGrid settings</li>
-            <li>Check that your DNS MX record is set up (for email)</li>
-            <li>Make sure the integration is active (green checkmark) in Nero settings</li>
-            <li>For Twilio: ensure the phone number has the webhook configured</li>
-          </ul>
+          <ol class="mt-1">
+            <li>Check your spam/junk folder</li>
+            <li>Verify the sender email is authenticated in SendGrid (Domain Authentication or Single Sender Verification)</li>
+            <li>Make sure you selected the correct region (Global vs EU) in Nero</li>
+            <li>Check SendGrid &rarr; Activity to see if the email was processed</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="card group">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+          WhatsApp messages aren't being delivered — what should I check?
+          <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+          <ol class="mt-1">
+            <li>Verify the webhook URL is set to <code>https://nerops.ai/api/webhooks/twilio</code></li>
+            <li>For outbound: the recipient must have messaged you within 24 hours, or use an approved template message</li>
+            <li>Check Twilio &rarr; Monitor &rarr; Logs for error details</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="card group">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+          Can multiple team members send emails from their own address?
+          <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+          Yes — that's how it works by default. Each user sets their personal sender email in their profile. As long as the email (or its domain) is verified in SendGrid, they can send from it. With Domain Authentication, all addresses on the domain are automatically verified.
+        </div>
+      </details>
+
+      <details class="card group">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+          Why can't I send emails? The button is greyed out.
+          <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+          You haven't configured your sender email yet. Go to your profile (click your avatar &rarr; Edit Profile) and fill in the Sender Email field. This is required before you can send any emails.
+        </div>
+      </details>
+
+      <details class="card group">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+          Can I use a different email provider instead of SendGrid?
+          <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+          Currently only SendGrid is supported for email. We may add support for other providers in the future.
+        </div>
+      </details>
+
+      <details class="card group">
+        <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+          How do I test WhatsApp without a production number?
+          <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+          Use Twilio's WhatsApp Sandbox: go to Messaging &rarr; Try it out &rarr; Send a WhatsApp message. Follow the instructions to join the sandbox, then configure the webhook to <code>https://nerops.ai/api/webhooks/twilio</code>.
         </div>
       </details>
     </div>
