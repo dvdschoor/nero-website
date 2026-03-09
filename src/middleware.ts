@@ -6,7 +6,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { client, isAuthenticated } = createSupabaseClient(context.cookies);
 
   // Public routes that don't need auth redirection
-  const publicPaths = ['/pricing', '/features', '/about', '/api/'];
+  const publicPaths = ['/pricing', '/features', '/about', '/api/', '/docs'];
   const isPublicPath = publicPaths.some((p) => pathname.startsWith(p));
 
   // Root path: redirect authenticated users to workspace picker

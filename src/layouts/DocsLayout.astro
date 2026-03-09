@@ -1,0 +1,279 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface DocLink {
+  title: string;
+  href: string;
+  icon?: string;
+}
+
+interface DocSection {
+  label: string;
+  items: DocLink[];
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: 'en' | 'nl';
+  sidebar: DocSection[];
+  currentPath: string;
+}
+
+const { title, description, lang = 'en', sidebar, currentPath } = Astro.props;
+---
+
+<BaseLayout title={`${title} — Nero Docs`} lang={lang}>
+  <Navbar lang={lang} />
+  <div class="pt-28 pb-24 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex gap-0 lg:gap-10">
+
+      <!-- Sidebar (desktop) -->
+      <aside class="hidden lg:block w-64 flex-shrink-0">
+        <div class="sticky top-28">
+          <div class="flex items-center gap-2 mb-6">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <span class="text-sm font-bold text-text">Documentation</span>
+          </div>
+          <nav class="space-y-6">
+            {sidebar.map((section) => (
+              <div>
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-text-tertiary mb-2.5 px-3">
+                  {section.label}
+                </h4>
+                <ul class="space-y-0.5">
+                  {section.items.map((item) => (
+                    <li>
+                      <a
+                        href={item.href}
+                        class={`block text-sm font-medium px-3 py-2 rounded-lg transition ${
+                          currentPath === item.href
+                            ? 'bg-primary-50 text-primary'
+                            : 'text-text-secondary hover:text-text hover:bg-surface-alt'
+                        }`}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Mobile sidebar toggle -->
+      <div class="lg:hidden mb-6 w-full">
+        <button
+          id="docs-sidebar-toggle"
+          class="btn btn-secondary w-full justify-between text-sm"
+        >
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Documentation menu
+          </span>
+          <svg id="docs-chevron" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="docs-mobile-nav" class="hidden mt-2 card p-4">
+          <nav class="space-y-4">
+            {sidebar.map((section) => (
+              <div>
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-text-tertiary mb-2 px-2">
+                  {section.label}
+                </h4>
+                <ul class="space-y-0.5">
+                  {section.items.map((item) => (
+                    <li>
+                      <a
+                        href={item.href}
+                        class={`block text-sm font-medium px-3 py-2 rounded-lg transition ${
+                          currentPath === item.href
+                            ? 'bg-primary-50 text-primary'
+                            : 'text-text-secondary hover:text-text hover:bg-surface-alt'
+                        }`}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <article class="min-w-0 flex-1 max-w-4xl">
+        <slot />
+      </article>
+    </div>
+  </div>
+  <Footer lang={lang} />
+</BaseLayout>
+
+<script>
+  const toggle = document.getElementById('docs-sidebar-toggle');
+  const nav = document.getElementById('docs-mobile-nav');
+  const chevron = document.getElementById('docs-chevron');
+
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('hidden') === false;
+    chevron?.classList.toggle('rotate-180', open);
+  });
+</script>
+
+<style>
+  /* Docs article typography */
+  article :global(h1) {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  article :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  article :global(h3) {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  article :global(h4) {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  article :global(p) {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  article :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 150ms;
+  }
+
+  article :global(a:hover) {
+    color: var(--color-primary-700);
+  }
+
+  article :global(strong) {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  article :global(code) {
+    font-size: 0.8125rem;
+    background: var(--color-surface-alt);
+    color: var(--color-primary-800);
+    padding: 0.125rem 0.375rem;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+  }
+
+  article :global(pre) {
+    background: var(--color-primary-950);
+    color: #e2e8f0;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-card);
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+    font-size: 0.8125rem;
+    line-height: 1.7;
+  }
+
+  article :global(pre code) {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article :global(ol) {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-secondary);
+  }
+
+  article :global(ul) {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-secondary);
+  }
+
+  article :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  article :global(li ul),
+  article :global(li ol) {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  article :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border-subtle);
+    margin: 2.5rem 0;
+  }
+
+  article :global(blockquote) {
+    border-left: 3px solid var(--color-primary-300);
+    padding-left: 1rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+
+  article :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  article :global(th) {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 0.625rem 0.75rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  article :global(td) {
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    color: var(--color-text-secondary);
+  }
+</style>

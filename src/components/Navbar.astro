@@ -29,6 +29,9 @@ const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
       <a href={getLocalizedPath('/pricing', lang)} class="text-sm font-medium text-text-secondary hover:text-text transition">
         {t.navPricing}
       </a>
+      <a href="/docs" class="text-sm font-medium text-text-secondary hover:text-text transition">
+        Docs
+      </a>
     </div>
 
     <!-- Right side -->
@@ -80,6 +83,9 @@ const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
       </a>
       <a href={getLocalizedPath('/pricing', lang)} class="block py-2.5 text-sm font-medium text-text-secondary hover:text-text transition">
         {t.navPricing}
+      </a>
+      <a href="/docs" class="block py-2.5 text-sm font-medium text-text-secondary hover:text-text transition">
+        Docs
       </a>
       <div class="pt-3 border-t border-border-subtle mt-3 flex flex-col gap-2">
         <a href={`https://${appDomain}/login`} class="btn btn-secondary w-full justify-center text-sm">
