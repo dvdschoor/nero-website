@@ -1,0 +1,256 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Troubleshooting & FAQ"
+  description="Common errors, fixes, and frequently asked questions about Nero integrations."
+  sidebar={docsSidebar}
+  currentPath="/docs/troubleshooting"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Reference</span>
+    <h1 class="mt-4">Troubleshooting & FAQ</h1>
+    <p class="text-lg !text-text-secondary">
+      Common errors, fixes, and frequently asked questions.
+    </p>
+  </div>
+
+  <!-- ===== TROUBLESHOOTING ===== -->
+  <h2 data-animate>SendGrid errors</h2>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Error</th>
+          <th>Cause</th>
+          <th>Fix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>User is not authorized to send mail based on their regional attribute</code></td>
+          <td>Wrong region selected in Nero</td>
+          <td>Check your SendGrid dashboard URL: <code>app.sendgrid.com</code> = Global (US), <code>app.eu.sendgrid.com</code> = EU. Free/Essentials plans only support Global.</td>
+        </tr>
+        <tr>
+          <td><code>The from address does not match a verified Sender Identity</code></td>
+          <td>Sender email not verified</td>
+          <td>Go to SendGrid &rarr; Settings &rarr; Sender Authentication and verify your sender email or domain</td>
+        </tr>
+        <tr>
+          <td><code>Permission denied, not enough scope</code></td>
+          <td>API key missing permissions</td>
+          <td>Create a new API key with Full Access or at least Mail Send permission</td>
+        </tr>
+        <tr>
+          <td><code>Failed to encrypt credentials</code></td>
+          <td>Server-side issue</td>
+          <td>Try disconnecting and reconnecting the integration</td>
+        </tr>
+        <tr>
+          <td>Not receiving incoming emails</td>
+          <td>DNS or Inbound Parse not configured</td>
+          <td>Check MX record points to <code>mx.sendgrid.net</code> and Inbound Parse URL is set to <code>https://nerops.ai/api/webhooks/sendgrid</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-animate>Twilio errors</h2>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Error</th>
+          <th>Cause</th>
+          <th>Fix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Invalid Twilio credentials</code></td>
+          <td>Wrong Account SID or Auth Token</td>
+          <td>Double-check your credentials in the Twilio Console dashboard</td>
+        </tr>
+        <tr>
+          <td>Not receiving WhatsApp messages</td>
+          <td>Webhook not configured</td>
+          <td>Set the webhook URL to <code>https://nerops.ai/api/webhooks/twilio</code> in your Messaging Service or Phone Number settings</td>
+        </tr>
+        <tr>
+          <td><code>Message delivery failed</code></td>
+          <td>Recipient not opted-in (WhatsApp)</td>
+          <td>WhatsApp requires the recipient to have messaged your number first within the last 24 hours, or you must use an approved template</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <!-- ===== FAQ ===== -->
+  <h2 data-animate>Frequently Asked Questions</h2>
+
+  <div class="space-y-3">
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Are my credentials safe?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Yes. Your API keys and tokens are encrypted with AES-256 before being stored. They are never visible in the app — only our secure server-side functions can decrypt them to send messages.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Can I connect both SendGrid and Twilio?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Yes. Each integration works independently. You can have email via SendGrid and WhatsApp/SMS via Twilio at the same time.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Can different workspaces have different integrations?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Yes. Each workspace has its own separate credentials and configuration. One workspace's integration has no access to another's.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        What happens if I disconnect an integration?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Your existing conversation history stays intact. You just won't be able to send or receive new messages through that channel until you reconnect.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        I sent a test email but didn't receive it — what should I check?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        <ol class="mt-1">
+          <li>Check your spam/junk folder</li>
+          <li>Verify the sender email is authenticated in SendGrid (Domain Authentication or Single Sender Verification)</li>
+          <li>Make sure you selected the correct region (Global vs EU) in Nero</li>
+          <li>Check SendGrid &rarr; Activity to see if the email was processed</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        WhatsApp messages aren't being delivered — what should I check?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        <ol class="mt-1">
+          <li>Verify the webhook URL is set to <code>https://nerops.ai/api/webhooks/twilio</code></li>
+          <li>For outbound: the recipient must have messaged you within 24 hours, or use an approved template message</li>
+          <li>Check Twilio &rarr; Monitor &rarr; Logs for error details</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Can multiple team members send emails from their own address?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Yes — that's how it works by default. Each user sets their personal sender email in their profile. As long as the email (or its domain) is verified in SendGrid, they can send from it. With Domain Authentication, all addresses on the domain are automatically verified.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Why can't I send emails? The button is greyed out.
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        You haven't configured your sender email yet. Go to your profile (click your avatar &rarr; Edit Profile) and fill in the Sender Email field. This is required before you can send any emails.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Do I need Google Workspace Admin access to receive emails in Nero?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        No. Each team member can set up forwarding individually from their own Gmail or Outlook settings. See the <a href="/docs/personal-sender-email">Per-User Email Forwarding</a> section. Google Workspace Admin routing is an alternative option if you want to set it up centrally for the whole team.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Where do I find my personal forwarding address?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Go to your profile (click your avatar &rarr; Edit Profile). Below the Sender Email field, you'll see your forwarding address (e.g. <code>dylan@nero.yourcompany.com</code>). If you don't see it, your admin hasn't configured the inbound domain yet in Settings &rarr; Integrations &rarr; SendGrid.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Can I use a different email provider instead of SendGrid?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Currently only SendGrid is supported for email. We may add support for other providers in the future.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        How do I test WhatsApp without a production number?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Use Twilio's WhatsApp Sandbox: go to Messaging &rarr; Try it out &rarr; Send a WhatsApp message. Follow the instructions to join the sandbox, then configure the webhook to <code>https://nerops.ai/api/webhooks/twilio</code>.
+      </div>
+    </details>
+  </div>
+
+  <div class="mt-16 pt-8 border-t border-border-subtle">
+    <p class="text-sm text-text-tertiary">
+      Need help? Reach out at <a href="mailto:support@nerops.ai">support@nerops.ai</a>
+    </p>
+  </div>
+</DocsLayout>

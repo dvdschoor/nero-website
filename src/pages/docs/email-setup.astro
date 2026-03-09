@@ -1,0 +1,162 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Email Setup (SendGrid)"
+  description="Connect SendGrid to send and receive emails directly in Nero."
+  sidebar={docsSidebar}
+  currentPath="/docs/email-setup"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Guide</span>
+    <h1 class="mt-4">Email Setup (SendGrid)</h1>
+    <p class="text-lg !text-text-secondary">
+      Connect SendGrid to send and receive emails directly in Nero.
+    </p>
+  </div>
+
+  <div class="card p-5 mb-6 border-l-3 border-l-primary-300" data-animate>
+    <p class="text-sm font-semibold text-text mb-2">Prerequisites</p>
+    <ul class="!mb-0 text-sm">
+      <li>A SendGrid account (<a href="https://signup.sendgrid.com/" target="_blank" rel="noopener">sign up free</a>)</li>
+      <li>A domain you own (e.g. <code>yourcompany.com</code>)</li>
+    </ul>
+  </div>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">1</span>
+    <h3 class="!mt-0 !mb-0">Create a SendGrid API Key</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Go to <strong>SendGrid Dashboard</strong> &rarr; <strong>Settings</strong> &rarr; <strong>API Keys</strong></li>
+    <li>Click <strong>Create API Key</strong></li>
+    <li>Name it something like <code>Nero Integration</code></li>
+    <li>Select <strong>Full Access</strong> (or at minimum: Mail Send + Inbound Parse)</li>
+    <li>Click <strong>Create &amp; View</strong> &mdash; copy the key immediately (you won't see it again)</li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">2</span>
+    <h3 class="!mt-0 !mb-0">Verify your sender email</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Go to <strong>Settings</strong> &rarr; <strong>Sender Authentication</strong></li>
+    <li>Choose <strong>Single Sender Verification</strong> (quickest) or <strong>Domain Authentication</strong> (recommended for production)</li>
+    <li>For Single Sender: enter the email you want to send from (e.g. <code>support@yourcompany.com</code>) and verify via the confirmation email</li>
+    <li>For Domain Authentication: follow SendGrid's DNS instructions to add CNAME records</li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">3</span>
+    <h3 class="!mt-0 !mb-0">Connect in Nero</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Open Nero &rarr; <strong>Settings</strong> &rarr; <strong>Integrations</strong></li>
+    <li>Click <strong>Connect</strong> on the SendGrid card</li>
+    <li>Enter:
+      <ul>
+        <li><strong>API Key</strong> &mdash; paste the key from Step 1</li>
+        <li><strong>Sender Email</strong> &mdash; the verified email from Step 2</li>
+        <li><strong>Sender Name</strong> &mdash; how your name appears to recipients (e.g. <code>Your Company</code>)</li>
+        <li><strong>Region</strong> &mdash; select your SendGrid region (see below)</li>
+      </ul>
+    </li>
+    <li>Click <strong>Save &amp; Connect</strong> &mdash; Nero validates your key and sends a test email automatically</li>
+  </ol>
+
+  <h3 data-animate>Region selection</h3>
+  <p>SendGrid has two data regions: <strong>Global (US)</strong> and <strong>Europe (EU)</strong>.</p>
+  <p><strong>How to determine your region:</strong></p>
+  <ul>
+    <li>If your SendGrid dashboard URL is <code>app.sendgrid.com</code> &rarr; you're on <strong>Global (US)</strong></li>
+    <li>If your SendGrid dashboard URL is <code>app.eu.sendgrid.com</code> &rarr; you're on <strong>Europe (EU)</strong></li>
+  </ul>
+  <blockquote>
+    <strong>Important:</strong> You must select the correct region in Nero. Selecting the wrong region will result in a "User is not authorized to send mail based on their regional attribute" error. Free and Essentials plans do <strong>not</strong> support EU Data Residency &mdash; only Pro plans and above. If you're on a free or Essentials plan, select <strong>Global (US)</strong>.
+  </blockquote>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">4</span>
+    <h3 class="!mt-0 !mb-0">Send a test email</h3>
+  </div>
+  <ol class="mb-8">
+    <li>After connecting, click <strong>Send Test</strong> on the SendGrid card</li>
+    <li>Enter a recipient email address (e.g. your own email)</li>
+    <li>Check your inbox &mdash; you should receive a test email from Nero</li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">5</span>
+    <h3 class="!mt-0 !mb-0">Receive incoming emails</h3>
+  </div>
+  <p>To receive email replies in Nero, use a <strong>subdomain</strong> so your existing email (Google Workspace, Outlook, etc.) is not affected.</p>
+
+  <h4>5a. DNS &mdash; MX record for subdomain</h4>
+  <p>Add an MX record for a subdomain (e.g. <code>nero.yourcompany.com</code>) at your DNS provider:</p>
+  <pre><code>Type:     MX
+Host:     nero (creates nero.yourcompany.com)
+Value:    mx.sendgrid.net
+Priority: 10</code></pre>
+  <blockquote>
+    <strong>Important:</strong> Do NOT set MX on <code>@</code> (your root domain) &mdash; that would break your existing email. Always use a subdomain like <code>nero</code>, <code>mail</code>, or <code>inbound</code>.
+  </blockquote>
+
+  <h4>5b. SendGrid &mdash; Inbound Parse</h4>
+  <ol>
+    <li>In <strong>SendGrid Dashboard</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Inbound Parse</strong></li>
+    <li>Click <strong>Add Host &amp; URL</strong></li>
+    <li>Fill in:
+      <ul>
+        <li><strong>Receiving Domain</strong>: <code>nero.yourcompany.com</code> (your subdomain)</li>
+        <li><strong>Destination URL</strong>: <code>https://nerops.ai/api/webhooks/sendgrid?token=YOUR_WEBHOOK_TOKEN</code></li>
+        <li>Leave "POST the raw, full MIME message" <strong>unchecked</strong></li>
+      </ul>
+    </li>
+    <li>Click <strong>Add</strong></li>
+  </ol>
+  <blockquote>
+    <strong>Security:</strong> The <code>token</code> query parameter authenticates webhook requests. Your webhook token is provided by your Nero administrator. This prevents unauthorized parties from injecting fake emails into your workspace.
+  </blockquote>
+
+  <h4>5c. Nero &mdash; set inbound domain</h4>
+  <ol>
+    <li>Go to <strong>Settings</strong> &rarr; <strong>Integrations</strong> &rarr; <strong>SendGrid</strong></li>
+    <li>Fill in <strong>Inbound Domain</strong>: <code>nero.yourcompany.com</code></li>
+    <li>Save</li>
+  </ol>
+
+  <h4>5d. Google Workspace &mdash; forward replies to Nero</h4>
+  <p>Set up a routing rule so replies to your team arrive in both Gmail and Nero:</p>
+  <ol>
+    <li>Open <strong>Google Workspace Admin Console</strong> &rarr; <strong>Apps</strong> &rarr; <strong>Google Workspace</strong> &rarr; <strong>Gmail</strong> &rarr; <strong>Routing</strong></li>
+    <li>Click <strong>Configure</strong> (or <strong>Add another rule</strong>)</li>
+    <li>Fill in:
+      <ul>
+        <li><strong>Description</strong>: <code>Forward to Nero</code></li>
+        <li><strong>Email messages to affect</strong>: Inbound</li>
+        <li><strong>Action</strong>: select <strong>Also deliver to</strong> &rarr; enter <code>inbound@nero.yourcompany.com</code></li>
+      </ul>
+    </li>
+    <li>Click <strong>Save</strong></li>
+  </ol>
+  <p>Now when a client replies to <code>lisa@yourcompany.com</code>:</p>
+  <ul>
+    <li>The reply arrives in Lisa's Gmail as normal</li>
+    <li>Google Workspace forwards a copy to <code>inbound@nero.yourcompany.com</code></li>
+    <li>SendGrid Inbound Parse routes it to Nero</li>
+    <li>Nero creates a message and triggers AI triage</li>
+  </ul>
+
+  <div class="rounded-lg bg-surface-alt px-4 py-3 text-sm text-text-secondary mt-8">
+    <strong>Pricing</strong> &mdash; SendGrid offers 100 emails/day free. Paid plans start at ~$20/month for 50,000 emails.
+  </div>
+
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-end">
+    <a href="/docs/personal-sender-email" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      Next: Personal Sender Email
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </a>
+  </div>
+</DocsLayout>

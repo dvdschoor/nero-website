@@ -1,0 +1,139 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="WhatsApp & SMS (Twilio)"
+  description="Connect Twilio to send and receive WhatsApp and SMS messages in Nero."
+  sidebar={docsSidebar}
+  currentPath="/docs/whatsapp-sms-setup"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Guide</span>
+    <h1 class="mt-4">WhatsApp & SMS (Twilio)</h1>
+    <p class="text-lg !text-text-secondary">
+      Connect Twilio to send and receive WhatsApp and SMS messages in Nero.
+    </p>
+  </div>
+
+  <div class="card p-5 mb-6 border-l-3 border-l-primary-300" data-animate>
+    <p class="text-sm font-semibold text-text mb-2">Prerequisites</p>
+    <ul class="!mb-0 text-sm">
+      <li>A Twilio account (<a href="https://www.twilio.com/try-twilio" target="_blank" rel="noopener">sign up free</a>)</li>
+      <li>A phone number (Twilio provides one, or bring your own)</li>
+      <li>For WhatsApp: a Meta Business account linked to Twilio</li>
+    </ul>
+  </div>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">1</span>
+    <h3 class="!mt-0 !mb-0">Get your Twilio credentials</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Go to your <strong>Twilio Console</strong> (console.twilio.com)</li>
+    <li>On the dashboard, find:
+      <ul>
+        <li><strong>Account SID</strong> (starts with <code>AC...</code>)</li>
+        <li><strong>Auth Token</strong> (click to reveal)</li>
+      </ul>
+    </li>
+    <li>Copy both values</li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">2</span>
+    <h3 class="!mt-0 !mb-0">Get a phone number</h3>
+  </div>
+
+  <h4>For SMS</h4>
+  <ol>
+    <li>In Twilio Console &rarr; <strong>Phone Numbers</strong> &rarr; <strong>Buy a Number</strong></li>
+    <li>Select a number with SMS capability</li>
+    <li>Note down the number (e.g. <code>+31612345678</code>)</li>
+  </ol>
+
+  <h4>For WhatsApp</h4>
+  <ol class="mb-8">
+    <li>Go to <strong>Twilio Console</strong> &rarr; <strong>Messaging</strong> &rarr; <strong>Senders</strong> &rarr; <strong>WhatsApp Senders</strong></li>
+    <li>Follow the registration flow to connect your WhatsApp Business number</li>
+    <li>For testing: you can use Twilio's sandbox under <strong>Messaging</strong> &rarr; <strong>Try it out</strong> &rarr; <strong>Send a WhatsApp message</strong></li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">3</span>
+    <h3 class="!mt-0 !mb-0">Create a Messaging Service</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Go to <strong>Twilio Console</strong> &rarr; <strong>Messaging</strong> &rarr; <strong>Services</strong></li>
+    <li>Click <strong>Create Messaging Service</strong></li>
+    <li>Name it (e.g. <code>Nero</code>)</li>
+    <li>Add your phone number(s) as Senders (Step 2 in the wizard)</li>
+    <li>In <strong>Step 3 &mdash; Set up integration</strong>:
+      <ul>
+        <li>Select <strong>Send a webhook</strong></li>
+        <li><strong>Request URL</strong>: <code>https://nerops.ai/api/webhooks/twilio</code></li>
+        <li><strong>HTTP Method</strong>: HTTP Post</li>
+      </ul>
+    </li>
+    <li>Complete the remaining steps</li>
+  </ol>
+  <p>This ensures incoming WhatsApp and SMS messages are forwarded to Nero.</p>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">4</span>
+    <h3 class="!mt-0 !mb-0">Connect in Nero</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Open Nero &rarr; <strong>Settings</strong> &rarr; <strong>Integrations</strong></li>
+    <li>Click <strong>Connect</strong> on the Twilio card</li>
+    <li>Enter:
+      <ul>
+        <li><strong>Account SID</strong> &mdash; from Step 1</li>
+        <li><strong>Auth Token</strong> &mdash; from Step 1</li>
+        <li><strong>WhatsApp Number</strong> &mdash; your WhatsApp-enabled number (e.g. <code>+31612345678</code>)</li>
+        <li><strong>SMS Number</strong> &mdash; your SMS-enabled number (optional, can be the same)</li>
+      </ul>
+    </li>
+    <li>Click <strong>Save &amp; Connect</strong> &mdash; Nero validates your credentials automatically</li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">5</span>
+    <h3 class="!mt-0 !mb-0">Test your connection</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Click <strong>Test</strong> on the Twilio card to verify your credentials are valid</li>
+    <li>Send a WhatsApp message to your configured number from your phone &mdash; it should appear in Nero</li>
+  </ol>
+
+  <h3 data-animate>Alternative: Webhook via Phone Number (without Messaging Service)</h3>
+  <p>If you prefer not to use a Messaging Service:</p>
+  <ol>
+    <li>In <strong>Twilio Console</strong> &rarr; <strong>Phone Numbers</strong> &rarr; <strong>Manage</strong> &rarr; <strong>Active Numbers</strong></li>
+    <li>Click on your phone number</li>
+    <li>Scroll to <strong>Messaging Configuration</strong></li>
+    <li>Under "A message comes in", set:
+      <ul>
+        <li><strong>Webhook URL</strong>: <code>https://nerops.ai/api/webhooks/twilio</code></li>
+        <li><strong>HTTP Method</strong>: POST</li>
+      </ul>
+    </li>
+    <li>Click <strong>Save</strong></li>
+  </ol>
+
+  <div class="rounded-lg bg-surface-alt px-4 py-3 text-sm text-text-secondary mt-8">
+    <strong>Pricing</strong> &mdash; Twilio charges per message: ~$0.005/SMS, ~$0.005/WhatsApp (conversation-based pricing). New accounts get trial credit.
+  </div>
+
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-between">
+    <a href="/docs/personal-sender-email" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      Personal Sender Email
+    </a>
+    <a href="/docs/troubleshooting" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      Next: Troubleshooting & FAQ
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </a>
+  </div>
+</DocsLayout>
