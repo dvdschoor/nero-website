@@ -13,7 +13,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <span class="section-label mb-4">Guide</span>
     <h1 class="mt-4">Personal Sender Email</h1>
     <p class="text-lg !text-text-secondary">
-      Every team member in Nero sends emails from their own address  - not a shared inbox.
+      Every team member in Nero sends emails from their own address, not a shared inbox.
     </p>
   </div>
 
@@ -21,7 +21,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
   <ul>
     <li>Each user must configure a personal <strong>Sender Email</strong> in their profile (e.g. <code>lisa@yourcompany.com</code>)</li>
     <li>This email is used as the "From" address for all outbound emails sent by that user</li>
-    <li>Without a sender email configured, the user <strong>cannot send emails</strong>  - the compose button is disabled and an error message is shown</li>
+    <li>Without a sender email configured, the user <strong>cannot send emails</strong>. The compose button is disabled and an error message is shown</li>
     <li>This applies everywhere: email replies, compose sheets, and test emails from settings</li>
   </ul>
 
@@ -40,7 +40,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
   <ol>
     <li>In <strong>SendGrid Dashboard</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Sender Authentication</strong> &rarr; <strong>Domain Authentication</strong></li>
     <li>Follow the DNS setup instructions (add CNAME records)</li>
-    <li>Once verified, all <code>@yourcompany.com</code> addresses work automatically  - no per-user verification needed</li>
+    <li>Once verified, all <code>@yourcompany.com</code> addresses work automatically, no per-user verification needed</li>
   </ol>
 
   <h2 data-animate>What if a user doesn't have a sender email set?</h2>
@@ -48,13 +48,13 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <li>The <strong>Email Compose</strong> sheet shows a red warning: <em>"Set your sender email in profile settings before sending emails."</em></li>
     <li>The <strong>Send</strong> button is disabled</li>
     <li>Attempting to send from the conversation view shows an error snackbar</li>
-    <li>The backend also enforces this  - even if bypassed in the UI, the edge function rejects the request</li>
+    <li>The backend also enforces this. Even if bypassed in the UI, the edge function rejects the request</li>
   </ul>
 
   <hr />
 
   <h2 data-animate>Per-User Email Forwarding</h2>
-  <p>Each team member can forward their incoming emails to Nero individually  - no Google Workspace Admin access required. Nero automatically detects which user the email belongs to.</p>
+  <p>Each team member can forward their incoming emails to Nero individually, no Google Workspace Admin access required. Nero automatically detects which user the email belongs to.</p>
 
   <h3>How it works</h3>
   <p>Once your admin has completed the <a href="/docs/email-setup">inbound domain setup</a> (Step 5), each user gets a personal forwarding address derived from their sender email:</p>
@@ -89,7 +89,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <li>Open <strong>Gmail</strong> &rarr; <strong>Settings</strong> (gear icon) &rarr; <strong>See all settings</strong> &rarr; <strong>Forwarding and POP/IMAP</strong></li>
     <li>Click <strong>Add a forwarding address</strong></li>
     <li>Enter your personal forwarding address (e.g. <code>dylan@nero.yourcompany.com</code>)</li>
-    <li>Gmail sends a confirmation email  - check your Nero inbox or ask your admin to confirm the code</li>
+    <li>Gmail sends a confirmation email. Check your Nero inbox or ask your admin to confirm the code</li>
     <li>Once confirmed, select <strong>Forward a copy of incoming mail to</strong> and choose your Nero address</li>
     <li>Choose <strong>Keep Gmail's copy in the Inbox</strong> (recommended) so you still receive emails in Gmail</li>
   </ol>
@@ -113,7 +113,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <li>The message is created and linked to Dylan, then AI triage runs automatically</li>
   </ol>
   <blockquote>
-    <strong>Note:</strong> If the local part doesn't match any user (e.g. a generic <code>support@nero.yourcompany.com</code>), Nero still accepts the email and routes it to the organization  - it just won't be linked to a specific user.
+    <strong>Note:</strong> If the local part doesn't match any user (e.g. a generic <code>support@nero.yourcompany.com</code>), Nero still accepts the email and routes it to the organization. It just won't be linked to a specific user.
   </blockquote>
 
   <div class="mt-12 pt-6 border-t border-border-subtle flex justify-between">

@@ -34,7 +34,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <li>Click <strong>Create API Key</strong></li>
     <li>Name it something like <code>Nero Integration</code></li>
     <li>Select <strong>Full Access</strong> (or at minimum: Mail Send + Inbound Parse)</li>
-    <li>Click <strong>Create &amp; View</strong>  - copy the key immediately (you won't see it again)</li>
+    <li>Click <strong>Create &amp; View</strong>: copy the key immediately (you won't see it again)</li>
   </ol>
 
   <div class="flex items-center gap-3 mb-3" data-animate>
@@ -57,13 +57,13 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <li>Click <strong>Connect</strong> on the SendGrid card</li>
     <li>Enter:
       <ul>
-        <li><strong>API Key</strong>  - paste the key from Step 1</li>
-        <li><strong>Sender Email</strong>  - the verified email from Step 2</li>
-        <li><strong>Sender Name</strong>  - how your name appears to recipients (e.g. <code>Your Company</code>)</li>
-        <li><strong>Region</strong>  - select your SendGrid region (see below)</li>
+        <li><strong>API Key</strong>: paste the key from Step 1</li>
+        <li><strong>Sender Email</strong>: the verified email from Step 2</li>
+        <li><strong>Sender Name</strong>: how your name appears to recipients (e.g. <code>Your Company</code>)</li>
+        <li><strong>Region</strong>: select your SendGrid region (see below)</li>
       </ul>
     </li>
-    <li>Click <strong>Save &amp; Connect</strong>  - Nero validates your key and sends a test email automatically</li>
+    <li>Click <strong>Save &amp; Connect</strong>: Nero validates your key and sends a test email automatically</li>
   </ol>
 
   <h3 data-animate>Region selection</h3>
@@ -74,7 +74,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <li>If your SendGrid dashboard URL is <code>app.eu.sendgrid.com</code> &rarr; you're on <strong>Europe (EU)</strong></li>
   </ul>
   <blockquote>
-    <strong>Important:</strong> You must select the correct region in Nero. Selecting the wrong region will result in a "User is not authorized to send mail based on their regional attribute" error. Free and Essentials plans do <strong>not</strong> support EU Data Residency  - only Pro plans and above. If you're on a free or Essentials plan, select <strong>Global (US)</strong>.
+    <strong>Important:</strong> You must select the correct region in Nero. Selecting the wrong region will result in a "User is not authorized to send mail based on their regional attribute" error. Free and Essentials plans do <strong>not</strong> support EU Data Residency. Only Pro plans and above support it. If you're on a free or Essentials plan, select <strong>Global (US)</strong>.
   </blockquote>
 
   <div class="flex items-center gap-3 mb-3" data-animate>
@@ -84,7 +84,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
   <ol class="mb-8">
     <li>After connecting, click <strong>Send Test</strong> on the SendGrid card</li>
     <li>Enter a recipient email address (e.g. your own email)</li>
-    <li>Check your inbox  - you should receive a test email from Nero</li>
+    <li>Check your inbox: you should receive a test email from Nero</li>
   </ol>
 
   <div class="flex items-center gap-3 mb-3" data-animate>
@@ -93,17 +93,17 @@ import { docsSidebar } from '../../data/docs-sidebar';
   </div>
   <p>To receive email replies in Nero, use a <strong>subdomain</strong> so your existing email (Google Workspace, Outlook, etc.) is not affected.</p>
 
-  <h4>5a. DNS  - MX record for subdomain</h4>
+  <h4>5a. DNS: MX record for subdomain</h4>
   <p>Add an MX record for a subdomain (e.g. <code>nero.yourcompany.com</code>) at your DNS provider:</p>
   <pre><code>Type:     MX
 Host:     nero (creates nero.yourcompany.com)
 Value:    mx.sendgrid.net
 Priority: 10</code></pre>
   <blockquote>
-    <strong>Important:</strong> Do NOT set MX on <code>@</code> (your root domain)  - that would break your existing email. Always use a subdomain like <code>nero</code>, <code>mail</code>, or <code>inbound</code>.
+    <strong>Important:</strong> Do NOT set MX on <code>@</code> (your root domain), as that would break your existing email. Always use a subdomain like <code>nero</code>, <code>mail</code>, or <code>inbound</code>.
   </blockquote>
 
-  <h4>5b. SendGrid  - Inbound Parse</h4>
+  <h4>5b. SendGrid: Inbound Parse</h4>
   <ol>
     <li>In <strong>SendGrid Dashboard</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Inbound Parse</strong></li>
     <li>Click <strong>Add Host &amp; URL</strong></li>
@@ -120,14 +120,14 @@ Priority: 10</code></pre>
     <strong>Security:</strong> The <code>token</code> query parameter authenticates webhook requests. Your webhook token is provided by your Nero administrator. This prevents unauthorized parties from injecting fake emails into your workspace.
   </blockquote>
 
-  <h4>5c. Nero  - set inbound domain</h4>
+  <h4>5c. Nero: set inbound domain</h4>
   <ol>
     <li>Go to <strong>Settings</strong> &rarr; <strong>Integrations</strong> &rarr; <strong>SendGrid</strong></li>
     <li>Fill in <strong>Inbound Domain</strong>: <code>nero.yourcompany.com</code></li>
     <li>Save</li>
   </ol>
 
-  <h4>5d. Google Workspace  - forward replies to Nero</h4>
+  <h4>5d. Google Workspace: forward replies to Nero</h4>
   <p>Set up a routing rule so replies to your team arrive in both Gmail and Nero:</p>
   <ol>
     <li>Open <strong>Google Workspace Admin Console</strong> &rarr; <strong>Apps</strong> &rarr; <strong>Google Workspace</strong> &rarr; <strong>Gmail</strong> &rarr; <strong>Routing</strong></li>
@@ -173,28 +173,28 @@ Priority: 10</code></pre>
       </tbody>
     </table>
   </div>
-  <p>The <strong>From</strong> stays the real email address  - the customer sees a recognizable sender. The Reply-To redirect is invisible in most email clients.</p>
+  <p>The <strong>From</strong> stays the real email address, so the customer sees a recognizable sender. The Reply-To redirect is invisible in most email clients.</p>
 
   <h2 data-animate>Email threading</h2>
   <p>Nero maintains email threads using standard headers:</p>
   <ul>
-    <li><strong>Message-ID</strong>  - unique ID per sent email</li>
-    <li><strong>In-Reply-To</strong>  - references the message being replied to</li>
-    <li><strong>References</strong>  - chain of all messages in the thread</li>
+    <li><strong>Message-ID</strong>: unique ID per sent email</li>
+    <li><strong>In-Reply-To</strong>: references the message being replied to</li>
+    <li><strong>References</strong>: chain of all messages in the thread</li>
   </ul>
   <p>This ensures replies are neatly grouped in the same thread in Gmail, Outlook, and other email clients.</p>
 
   <h2 data-animate>Contact matching</h2>
   <p>When an email arrives in Nero:</p>
   <ol>
-    <li><strong>Existing contact?</strong>  - Nero searches by email address in your contacts</li>
-    <li><strong>Found?</strong>  - The message is linked to the existing contact</li>
-    <li><strong>New?</strong>  - A new contact is automatically created with name and email from the email headers</li>
+    <li><strong>Existing contact?</strong> Nero searches by email address in your contacts</li>
+    <li><strong>Found?</strong> The message is linked to the existing contact</li>
+    <li><strong>New?</strong> A new contact is automatically created with name and email from the email headers</li>
   </ol>
   <p>Emails from your own team members are recognized automatically. If the sender has a profile with a matching <code>sender_email</code>, the message is marked as internal.</p>
 
   <div class="rounded-lg bg-surface-alt px-4 py-3 text-sm text-text-secondary mt-8">
-    <strong>Pricing</strong>  - SendGrid offers 100 emails/day free. Paid plans start at ~$20/month for 50,000 emails.
+    <strong>Pricing:</strong> SendGrid offers 100 emails/day free. Paid plans start at ~$20/month for 50,000 emails.
   </div>
 
   <div class="mt-12 pt-6 border-t border-border-subtle flex justify-between">
