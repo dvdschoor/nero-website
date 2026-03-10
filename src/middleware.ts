@@ -22,18 +22,18 @@ export const onRequest = defineMiddleware(async (context, next) => {
         .eq('user_id', user.id);
 
       if (memberships && memberships.length === 1) {
-        // Single org — redirect straight to the app
+        // Single org  - redirect straight to the app
         const slug = (memberships[0] as any).organizations?.slug;
         const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
         return context.redirect(`https://${slug}.${appDomain}`);
       }
 
       if (memberships && memberships.length > 1) {
-        // Multiple orgs — show workspace picker
+        // Multiple orgs  - show workspace picker
         return context.redirect('/workspaces');
       }
 
-      // No orgs — show onboarding
+      // No orgs  - show onboarding
       return context.redirect('/onboarding');
     }
   }

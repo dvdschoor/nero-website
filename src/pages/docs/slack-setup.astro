@@ -13,17 +13,17 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <span class="section-label mb-4">Guide</span>
     <h1 class="mt-4">Slack Setup</h1>
     <p class="text-lg !text-text-secondary">
-      Receive Slack messages in Nero and reply directly from the app &mdash; in the right channel and thread.
+      Receive Slack messages in Nero and reply directly from the app  - in the right channel and thread.
     </p>
   </div>
 
   <h2 data-animate>What does the Slack integration do?</h2>
   <ul>
-    <li><strong>Inbound</strong> &mdash; Messages from monitored Slack channels are automatically received in Nero</li>
-    <li><strong>Outbound</strong> &mdash; Reply from Nero directly into the correct Slack channel and thread</li>
-    <li><strong>Automatic tasks</strong> &mdash; Incoming messages are bundled and converted into tasks</li>
-    <li><strong>AI triage</strong> &mdash; Each message is automatically classified (support, sales, etc.)</li>
-    <li><strong>Contact matching</strong> &mdash; Slack users are automatically linked to existing contacts</li>
+    <li><strong>Inbound</strong>  - Messages from monitored Slack channels are automatically received in Nero</li>
+    <li><strong>Outbound</strong>  - Reply from Nero directly into the correct Slack channel and thread</li>
+    <li><strong>Automatic tasks</strong>  - Incoming messages are bundled and converted into tasks</li>
+    <li><strong>AI triage</strong>  - Each message is automatically classified (support, sales, etc.)</li>
+    <li><strong>Contact matching</strong>  - Slack users are automatically linked to existing contacts</li>
   </ul>
 
   <h2 data-animate>How it works</h2>
@@ -47,7 +47,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
   <ol>
     <li>A team member clicks <strong>Reply</strong> on a Slack task in Nero</li>
     <li>The compose sheet shows the channel name and thread context</li>
-    <li>The reply is sent via the Slack API &mdash; automatically in the correct thread and channel</li>
+    <li>The reply is sent via the Slack API  - automatically in the correct thread and channel</li>
   </ol>
 
   <hr />
@@ -121,8 +121,8 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <li>Wait for Slack to show <strong>Verified</strong> (green checkmark)</li>
     <li>Under <strong>Subscribe to Bot Events</strong>, add:
       <ul>
-        <li><code>message.channels</code> &mdash; messages in channels where the bot is a member</li>
-        <li><code>app_mention</code> &mdash; @mentions of the bot</li>
+        <li><code>message.channels</code>  - messages in channels where the bot is a member</li>
+        <li><code>app_mention</code>  - @mentions of the bot</li>
       </ul>
     </li>
     <li>Click <strong>Save Changes</strong></li>
@@ -147,11 +147,11 @@ import { docsSidebar } from '../../data/docs-sidebar';
     <li>Click <strong>Connect</strong> on the Slack card</li>
     <li>Enter:
       <ul>
-        <li><strong>Bot User OAuth Token</strong> &mdash; the <code>xoxb-</code> token from Step 4</li>
-        <li><strong>Signing Secret</strong> &mdash; found under <strong>Basic Information</strong> in your Slack app settings</li>
+        <li><strong>Bot User OAuth Token</strong>  - the <code>xoxb-</code> token from Step 4</li>
+        <li><strong>Signing Secret</strong>  - found under <strong>Basic Information</strong> in your Slack app settings</li>
       </ul>
     </li>
-    <li>Click <strong>Save &amp; Connect</strong> &mdash; Nero validates the credentials and shows your workspace name</li>
+    <li>Click <strong>Save &amp; Connect</strong>  - Nero validates the credentials and shows your workspace name</li>
   </ol>
 
   <div class="flex items-center gap-3 mb-3" data-animate>
@@ -185,15 +185,15 @@ import { docsSidebar } from '../../data/docs-sidebar';
   </ol>
 
   <h3>Internal messages</h3>
-  <p>Messages from your own team members are automatically filtered. If a Slack user is linked to a Nero profile (via <code>slack_id</code> in the profile), the message is skipped &mdash; no inbound task is created.</p>
+  <p>Messages from your own team members are automatically filtered. If a Slack user is linked to a Nero profile (via <code>slack_id</code> in the profile), the message is skipped  - no inbound task is created.</p>
 
   <hr />
 
   <h2 data-animate>Security</h2>
   <ul>
-    <li><strong>Signature validation</strong> &mdash; Every incoming Slack event is cryptographically verified using your Signing Secret. Requests older than 5 minutes are rejected (replay protection).</li>
-    <li><strong>Encrypted credentials</strong> &mdash; Bot Token and Signing Secret are encrypted before storage. Only server-side functions can decrypt them at runtime.</li>
-    <li><strong>Retry protection</strong> &mdash; Slack resends events if it doesn't get a 200 response. Nero detects retries via the <code>X-Slack-Retry-Num</code> header and responds immediately to prevent duplicates.</li>
+    <li><strong>Signature validation</strong>  - Every incoming Slack event is cryptographically verified using your Signing Secret. Requests older than 5 minutes are rejected (replay protection).</li>
+    <li><strong>Encrypted credentials</strong>  - Bot Token and Signing Secret are encrypted before storage. Only server-side functions can decrypt them at runtime.</li>
+    <li><strong>Retry protection</strong>  - Slack resends events if it doesn't get a 200 response. Nero detects retries via the <code>X-Slack-Retry-Num</code> header and responds immediately to prevent duplicates.</li>
   </ul>
 
   <div class="mt-12 pt-6 border-t border-border-subtle flex justify-between">

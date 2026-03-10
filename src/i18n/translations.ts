@@ -23,7 +23,7 @@ export const translations = {
     heroBadge: 'AI-powered operations',
     heroTitle: 'Your AI',
     heroTitleAccent: 'ops manager.',
-    heroSubtitle: 'Nero learns your procedures, triages incoming work, and keeps your team on track — like an ops manager that never sleeps.',
+    heroSubtitle: 'Nero learns your procedures, triages incoming work, and keeps your team on track. Like an ops manager that never sleeps.',
     heroCta: 'Start for free',
     heroCtaSecondary: 'See how it works',
 
@@ -33,7 +33,7 @@ export const translations = {
     // Features
     featuresLabel: 'Platform',
     featuresTitle: 'One system to run your operations',
-    featuresSubtitle: 'Tasks, inbox, knowledge, and relationships — all managed by AI that understands your business.',
+    featuresSubtitle: 'Tasks, inbox, knowledge, and relationships. All managed by AI that understands your business.',
 
     featureInboxTitle: 'AI-Powered Inbox',
     featureInboxDesc: 'Every channel flows into one inbox. AI triages, prioritizes, and drafts replies based on your procedures.',
@@ -46,7 +46,7 @@ export const translations = {
     featureOutboundTitle: 'Outbound Campaigns & Sequences',
     featureOutboundDesc: 'AI generates personalized campaigns and multi-step sequences. Review, approve, and let Nero handle the follow-ups.',
     featureKnowledgeTitle: 'Operational Knowledge Base',
-    featureKnowledgeDesc: 'Your procedures, playbooks, and documentation — searchable and used by AI to make smarter decisions.',
+    featureKnowledgeDesc: 'Your procedures, playbooks, and documentation. Searchable and used by AI to make smarter decisions.',
     featureWorkspaceTitle: 'Multi-Organization',
     featureWorkspaceDesc: 'Run multiple organizations from one account. Fully isolated data, instant switching.',
 
@@ -63,7 +63,7 @@ export const translations = {
 
     // CTA
     ctaTitle: 'Stop managing operations manually.',
-    ctaSubtitle: 'Let Nero handle the triage, prioritization, and coordination — so your team can focus on the work that matters.',
+    ctaSubtitle: 'Let Nero handle triage, prioritization, and coordination so your team can focus on the work that matters.',
     ctaCta: 'Get started for free',
 
     // Footer
@@ -104,7 +104,7 @@ export const translations = {
     heroBadge: 'AI-gedreven operations',
     heroTitle: 'Je AI',
     heroTitleAccent: 'ops manager.',
-    heroSubtitle: 'Nero leert je procedures, triageert inkomend werk en houdt je team op koers — als een ops manager die nooit slaapt.',
+    heroSubtitle: 'Nero leert je procedures, triageert inkomend werk en houdt je team op koers. Als een ops manager die nooit slaapt.',
     heroCta: 'Start gratis',
     heroCtaSecondary: 'Bekijk hoe het werkt',
 
@@ -114,7 +114,7 @@ export const translations = {
     // Features
     featuresLabel: 'Platform',
     featuresTitle: 'Een systeem voor al je operations',
-    featuresSubtitle: 'Taken, inbox, kennis en relaties — allemaal beheerd door AI die je bedrijf begrijpt.',
+    featuresSubtitle: 'Taken, inbox, kennis en relaties. Allemaal beheerd door AI die je bedrijf begrijpt.',
 
     featureInboxTitle: 'AI-Gedreven Inbox',
     featureInboxDesc: 'Elk kanaal komt samen in een inbox. AI triageert, prioriteert en stelt antwoorden op op basis van je procedures.',
@@ -127,7 +127,7 @@ export const translations = {
     featureOutboundTitle: 'Outbound Campagnes & Sequences',
     featureOutboundDesc: 'AI genereert gepersonaliseerde campagnes en meerstaps-sequences. Beoordeel, keur goed en laat Nero de follow-ups afhandelen.',
     featureKnowledgeTitle: 'Operationele Kennisbank',
-    featureKnowledgeDesc: 'Je procedures, playbooks en documentatie — doorzoekbaar en gebruikt door AI voor slimmere beslissingen.',
+    featureKnowledgeDesc: 'Je procedures, playbooks en documentatie. Doorzoekbaar en gebruikt door AI voor slimmere beslissingen.',
     featureWorkspaceTitle: 'Multi-Organisatie',
     featureWorkspaceDesc: 'Beheer meerdere organisaties vanuit een account. Volledig gescheiden data, direct schakelen.',
 
@@ -144,7 +144,7 @@ export const translations = {
 
     // CTA
     ctaTitle: 'Stop met handmatig operations managen.',
-    ctaSubtitle: 'Laat Nero de triage, prioritering en coordinatie afhandelen — zodat je team zich kan richten op werk dat ertoe doet.',
+    ctaSubtitle: 'Laat Nero de triage, prioritering en coordinatie afhandelen zodat je team zich kan richten op werk dat ertoe doet.',
     ctaCta: 'Start gratis',
 
     // Footer

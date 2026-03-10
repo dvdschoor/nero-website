@@ -29,7 +29,7 @@ const steps = [
   {
     number: '3',
     title: 'Triage-resultaat',
-    description: 'Prioriteit, categorie, voorgestelde acties en een conceptantwoord — klaar voor je team om te beoordelen en op te acteren.',
+    description: 'Prioriteit, categorie, voorgestelde acties en een conceptantwoord, klaar voor je team om te beoordelen en op te acteren.',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
   },
 ];
@@ -38,12 +38,12 @@ const features: FeatureBlock[] = [
   {
     label: 'Procedures Systeem',
     title: 'Jouw regels, het draaiboek van de AI',
-    description: 'Definieer hoe je bedrijf werkt in markdown. Basisprocedures zijn altijd actief, onderwerpsprocedures worden gematcht op AI-categorie. Ze stapelen — basis + matchend onderwerp = volledige context voor elke beslissing.',
+    description: 'Definieer hoe je bedrijf werkt in markdown. Basisprocedures zijn altijd actief, onderwerpsprocedures worden gematcht op AI-categorie. Ze stapelen: basis + matchend onderwerp = volledige context voor elke beslissing.',
     bullets: [
       'Basisprocedures altijd meegenomen in elke AI-beslissing',
       'Onderwerpsprocedures automatisch gematcht op berichtcategorie',
       'Stapelsysteem: basis + onderwerp = complete context',
-      'Schrijf procedures in markdown — jouw taal, jouw regels',
+      'Schrijf procedures in markdown, in jouw taal en jouw regels',
       'AI gebruikt procedures voor triage, antwoorden en taken',
     ],
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />`,
@@ -52,7 +52,7 @@ const features: FeatureBlock[] = [
   {
     label: 'AI-briefings',
     title: 'Begin de dag met AI-intelligence',
-    description: 'Elke ochtend genereert Nero een briefing voor je team. Focuspunten, risicovlaggen en geprioriteerde actiepunten — gebaseerd op alles wat er sinds de vorige briefing is gebeurd.',
+    description: 'Elke ochtend genereert Nero een briefing voor je team met focuspunten, risicovlaggen en geprioriteerde actiepunten, gebaseerd op alles wat er sinds de vorige briefing is gebeurd.',
     bullets: [
       'Dagelijkse briefing gegenereerd uit alle inkomende activiteit',
       'Focuspunten uitgelicht op basis van urgentie en SLA\'s',
@@ -66,7 +66,7 @@ const features: FeatureBlock[] = [
   {
     label: 'Conceptantwoorden',
     title: 'AI schrijft, jij keurt goed',
-    description: 'Voor elk inkomend bericht stelt Nero een antwoord op, afgestemd op het kanaal — e-mail, WhatsApp of Slack. Antwoorden zijn gebaseerd op je kennisbank en volgen je procedures.',
+    description: 'Voor elk inkomend bericht stelt Nero een antwoord op, afgestemd op het kanaal, of dat nu e-mail, WhatsApp of Slack is. Antwoorden zijn gebaseerd op je kennisbank en volgen je procedures.',
     bullets: [
       'Kanaalbewuste concepten: formeel voor e-mail, kort voor Slack',
       'Gebaseerd op je kennisbank en procedures',
@@ -80,7 +80,7 @@ const features: FeatureBlock[] = [
   {
     label: 'Kennisbank',
     title: 'Semantisch zoeken door je hele operatie',
-    description: 'Procedures, playbooks en SLA\'s — allemaal doorzoekbaar door AI met semantisch zoeken. Geen keyword-matching, maar begrip van wat je bedoelt. AI genereert ook nieuwe artikelen uit je dagelijks werk.',
+    description: 'Procedures, playbooks en SLA\'s, allemaal doorzoekbaar door AI met semantisch zoeken. Geen keyword-matching, maar begrip van wat je bedoelt. AI genereert ook nieuwe artikelen uit je dagelijks werk.',
     bullets: [
       'Semantisch zoeken: vind op betekenis, niet alleen op woorden',
       'AI gebruikt kennisbank voor triage, antwoorden en briefings',
@@ -94,13 +94,13 @@ const features: FeatureBlock[] = [
   {
     label: 'Nero Bot',
     title: 'Je AI-assistent in Slack',
-    description: 'Nero Bot leeft in je Slack-workspace. Gebruik slash-commando\'s om vragen te stellen, kennis toe te voegen, taken aan te maken en statussen te checken — allemaal aangedreven door je kennisbank.',
+    description: 'Nero Bot leeft in je Slack-workspace. Gebruik slash-commando\'s om vragen te stellen, kennis toe te voegen, taken aan te maken en statussen te checken, allemaal aangedreven door je kennisbank.',
     bullets: [
-      '/help — bekijk beschikbare commando\'s',
-      '/ask — AI beantwoordt vragen met je kennisbank',
-      '/addknowledge — voeg kennis toe vanuit Slack',
-      '/task — maak taken direct aan vanuit Slack',
-      '/status — check taak- en inboxstatus',
+      '/help: bekijk beschikbare commando\'s',
+      '/ask: AI beantwoordt vragen met je kennisbank',
+      '/addknowledge: voeg kennis toe vanuit Slack',
+      '/task: maak taken direct aan vanuit Slack',
+      '/status: check taak- en inboxstatus',
     ],
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />`,
     accentColor: 'bg-accent/10 text-accent',
@@ -108,7 +108,7 @@ const features: FeatureBlock[] = [
   {
     label: 'Slimme Taken',
     title: 'Plak tekst, krijg gestructureerde taken',
-    description: 'Plak tekst — een e-mail, vergadernotitie of klantverzoek — en AI maakt gestructureerde taken met subtaken, prioriteiten en toewijzingen. Taken worden ook automatisch aangemaakt uit inkomende berichten.',
+    description: 'Plak tekst zoals een e-mail, vergadernotitie of klantverzoek, en AI maakt gestructureerde taken met subtaken, prioriteiten en toewijzingen. Taken worden ook automatisch aangemaakt uit inkomende berichten.',
     bullets: [
       'Plak tekst en AI haalt actiepunten eruit',
       'Subtaken automatisch gegenereerd uit context',
@@ -136,7 +136,7 @@ const features: FeatureBlock[] = [
 ];
 ---
 
-<BaseLayout title="AI-mogelijkheden — Nero" lang="nl">
+<BaseLayout title="AI-mogelijkheden | Nero" lang="nl">
   <Navbar lang="nl" />
   <main>
     <!-- Hero -->
@@ -147,7 +147,7 @@ const features: FeatureBlock[] = [
           AI die je <span class="text-gradient">operatie begrijpt</span>
         </h1>
         <p class="mt-5 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
-          Nero's AI gokt niet — het leest je procedures, doorzoekt je kennisbank en handelt binnen de regels die jij definieert. Elke triage, elk antwoord en elke taak is gebaseerd op jouw manier van werken.
+          Nero's AI gokt niet. Het leest je procedures, doorzoekt je kennisbank en handelt binnen de regels die jij definieert. Elke triage, elk antwoord en elke taak is gebaseerd op jouw manier van werken.
         </p>
       </div>
     </section>
@@ -161,7 +161,7 @@ const features: FeatureBlock[] = [
             Van bericht naar <span class="text-gradient">actie</span> in seconden
           </h2>
           <p class="mt-4 text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            Elk inkomend bericht doorloopt een drieledige AI-pipeline die categoriseert, prioriteert en een antwoord voorbereidt — allemaal op basis van je procedures.
+            Elk inkomend bericht doorloopt een drieledige AI-pipeline die categoriseert, prioriteert en een antwoord voorbereidt, allemaal op basis van je procedures.
           </p>
         </div>
 

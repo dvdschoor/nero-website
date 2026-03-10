@@ -2,7 +2,7 @@
 
 /* ─── Design Tokens ─── Matching nero Flutter theme exactly ─── */
 @theme {
-  /* Primary — rich indigo-blue (from NeroColors) */
+  /* Primary  - rich indigo-blue (from NeroColors) */
   --color-primary-50: #eef2ff;
   --color-primary-100: #e0e7ff;
   --color-primary-200: #c7d2fe;
@@ -15,7 +15,7 @@
   --color-primary-900: #312e81;
   --color-primary-950: #1e1b4b;
 
-  /* Accent — rose pink (from NeroColors.accent) */
+  /* Accent  - rose pink (from NeroColors.accent) */
   --color-accent: #ec4899;
   --color-accent-light: #f472b6;
   --color-accent-dark: #db2777;
@@ -38,7 +38,7 @@
   --color-error: #ef4444;
   --color-info: #3b82f6;
 
-  /* Typography — Plus Jakarta Sans (matching Flutter app) */
+  /* Typography  - Plus Jakarta Sans (matching Flutter app) */
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
   /* Spacing scale */
