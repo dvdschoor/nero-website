@@ -1,0 +1,209 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Slack Setup"
+  description="Connect Slack to receive and reply to messages directly in Nero."
+  sidebar={docsSidebar}
+  currentPath="/docs/slack-setup"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Guide</span>
+    <h1 class="mt-4">Slack Setup</h1>
+    <p class="text-lg !text-text-secondary">
+      Receive Slack messages in Nero and reply directly from the app &mdash; in the right channel and thread.
+    </p>
+  </div>
+
+  <h2 data-animate>What does the Slack integration do?</h2>
+  <ul>
+    <li><strong>Inbound</strong> &mdash; Messages from monitored Slack channels are automatically received in Nero</li>
+    <li><strong>Outbound</strong> &mdash; Reply from Nero directly into the correct Slack channel and thread</li>
+    <li><strong>Automatic tasks</strong> &mdash; Incoming messages are bundled and converted into tasks</li>
+    <li><strong>AI triage</strong> &mdash; Each message is automatically classified (support, sales, etc.)</li>
+    <li><strong>Contact matching</strong> &mdash; Slack users are automatically linked to existing contacts</li>
+  </ul>
+
+  <h2 data-animate>How it works</h2>
+
+  <h3>Inbound (Slack &rarr; Nero)</h3>
+  <ol>
+    <li>A customer sends a message in a monitored Slack channel</li>
+    <li>Slack sends an event to the Nero webhook</li>
+    <li>Nero validates the signature (HMAC-SHA256), checks if the channel is monitored, and filters out bot messages and internal team members</li>
+    <li>The sender is matched to a Nero contact (or auto-created)</li>
+    <li>The message enters the <strong>debounce queue</strong> (30 seconds)</li>
+    <li>After the quiet period, all messages from the same person are bundled into one task with AI classification</li>
+  </ol>
+
+  <div class="card p-5 mb-6 border-l-3 border-l-primary-300">
+    <p class="text-sm font-semibold text-text mb-2">Smart bundling</p>
+    <p class="text-sm !text-text-secondary !mb-0">If someone sends 5 messages in 2 minutes, Nero bundles them into 1 task instead of 5. The 30-second timer resets on each new message.</p>
+  </div>
+
+  <h3>Outbound (Nero &rarr; Slack)</h3>
+  <ol>
+    <li>A team member clicks <strong>Reply</strong> on a Slack task in Nero</li>
+    <li>The compose sheet shows the channel name and thread context</li>
+    <li>The reply is sent via the Slack API &mdash; automatically in the correct thread and channel</li>
+  </ol>
+
+  <hr />
+
+  <h2 data-animate>Setup</h2>
+
+  <div class="card p-5 mb-6 border-l-3 border-l-primary-300" data-animate>
+    <p class="text-sm font-semibold text-text mb-2">Prerequisites</p>
+    <ul class="!mb-0 text-sm">
+      <li>A Slack workspace you have admin access to</li>
+      <li>Permission to create Slack apps (<a href="https://api.slack.com/apps" target="_blank" rel="noopener">api.slack.com/apps</a>)</li>
+    </ul>
+  </div>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">1</span>
+    <h3 class="!mt-0 !mb-0">Create a Slack App</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Go to <a href="https://api.slack.com/apps" target="_blank" rel="noopener">api.slack.com/apps</a></li>
+    <li>Click <strong>Create New App</strong> &rarr; <strong>From scratch</strong></li>
+    <li>Name it (e.g. <code>Nero</code>) and select your workspace</li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">2</span>
+    <h3 class="!mt-0 !mb-0">Set Bot Token Scopes</h3>
+  </div>
+  <p>Go to <strong>OAuth &amp; Permissions</strong> and add these Bot Token Scopes:</p>
+  <div class="overflow-x-auto mb-8">
+    <table>
+      <thead>
+        <tr>
+          <th>Scope</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>chat:write</code></td>
+          <td>Send messages from Nero</td>
+        </tr>
+        <tr>
+          <td><code>channels:read</code></td>
+          <td>List available channels</td>
+        </tr>
+        <tr>
+          <td><code>channels:history</code></td>
+          <td>Read messages in channels</td>
+        </tr>
+        <tr>
+          <td><code>users:read</code></td>
+          <td>Get user display names</td>
+        </tr>
+        <tr>
+          <td><code>users:read.email</code></td>
+          <td>Get email for contact matching</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">3</span>
+    <h3 class="!mt-0 !mb-0">Configure Event Subscriptions</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Go to <strong>Event Subscriptions</strong></li>
+    <li>Toggle <strong>Enable Events</strong> on</li>
+    <li>Enter the <strong>Request URL</strong>: <code>https://nerops.ai/api/webhooks/slack</code></li>
+    <li>Wait for Slack to show <strong>Verified</strong> (green checkmark)</li>
+    <li>Under <strong>Subscribe to Bot Events</strong>, add:
+      <ul>
+        <li><code>message.channels</code> &mdash; messages in channels where the bot is a member</li>
+        <li><code>app_mention</code> &mdash; @mentions of the bot</li>
+      </ul>
+    </li>
+    <li>Click <strong>Save Changes</strong></li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">4</span>
+    <h3 class="!mt-0 !mb-0">Install the app in your workspace</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Go to <strong>Install App</strong></li>
+    <li>Click <strong>Install to Workspace</strong> and authorize</li>
+    <li>Copy the <strong>Bot User OAuth Token</strong> (starts with <code>xoxb-</code>)</li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">5</span>
+    <h3 class="!mt-0 !mb-0">Connect in Nero</h3>
+  </div>
+  <ol class="mb-8">
+    <li>Open Nero &rarr; <strong>Settings</strong> &rarr; <strong>Integrations</strong></li>
+    <li>Click <strong>Connect</strong> on the Slack card</li>
+    <li>Enter:
+      <ul>
+        <li><strong>Bot User OAuth Token</strong> &mdash; the <code>xoxb-</code> token from Step 4</li>
+        <li><strong>Signing Secret</strong> &mdash; found under <strong>Basic Information</strong> in your Slack app settings</li>
+      </ul>
+    </li>
+    <li>Click <strong>Save &amp; Connect</strong> &mdash; Nero validates the credentials and shows your workspace name</li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">6</span>
+    <h3 class="!mt-0 !mb-0">Add the bot to channels</h3>
+  </div>
+  <ol class="mb-8">
+    <li>In Slack, go to each channel you want Nero to monitor</li>
+    <li>Type <code>/invite @your-bot-name</code> or go to channel settings &rarr; <strong>Integrations</strong> &rarr; <strong>Add an app</strong></li>
+  </ol>
+
+  <div class="flex items-center gap-3 mb-3" data-animate>
+    <span class="step-number text-sm">7</span>
+    <h3 class="!mt-0 !mb-0">Select monitored channels</h3>
+  </div>
+  <ol class="mb-8">
+    <li>After connecting, Nero shows which channels the bot can see</li>
+    <li>Select which channels Nero should monitor</li>
+    <li>Messages in non-selected channels are ignored</li>
+  </ol>
+
+  <hr />
+
+  <h2 data-animate>Contact matching</h2>
+  <p>When someone sends a message in a monitored channel:</p>
+  <ol>
+    <li>Nero looks up the <code>slack_user_id</code> in your contacts</li>
+    <li>Not found? Nero fetches name + email from the Slack API</li>
+    <li>Email match found? The existing contact is linked and the <code>slack_user_id</code> is saved for next time</li>
+    <li>Still not found? A new contact is auto-created with name, email, and Slack ID</li>
+  </ol>
+
+  <h3>Internal messages</h3>
+  <p>Messages from your own team members are automatically filtered. If a Slack user is linked to a Nero profile (via <code>slack_id</code> in the profile), the message is skipped &mdash; no inbound task is created.</p>
+
+  <hr />
+
+  <h2 data-animate>Security</h2>
+  <ul>
+    <li><strong>Signature validation</strong> &mdash; Every incoming Slack event is verified with HMAC-SHA256 using your Signing Secret. Requests older than 5 minutes are rejected (replay protection).</li>
+    <li><strong>Encrypted credentials</strong> &mdash; Bot Token and Signing Secret are encrypted with PGP before storage. Only server-side functions can decrypt them.</li>
+    <li><strong>Retry protection</strong> &mdash; Slack resends events if it doesn't get a 200 response. Nero detects retries via the <code>X-Slack-Retry-Num</code> header and responds immediately to prevent duplicates.</li>
+  </ul>
+
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-between">
+    <a href="/docs/whatsapp-sms-setup" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      WhatsApp & SMS
+    </a>
+    <a href="/docs/ai-procedures" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      Next: AI Procedures
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </a>
+  </div>
+</DocsLayout>

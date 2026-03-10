@@ -1,0 +1,194 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Nero Bot Commands"
+  description="Search your knowledge base, create tasks, and more — via slash commands on any channel."
+  sidebar={docsSidebar}
+  currentPath="/docs/nero-bot"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">AI Features</span>
+    <h1 class="mt-4">Nero Bot Commands</h1>
+    <p class="text-lg !text-text-secondary">
+      Nero Bot is a universal command system that works across <strong>all channels</strong>: Slack, WhatsApp, SMS, and Email.
+    </p>
+  </div>
+
+  <h2 data-animate>Slash Commands</h2>
+  <p>All commands start with <code>/</code> and work identically on every channel.</p>
+
+  <h3><code>/help</code></h3>
+  <p>Show an overview of all available commands.</p>
+
+  <h3><code>/ask &lt;question&gt;</code></h3>
+  <p>Search the knowledge base with semantic (AI-powered) search. Nero finds the most relevant articles and returns the top 3 results.</p>
+  <p><strong>Aliases:</strong> <code>/search</code>, <code>/kb</code></p>
+  <pre><code>/ask how does onboarding work for new customers?</code></pre>
+  <p><strong>How it works:</strong></p>
+  <ol>
+    <li>Your question is converted to an embedding (OpenAI)</li>
+    <li>Hybrid search: combination of full-text search (30%) and vector search (70%)</li>
+    <li>Top 3 results are returned directly</li>
+  </ol>
+
+  <h3><code>/addknowledge &lt;text&gt;</code></h3>
+  <p>Add a new knowledge base article as a draft. The first line is used as the title.</p>
+  <p><strong>Alias:</strong> <code>/addkb</code></p>
+  <pre><code>/addknowledge Return policy webshop
+Customers can return within 30 days. Send return label via email.</code></pre>
+  <p><strong>How it works:</strong></p>
+  <ol>
+    <li>Article is saved as <code>draft</code> in the knowledge base</li>
+    <li>Embedding is automatically generated in the background</li>
+    <li>Review and publish the article in Nero &rarr; Knowledge Base</li>
+  </ol>
+
+  <h3><code>/task &lt;description&gt;</code></h3>
+  <p>Create a new task in Nero directly. AI triage starts automatically.</p>
+  <pre><code>/task Customer BeamTracking has billing issue — high priority</code></pre>
+  <p><strong>How it works:</strong></p>
+  <ol>
+    <li>Task is created with type <code>support</code> and urgency <code>medium</code></li>
+    <li>If there's a linked contact, the task is associated with them</li>
+    <li>AI triage runs automatically (classification, priority, routing)</li>
+  </ol>
+
+  <h3><code>/status &lt;name&gt;</code></h3>
+  <p>Look up a contact or company by name and see their status, including open tasks.</p>
+  <pre><code>/status Jan de Vries</code></pre>
+  <p><strong>Returns:</strong></p>
+  <ul>
+    <li>Contact details (email, phone, lifecycle stage)</li>
+    <li>Number of open tasks per contact</li>
+    <li>Linked companies with industry and website</li>
+  </ul>
+
+  <hr />
+
+  <h2 data-animate>AI Answers (Natural Language)</h2>
+  <p>Besides slash commands, Nero can also answer <strong>natural language questions</strong> based on the knowledge base. This works only for <strong>internal team members</strong> &mdash; external contacts do not get this feature.</p>
+
+  <h3>How it works</h3>
+  <p>Send a regular message (without <code>/</code>) and Nero:</p>
+  <ol>
+    <li>Searches the knowledge base with your question</li>
+    <li>Sends the relevant articles to Claude AI</li>
+    <li>Generates a concise, evidence-based answer</li>
+    <li>Cites the sources used</li>
+  </ol>
+
+  <h3>When is it active?</h3>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>When AI is active</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Slack</td>
+          <td>On <code>@nero</code> mention or if you're an internal team member</td>
+        </tr>
+        <tr>
+          <td>WhatsApp</td>
+          <td>If the sender is an internal team member (phone matched)</td>
+        </tr>
+        <tr>
+          <td>SMS</td>
+          <td>If the sender is an internal team member (phone matched)</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>If the sender is an internal team member (sender_email matched)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>External contacts who send messages are processed normally as inbound messages &mdash; no AI answer, no command processing.</p>
+
+  <hr />
+
+  <h2 data-animate>Channel-specific details</h2>
+
+  <h3>Slack</h3>
+  <ul>
+    <li><strong>Trigger:</strong> <code>@nero</code> mention in a channel or direct message</li>
+    <li><strong>Response:</strong> Nero replies in a thread on your message</li>
+    <li><strong>Mention resolution:</strong> <code>&lt;@U12345&gt;</code> is automatically replaced with <code>@Real Name</code></li>
+  </ul>
+
+  <h3>WhatsApp & SMS</h3>
+  <ul>
+    <li><strong>Trigger:</strong> Send a message to the configured Twilio number</li>
+    <li><strong>Response:</strong> Nero sends a reply directly to your number</li>
+    <li><strong>Media:</strong> Attachments (images, documents) are stored as media URLs</li>
+  </ul>
+
+  <h3>Email</h3>
+  <ul>
+    <li><strong>Trigger:</strong> Send an email to the configured inbound address</li>
+    <li><strong>Command detection:</strong> Nero checks the subject first (if it starts with <code>/</code>), then the first line of the body</li>
+    <li><strong>No auto-reply:</strong> To prevent email loops, Nero does not send automatic replies for email commands. The command is still executed.</li>
+  </ul>
+
+  <hr />
+
+  <h2 data-animate>Internal vs External users</h2>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Internal</th>
+          <th>External</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Slash commands</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>AI answers</td>
+          <td>Yes</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Inbound messages</td>
+          <td>Skipped</td>
+          <td>Saved as message + task</td>
+        </tr>
+        <tr>
+          <td>Auto-reply</td>
+          <td>Yes (Slack, WhatsApp, SMS)</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>How is an internal user recognized?</h3>
+  <ul>
+    <li><strong>Slack:</strong> <code>profiles.slack_id</code> matches the Slack user ID</li>
+    <li><strong>WhatsApp/SMS:</strong> <code>profiles.phone</code> or <code>profiles.mobile</code> matches the phone number</li>
+    <li><strong>Email:</strong> <code>profiles.sender_email</code> matches the sender address</li>
+  </ul>
+  <p>The user must be a member of the organization to be recognized as internal.</p>
+
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-between">
+    <a href="/docs/ai-procedures" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      AI Procedures
+    </a>
+    <a href="/docs/troubleshooting" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      Next: Troubleshooting & FAQ
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </a>
+  </div>
+</DocsLayout>

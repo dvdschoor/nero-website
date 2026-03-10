@@ -149,11 +149,59 @@ Priority: 10</code></pre>
     <li>Nero creates a message and triggers AI triage</li>
   </ul>
 
+  <hr />
+
+  <h2 data-animate>How Reply-To routing works</h2>
+  <p>All outgoing emails from Nero automatically set a <strong>Reply-To</strong> header pointing to your inbound domain. This ensures replies come back into Nero without the customer noticing anything different.</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Team member sends from</th>
+          <th>Reply-To becomes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>dylan@yourcompany.com</code></td>
+          <td><code>dylan@nero.yourcompany.com</code></td>
+        </tr>
+        <tr>
+          <td><code>lisa@yourcompany.com</code></td>
+          <td><code>lisa@nero.yourcompany.com</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The <strong>From</strong> stays the real email address &mdash; the customer sees a recognizable sender. The Reply-To redirect is invisible in most email clients.</p>
+
+  <h2 data-animate>Email threading</h2>
+  <p>Nero maintains email threads using standard headers:</p>
+  <ul>
+    <li><strong>Message-ID</strong> &mdash; unique ID per sent email</li>
+    <li><strong>In-Reply-To</strong> &mdash; references the message being replied to</li>
+    <li><strong>References</strong> &mdash; chain of all messages in the thread</li>
+  </ul>
+  <p>This ensures replies are neatly grouped in the same thread in Gmail, Outlook, and other email clients.</p>
+
+  <h2 data-animate>Contact matching</h2>
+  <p>When an email arrives in Nero:</p>
+  <ol>
+    <li><strong>Existing contact?</strong> &mdash; Nero searches by email address in your contacts</li>
+    <li><strong>Found?</strong> &mdash; The message is linked to the existing contact</li>
+    <li><strong>New?</strong> &mdash; A new contact is automatically created with name and email from the email headers</li>
+  </ol>
+  <p>Emails from your own team members are recognized automatically. If the sender has a profile with a matching <code>sender_email</code>, the message is marked as internal.</p>
+
   <div class="rounded-lg bg-surface-alt px-4 py-3 text-sm text-text-secondary mt-8">
     <strong>Pricing</strong> &mdash; SendGrid offers 100 emails/day free. Paid plans start at ~$20/month for 50,000 emails.
   </div>
 
-  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-end">
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-between">
+    <a href="/docs/overview" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      Overview
+    </a>
     <a href="/docs/personal-sender-email" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
       Next: Personal Sender Email
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>

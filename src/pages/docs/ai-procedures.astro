@@ -1,0 +1,302 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="AI Procedures"
+  description="Teach Nero how your business handles customer messages — from greeting to resolution."
+  sidebar={docsSidebar}
+  currentPath="/docs/ai-procedures"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">AI Features</span>
+    <h1 class="mt-4">AI Procedures</h1>
+    <p class="text-lg !text-text-secondary">
+      Teach Nero how your business works. Procedures determine how Nero responds to customer messages &mdash; from greeting to resolution.
+    </p>
+  </div>
+
+  <h2 data-animate>What are Procedures?</h2>
+  <p>Nero has two types of knowledge:</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Knowledge</th>
+          <th>Procedures</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>What is it?</strong></td>
+          <td>Facts and information</td>
+          <td>Workflows and rules</td>
+        </tr>
+        <tr>
+          <td><strong>Example</strong></td>
+          <td>"Our return policy is 30 days"</td>
+          <td>"Greet the customer, ask for the order number, send the return label"</td>
+        </tr>
+        <tr>
+          <td><strong>Think of it as</strong></td>
+          <td>What your team needs to <strong>know</strong></td>
+          <td>What your team needs to <strong>do</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Knowledge</strong> is your knowledge base &mdash; product info, manuals, FAQs.<br />
+  <strong>Procedures</strong> are your business processes &mdash; how you want customer questions handled.</p>
+  <p>Nero combines both: the procedure determines the approach, the knowledge provides the content.</p>
+
+  <hr />
+
+  <h2 data-animate>How it works</h2>
+  <p>When a customer sends a message, Nero automatically finds the right procedure based on two things:</p>
+  <ol>
+    <li><strong>Message type</strong> &mdash; Is it a support question, a sales inquiry, an order?</li>
+    <li><strong>Channel</strong> &mdash; Did it come in via email, Slack, WhatsApp?</li>
+  </ol>
+  <p>Nero then applies the matching procedure and drafts a response. You review and send it.</p>
+
+  <div class="card p-5 mb-6 border-l-3 border-l-primary-300">
+    <p class="text-sm font-semibold text-text mb-2">Example</p>
+    <p class="text-sm !text-text-secondary !mb-0">
+      A customer emails about a defective product. Nero recognizes: <strong>type</strong> = support, <strong>channel</strong> = email &rarr; applies the "Customer Support Protocol" procedure &rarr; searches the knowledge base for product info &rarr; drafts a response following your guidelines. You review and click send.
+    </p>
+  </div>
+
+  <hr />
+
+  <h2 data-animate>Automatic matching</h2>
+  <p>You can configure when each procedure is automatically applied.</p>
+
+  <h3>By task type</h3>
+  <p>Select which types of messages trigger the procedure:</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>When</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Support</td><td>Customer questions, issues, complaints</td></tr>
+        <tr><td>Sales</td><td>Quotes, leads, product inquiries</td></tr>
+        <tr><td>Project</td><td>Project updates, milestones</td></tr>
+        <tr><td>Order</td><td>Orders, deliveries, returns</td></tr>
+        <tr><td>Dev</td><td>Technical questions, bugs</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>By channel</h3>
+  <p>Select which channels the procedure is active on:</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Email</td><td>Incoming emails</td></tr>
+        <tr><td>Slack</td><td>Slack messages</td></tr>
+        <tr><td>WhatsApp</td><td>WhatsApp messages</td></tr>
+        <tr><td>Phone</td><td>Phone-reported questions</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Priority</h3>
+  <p>When multiple procedures match the same situation, the one with the highest priority is applied first.</p>
+
+  <hr />
+
+  <h2 data-animate>Procedure stacking</h2>
+  <p>Many businesses have a consistent communication style for <strong>all</strong> customer contact, plus specific workflows per topic. With procedure stacking you can combine these without repetition.</p>
+
+  <h3>Two types of procedures</h3>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>What it determines</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Base</strong></td>
+          <td>How you communicate</td>
+          <td>"Address customers formally, close with a thank you"</td>
+        </tr>
+        <tr>
+          <td><strong>Topic</strong></td>
+          <td>What you do</td>
+          <td>"For returns: ask order number, check policy, send label"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>How it works</h3>
+  <p>Say you have:</p>
+  <ul>
+    <li><strong>Base procedure:</strong> "Formal Communication Style" &mdash; always formal tone, professional language</li>
+    <li><strong>Topic procedure:</strong> "Return Handling" &mdash; steps for processing returns</li>
+  </ul>
+  <p>For a return question via email, Nero combines both: the response follows the formal style <strong>and</strong> follows the return steps.</p>
+  <p>This way you don't need to repeat communication rules in every procedure. Create 1 base procedure and link all your workflows to it.</p>
+
+  <h3>When to use what</h3>
+  <ul>
+    <li><strong>No type (standalone)</strong> &mdash; The procedure handles both style and content</li>
+    <li><strong>Base</strong> &mdash; Create 1 or 2 per organization &mdash; your default communication style</li>
+    <li><strong>Topic</strong> &mdash; Create as many as you want &mdash; specific processes per subject</li>
+  </ul>
+
+  <hr />
+
+  <h2 data-animate>AI guidelines</h2>
+  <p>Per procedure you can set extra guidelines for the AI:</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>What it does</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Required elements</strong></td>
+          <td>Parts that must always be in the response (e.g. a greeting, a call-to-action)</td>
+        </tr>
+        <tr>
+          <td><strong>Forbidden elements</strong></td>
+          <td>Parts that must never be in the response (e.g. pricing info, competitors)</td>
+        </tr>
+        <tr>
+          <td><strong>Max words</strong></td>
+          <td>Limit the response length</td>
+        </tr>
+        <tr>
+          <td><strong>Examples</strong></td>
+          <td>Show what a good (or bad) response looks like</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <h2 data-animate>Categories</h2>
+  <p>Procedures are organized in categories that match business processes:</p>
+  <ul>
+    <li><strong>Support Handling</strong> &mdash; Ticket processing, escalation, response times</li>
+    <li><strong>Sales Process</strong> &mdash; Lead qualification, sales steps, follow-up</li>
+    <li><strong>Onboarding</strong> &mdash; Customer and employee onboarding</li>
+    <li><strong>Internal Operations</strong> &mdash; Task routing, approval flows, handovers</li>
+  </ul>
+  <p>You can also create custom categories that fit your organization.</p>
+
+  <hr />
+
+  <h2 data-animate>Creating a procedure</h2>
+  <ol>
+    <li>Go to <strong>Knowledge Base</strong> &rarr; <strong>Procedures</strong></li>
+    <li>Click <strong>+ New</strong></li>
+    <li>Fill in:
+      <ul>
+        <li><strong>Title and category</strong> &mdash; Give the procedure a clear name</li>
+        <li><strong>Content</strong> &mdash; Describe the steps Nero should follow (use the template for the right structure)</li>
+        <li><strong>AI guidelines</strong> &mdash; Optional: set required/forbidden elements</li>
+        <li><strong>Matching</strong> &mdash; Configure which message types and channels trigger this procedure</li>
+        <li><strong>Tags and status</strong> &mdash; Add tags and set the status to <strong>Published</strong></li>
+      </ul>
+    </li>
+    <li>Once the status is <strong>Published</strong>, the procedure is automatically used</li>
+  </ol>
+
+  <hr />
+
+  <h2 data-animate>Tips</h2>
+  <ul>
+    <li><strong>Start with one base procedure</strong> that defines your communication style. Add topic procedures for each workflow.</li>
+    <li><strong>Use matching</strong> for predictable situations (all support emails) and tags for more nuanced matching.</li>
+    <li><strong>Test your procedure</strong> by sending a test message and reviewing the draft response in Nero.</li>
+    <li><strong>Combine with knowledge</strong> &mdash; the procedure determines the approach, but automatically references relevant knowledge articles for the content.</li>
+  </ul>
+
+  <hr />
+
+  <h2 data-animate>FAQ</h2>
+  <div class="space-y-3">
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        What if no procedure matches?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Nero drafts a generic response based purely on your knowledge base. No specific style or workflow is applied.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Can I have multiple base procedures?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Yes, but only one is applied per message. It's better to combine your style rules into a single base procedure.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Are procedures used when I use /ask?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        No. The <code>/ask</code> command searches your knowledge base only. Procedures are automatically applied to incoming customer messages.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        How do I know which procedure was applied?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Each task in Nero shows which procedure was used for the draft response.
+      </div>
+    </details>
+
+    <details class="card group">
+      <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-semibold text-text hover:text-primary transition select-none">
+        Can I temporarily disable a procedure?
+        <svg class="w-4 h-4 text-text-tertiary group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+      </summary>
+      <div class="px-5 pb-4 text-sm text-text-secondary leading-relaxed">
+        Yes. Set the status to <strong>Draft</strong> or <strong>Review</strong>. Only procedures with status <strong>Published</strong> are automatically applied.
+      </div>
+    </details>
+  </div>
+
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-between">
+    <a href="/docs/slack-setup" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      Slack Setup
+    </a>
+    <a href="/docs/nero-bot" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      Next: Nero Bot Commands
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </a>
+  </div>
+</DocsLayout>

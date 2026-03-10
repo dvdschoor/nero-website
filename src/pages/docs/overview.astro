@@ -1,0 +1,161 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Overview"
+  description="Connect your workspace to send and receive messages across Email, WhatsApp, SMS, and Slack — all from within Nero."
+  sidebar={docsSidebar}
+  currentPath="/docs/overview"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Getting Started</span>
+    <h1 class="mt-4">Documentation</h1>
+    <p class="text-lg !text-text-secondary">
+      Connect your workspace to send and receive messages across Email, WhatsApp, SMS, and Slack &mdash; all from within Nero.
+    </p>
+  </div>
+
+  <h2 data-animate>Supported channels</h2>
+  <p>Nero integrates with external providers so your team can communicate on every channel without leaving the app. All credentials are encrypted and stored server-side &mdash; they never leave the server.</p>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>Provider</th>
+          <th>Send</th>
+          <th>Receive</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email</td>
+          <td>SendGrid</td>
+          <td>Compose &amp; reply from your own address</td>
+          <td>Automatic via Reply-To routing or forwarding</td>
+        </tr>
+        <tr>
+          <td>WhatsApp</td>
+          <td>Twilio</td>
+          <td>Reply to conversations</td>
+          <td>Webhook &rarr; auto-creates tasks</td>
+        </tr>
+        <tr>
+          <td>SMS</td>
+          <td>Twilio</td>
+          <td>Reply to conversations</td>
+          <td>Webhook &rarr; auto-creates tasks</td>
+        </tr>
+        <tr>
+          <td>Slack</td>
+          <td>Slack Web API</td>
+          <td>Reply in channels &amp; threads</td>
+          <td>Monitored channels &rarr; auto-creates tasks</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-animate>How messages flow</h2>
+
+  <h3>Inbound (customer &rarr; Nero)</h3>
+  <ol>
+    <li>A message arrives via one of the providers (SendGrid, Twilio, or Slack)</li>
+    <li>The provider sends a webhook to Nero</li>
+    <li>Nero validates the request, matches it to your organization, and finds or creates a contact</li>
+    <li>The message is stored and enters the <strong>debounce queue</strong> (30 seconds)</li>
+    <li>After 30 seconds of quiet, all messages from the same contact are bundled into <strong>one task</strong></li>
+    <li>AI triage automatically classifies the task (type, priority, suggested assignee)</li>
+  </ol>
+
+  <div class="card p-5 mb-6 border-l-3 border-l-primary-300">
+    <p class="text-sm font-semibold text-text mb-2">Smart bundling</p>
+    <p class="text-sm !text-text-secondary !mb-0">If a customer sends 5 WhatsApp messages in 2 minutes, Nero bundles them into a single task instead of creating 5 separate ones. The 30-second timer resets on each new message.</p>
+  </div>
+
+  <h3>Outbound (Nero &rarr; customer)</h3>
+  <ol>
+    <li>A team member clicks <strong>Reply</strong> on a task and writes a message</li>
+    <li>Nero routes the message to the correct provider based on the original channel</li>
+    <li>The provider delivers the message (email, WhatsApp, SMS, or Slack thread)</li>
+    <li>The message status updates to <strong>sent</strong> or <strong>failed</strong></li>
+  </ol>
+
+  <h2 data-animate>Contact matching</h2>
+  <p>When a message arrives, Nero automatically matches the sender to an existing contact or creates a new one:</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>Matched on</th>
+          <th>If not found</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email</td>
+          <td>Email address</td>
+          <td>Auto-create with name from email headers</td>
+        </tr>
+        <tr>
+          <td>WhatsApp / SMS</td>
+          <td>Phone number</td>
+          <td>Auto-create with phone number</td>
+        </tr>
+        <tr>
+          <td>Slack</td>
+          <td>Slack user ID &rarr; email</td>
+          <td>Auto-create with name + email from Slack API</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Messages from your own team members are recognized and filtered automatically &mdash; they don't create inbound tasks.</p>
+
+  <h2 data-animate>Security</h2>
+  <ul>
+    <li><strong>Encrypted credentials</strong> &mdash; All API keys and tokens are encrypted with PGP before storage. Only server-side functions can decrypt them.</li>
+    <li><strong>Two-table separation</strong> &mdash; Credentials are stored in a separate, locked-down table. Even if the app's database access were compromised, credentials remain inaccessible.</li>
+    <li><strong>Signature validation</strong> &mdash; Every incoming webhook is verified (HMAC-SHA256 for Slack, HMAC-SHA1 for Twilio) to prevent spoofing.</li>
+    <li><strong>Per-workspace isolation</strong> &mdash; Each workspace has its own credentials and configuration. One workspace cannot access another's data.</li>
+  </ul>
+
+  <h2 data-animate>Setup guides</h2>
+  <div class="grid sm:grid-cols-2 gap-4 mt-4">
+    <a href="/docs/email-setup" class="card p-5 hover:border-primary transition group">
+      <p class="text-sm font-semibold text-text group-hover:text-primary transition !mb-1">Email (SendGrid)</p>
+      <p class="text-xs !text-text-tertiary !mb-0">Send and receive emails with your own domain</p>
+    </a>
+    <a href="/docs/personal-sender-email" class="card p-5 hover:border-primary transition group">
+      <p class="text-sm font-semibold text-text group-hover:text-primary transition !mb-1">Personal Sender Email</p>
+      <p class="text-xs !text-text-tertiary !mb-0">Each team member sends from their own address</p>
+    </a>
+    <a href="/docs/whatsapp-sms-setup" class="card p-5 hover:border-primary transition group">
+      <p class="text-sm font-semibold text-text group-hover:text-primary transition !mb-1">WhatsApp & SMS (Twilio)</p>
+      <p class="text-xs !text-text-tertiary !mb-0">Connect Twilio for WhatsApp and SMS messaging</p>
+    </a>
+    <a href="/docs/slack-setup" class="card p-5 hover:border-primary transition group">
+      <p class="text-sm font-semibold text-text group-hover:text-primary transition !mb-1">Slack</p>
+      <p class="text-xs !text-text-tertiary !mb-0">Receive and reply to Slack messages in Nero</p>
+    </a>
+    <a href="/docs/ai-procedures" class="card p-5 hover:border-primary transition group">
+      <p class="text-sm font-semibold text-text group-hover:text-primary transition !mb-1">AI Procedures</p>
+      <p class="text-xs !text-text-tertiary !mb-0">Teach Nero how your business handles customer messages</p>
+    </a>
+    <a href="/docs/nero-bot" class="card p-5 hover:border-primary transition group">
+      <p class="text-sm font-semibold text-text group-hover:text-primary transition !mb-1">Nero Bot Commands</p>
+      <p class="text-xs !text-text-tertiary !mb-0">Search knowledge, create tasks, and more via slash commands</p>
+    </a>
+  </div>
+
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-end">
+    <a href="/docs/email-setup" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      Next: Email Setup
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </a>
+  </div>
+</DocsLayout>
