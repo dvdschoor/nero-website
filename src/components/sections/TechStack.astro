@@ -1,0 +1,99 @@
+---
+import type { Lang } from '../../i18n/translations';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const isNl = lang === 'nl';
+
+const stack = [
+  {
+    name: 'Flutter',
+    description: isNl ? 'Cross-platform app voor iOS, Android, web en desktop' : 'Cross-platform app for iOS, Android, web, and desktop',
+    icon: `<path d="M14.314 0L2.3 12 6 15.7 21.684 0h-7.37zm0 11.63L7.97 17.66l4.03 4.03 2.314-2.316L21.684 12h-7.37l-2.316 2.316z" fill="currentColor"/>`,
+    color: 'text-[#027DFD]',
+    bg: 'bg-[#027DFD]/8',
+  },
+  {
+    name: 'Supabase',
+    description: isNl ? 'Realtime database, auth en edge functions' : 'Realtime database, auth, and edge functions',
+    icon: `<path d="M21.362 9.354H12V.396a.396.396 0 0 0-.745-.208L2.298 11.886a.396.396 0 0 0 .349.582H12v8.958a.396.396 0 0 0 .745.208l8.957-11.698a.396.396 0 0 0-.34-.582z" fill="currentColor"/>`,
+    color: 'text-[#3ECF8E]',
+    bg: 'bg-[#3ECF8E]/8',
+  },
+  {
+    name: 'Claude AI',
+    description: isNl ? 'AI-triage, briefings en concept-antwoorden' : 'AI triage, briefings, and draft replies',
+    icon: `<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6zm4 4h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>`,
+    color: 'text-[#D4A574]',
+    bg: 'bg-[#D4A574]/8',
+  },
+  {
+    name: 'SendGrid',
+    description: isNl ? 'Transactionele e-mail en inbound parse' : 'Transactional email and inbound parse',
+    icon: `<path d="M1.5 8.5h6.667v6.667H1.5V8.5zm6.667-6.667h6.666V8.5H8.167V1.833zm6.666 6.667h6.667v6.667h-6.667V8.5zm0 6.667v6.666H8.167v-6.666h6.666zm-6.666 0H1.5v-6.667h6.667v6.667z" fill="currentColor"/>`,
+    color: 'text-[#1A82E2]',
+    bg: 'bg-[#1A82E2]/8',
+  },
+  {
+    name: 'Twilio',
+    description: isNl ? 'WhatsApp en SMS berichten' : 'WhatsApp and SMS messaging',
+    icon: `<path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 0 0 1.254 1.254l3.032-.892A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm-2.5 12.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" fill="currentColor"/>`,
+    color: 'text-[#F22F46]',
+    bg: 'bg-[#F22F46]/8',
+  },
+  {
+    name: 'Slack',
+    description: isNl ? 'Teamberichten en bot-integratie' : 'Team messaging and bot integration',
+    icon: `<path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.527 2.527 0 0 1 2.52-2.52h6.313A2.528 2.528 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="currentColor"/>`,
+    color: 'text-[#E01E5A]',
+    bg: 'bg-[#E01E5A]/8',
+  },
+];
+---
+
+<section class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14" data-animate>
+      <span class="section-label mb-4">
+        {isNl ? 'Technologie' : 'Technology'}
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold text-text mt-4">
+        {isNl ? 'Gebouwd op ' : 'Powered by '}
+        <span class="text-gradient">{isNl ? 'bewezen technologie' : 'proven technology'}</span>
+      </h2>
+      <p class="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">
+        {isNl
+          ? 'Nero draait op enterprise-grade infrastructure. Elke integratie is end-to-end versleuteld en gevalideerd.'
+          : 'Nero runs on enterprise-grade infrastructure. Every integration is end-to-end encrypted and validated.'}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {stack.map((tech, i) => (
+        <div class="card card-hover p-5 flex flex-col items-center text-center" data-animate style={`transition-delay: ${i * 80}ms`}>
+          <div class={`w-12 h-12 rounded-xl ${tech.bg} ${tech.color} flex items-center justify-center mb-3`}>
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+              <Fragment set:html={tech.icon} />
+            </svg>
+          </div>
+          <h3 class="text-sm font-bold text-text">{tech.name}</h3>
+          <p class="mt-1 text-xs text-text-tertiary leading-relaxed">{tech.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 text-center" data-animate>
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-alt border border-border-subtle text-xs text-text-tertiary">
+        <svg class="w-3.5 h-3.5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        {isNl
+          ? 'Versleutelde credentials via Supabase Vault · RLS op elke tabel · HMAC webhook-validatie'
+          : 'Encrypted credentials via Supabase Vault · RLS on every table · HMAC webhook validation'}
+      </div>
+    </div>
+  </div>
+</section>

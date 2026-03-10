@@ -22,9 +22,15 @@ const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
     </a>
 
     <!-- Center nav (desktop) -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center gap-6">
       <a href={getLocalizedPath('/features', lang)} class="text-sm font-medium text-text-secondary hover:text-text transition">
         {t.navFeatures}
+      </a>
+      <a href={getLocalizedPath('/ai', lang)} class="text-sm font-medium text-text-secondary hover:text-text transition">
+        {t.navAI}
+      </a>
+      <a href={getLocalizedPath('/security', lang)} class="text-sm font-medium text-text-secondary hover:text-text transition">
+        {t.navSecurity}
       </a>
       <a href={getLocalizedPath('/pricing', lang)} class="text-sm font-medium text-text-secondary hover:text-text transition">
         {t.navPricing}
@@ -80,6 +86,12 @@ const appDomain = import.meta.env.PUBLIC_APP_DOMAIN || 'nerops.ai';
     <div class="px-6 py-4 space-y-1">
       <a href={getLocalizedPath('/features', lang)} class="block py-2.5 text-sm font-medium text-text-secondary hover:text-text transition">
         {t.navFeatures}
+      </a>
+      <a href={getLocalizedPath('/ai', lang)} class="block py-2.5 text-sm font-medium text-text-secondary hover:text-text transition">
+        {t.navAI}
+      </a>
+      <a href={getLocalizedPath('/security', lang)} class="block py-2.5 text-sm font-medium text-text-secondary hover:text-text transition">
+        {t.navSecurity}
       </a>
       <a href={getLocalizedPath('/pricing', lang)} class="block py-2.5 text-sm font-medium text-text-secondary hover:text-text transition">
         {t.navPricing}

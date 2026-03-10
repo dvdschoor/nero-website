@@ -10,20 +10,24 @@ const isNl = lang === 'nl';
 
 const stats = [
   {
-    value: '80%',
-    label: isNl ? 'Minder handmatige triage' : 'Less manual triage',
+    value: '5',
+    label: isNl ? 'Kanalen in één inbox' : 'Channels in one inbox',
+    sub: isNl ? 'Email, Slack, WhatsApp, SMS, telefoon' : 'Email, Slack, WhatsApp, SMS, phone',
   },
   {
-    value: '3-5',
-    label: isNl ? 'Tools vervangen' : 'Tools replaced',
+    value: '12+',
+    label: isNl ? 'AI-aangedreven modules' : 'AI-powered modules',
+    sub: isNl ? 'Inbox, taken, CRM, kennis, outbound' : 'Inbox, tasks, CRM, knowledge, outbound',
   },
   {
     value: '< 2 min',
     label: isNl ? 'Setup per kanaal' : 'Setup per channel',
+    sub: isNl ? 'Koppel en begin direct' : 'Connect and start immediately',
   },
   {
     value: '24/7',
-    label: isNl ? 'AI-operaties actief' : 'AI operations active',
+    label: isNl ? 'AI-triage actief' : 'AI triage active',
+    sub: isNl ? 'Procedure-gedreven, altijd aan' : 'Procedure-driven, always on',
   },
 ];
 ---
@@ -33,7 +37,8 @@ const stats = [
     {stats.map((stat, i) => (
       <div class="text-center" data-animate style={`transition-delay: ${i * 100}ms`}>
         <div class="text-3xl md:text-4xl font-extrabold text-gradient">{stat.value}</div>
-        <div class="mt-1 text-sm text-text-secondary">{stat.label}</div>
+        <div class="mt-1 text-sm font-medium text-text">{stat.label}</div>
+        <div class="mt-0.5 text-xs text-text-tertiary">{stat.sub}</div>
       </div>
     ))}
   </div>

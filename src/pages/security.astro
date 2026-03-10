@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import CTA from '../components/sections/CTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Security — Nero" lang="en">
+  <Navbar lang="en" />
+  <main>
+    <!-- Page header -->
+    <section class="pt-36 pb-16 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="section-label mb-4">Security</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text mt-4">
+          Built with <span class="text-gradient">security first</span>
+        </h1>
+        <p class="mt-5 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
+          Nero is designed from the ground up to protect your data, credentials, and integrations. Every layer of the stack enforces isolation, encryption, and verification.
+        </p>
+      </div>
+    </section>
+
+    <!-- Security features grid -->
+    <section class="py-20 px-6" data-animate>
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="section-label mb-4">Core protections</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-text mt-4">
+            Six layers of <span class="text-gradient">defense</span>
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1: Encrypted credentials -->
+          <div class="card card-hover p-7" data-animate>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Encrypted Credentials</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              All API keys and tokens are stored via Supabase Vault using PGP encryption. No plain-text secrets ever touch the database.
+            </p>
+          </div>
+
+          <!-- Card 2: Row Level Security -->
+          <div class="card card-hover p-7" data-animate>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Row Level Security</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Every database table enforces RLS policies. Users can only access data belonging to their organization — enforced at the database level, not the application.
+            </p>
+          </div>
+
+          <!-- Card 3: HMAC Webhook Validation -->
+          <div class="card card-hover p-7" data-animate>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">HMAC Webhook Validation</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Inbound webhooks from SendGrid and Twilio are verified using HMAC signature validation, ensuring only authentic payloads are processed.
+            </p>
+          </div>
+
+          <!-- Card 4: Slack Signature Verification -->
+          <div class="card card-hover p-7" data-animate>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Slack Request Signing</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Every Slack request is validated against its signing secret with timestamp checks, preventing replay attacks and forged requests.
+            </p>
+          </div>
+
+          <!-- Card 5: Token Authentication -->
+          <div class="card card-hover p-7" data-animate>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Inbound Email Auth</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Inbound email webhooks are protected by unique token-based authentication, ensuring only verified email providers can deliver messages to Nero.
+            </p>
+          </div>
+
+          <!-- Card 6: Data Isolation -->
+          <div class="card card-hover p-7" data-animate>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text mb-2">Organization Isolation</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Complete data isolation between organizations. Every query is scoped to the authenticated user's org — there is no cross-tenant data leakage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture section -->
+    <section class="py-20 px-6 bg-gradient-mesh" data-animate>
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="section-label mb-4">Architecture</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-text mt-4">
+            How integrations are <span class="text-gradient">secured</span>
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10">
+          <div class="card p-8" data-animate>
+            <h3 class="text-xl font-semibold text-text mb-4">Edge Functions with Auth</h3>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              All Nero integrations run as Supabase Edge Functions. Every function verifies the caller's identity through Supabase Auth before executing any logic.
+            </p>
+            <ul class="space-y-3 text-text-secondary text-sm">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                JWT validation on every request
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                Service role keys restricted to server-side only
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                Scoped permissions per function
+              </li>
+            </ul>
+          </div>
+          <div class="card p-8" data-animate>
+            <h3 class="text-xl font-semibold text-text mb-4">Credential Lifecycle</h3>
+            <p class="text-text-secondary leading-relaxed mb-4">
+              Secrets follow a strict lifecycle: encrypted at rest via Supabase Vault with PGP, decrypted only at runtime inside Edge Functions, and never logged or exposed.
+            </p>
+            <ul class="space-y-3 text-text-secondary text-sm">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                PGP encryption at rest via Vault
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                Decrypted in-memory only during execution
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                Zero plain-text secrets in the database
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust bar -->
+    <section class="py-16 px-6" data-animate>
+      <div class="max-w-4xl mx-auto">
+        <div class="card p-10 text-center">
+          <h3 class="text-2xl font-bold text-text mb-4">Our security commitment</h3>
+          <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed mb-8">
+            Security isn't a feature we bolted on — it's embedded in every layer of Nero's architecture. From encrypted credentials to request-level verification, your data stays protected.
+          </p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+              </div>
+              <span class="text-sm font-medium text-text">Encrypted at rest</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              </div>
+              <span class="text-sm font-medium text-text">Verified webhooks</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </div>
+              <span class="text-sm font-medium text-text">RLS enforced</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+              </div>
+              <span class="text-sm font-medium text-text">Tenant isolated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTA lang="en" />
+  </main>
+  <Footer lang="en" />
+</BaseLayout>

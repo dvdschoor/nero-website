@@ -13,6 +13,8 @@ export const translations = {
 
     // Nav
     navFeatures: 'Features',
+    navAI: 'AI',
+    navSecurity: 'Security',
     navPricing: 'Pricing',
     navSignIn: 'Sign in',
     navGetStarted: 'Get started',
@@ -25,8 +27,8 @@ export const translations = {
     heroCta: 'Start for free',
     heroCtaSecondary: 'See how it works',
 
-    // Social proof
-    socialProofTitle: 'Trusted by teams who ship',
+    // Trust
+    heroTrustLine: 'Free to start. No credit card required.',
 
     // Features
     featuresLabel: 'Platform',
@@ -92,6 +94,8 @@ export const translations = {
 
     // Nav
     navFeatures: 'Functies',
+    navAI: 'AI',
+    navSecurity: 'Beveiliging',
     navPricing: 'Prijzen',
     navSignIn: 'Inloggen',
     navGetStarted: 'Aan de slag',
@@ -104,8 +108,8 @@ export const translations = {
     heroCta: 'Start gratis',
     heroCtaSecondary: 'Bekijk hoe het werkt',
 
-    // Social proof
-    socialProofTitle: 'Vertrouwd door teams die leveren',
+    // Trust
+    heroTrustLine: 'Gratis starten. Geen creditcard nodig.',
 
     // Features
     featuresLabel: 'Platform',
