@@ -8,197 +8,177 @@ import Footer from '../../components/Footer.astro';
 <BaseLayout title="Beveiliging — Nero" lang="nl">
   <Navbar lang="nl" />
   <main>
-    <!-- Page header -->
+    <!-- Header -->
     <section class="pt-36 pb-16 px-6">
       <div class="max-w-3xl mx-auto text-center">
         <span class="section-label mb-4">Beveiliging</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-text mt-4">
-          Gebouwd met <span class="text-gradient">beveiliging voorop</span>
+          Enterprise-grade <span class="text-gradient">beveiliging standaard</span>
         </h1>
         <p class="mt-5 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
-          Nero is van de grond af ontworpen om je data, inloggegevens en integraties te beschermen. Elke laag van de architectuur dwingt isolatie, encryptie en verificatie af.
+          Elke integratie is versleuteld, elk verzoek wordt geverifieerd en elke organisatie is volledig geisoleerd. Beveiliging is geen add-on — het is hoe Nero is gebouwd.
         </p>
       </div>
     </section>
 
     <!-- Security features grid -->
-    <section class="py-20 px-6" data-animate>
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-14">
-          <span class="section-label mb-4">Kernbescherming</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-text mt-4">
-            Zes lagen van <span class="text-gradient">bescherming</span>
-          </h2>
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card card-hover p-6" data-animate>
+          <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-text">Versleutelde Inloggegevens</h3>
+          <p class="mt-2 text-sm text-text-secondary leading-relaxed">
+            Alle API-sleutels en tokens zijn versleuteld in rust. Inloggegevens worden alleen in het geheugen ontsleuteld tijdens uitvoering — nooit in platte tekst opgeslagen, nooit gelogd.
+          </p>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Card 1: Versleutelde inloggegevens -->
-          <div class="card card-hover p-7" data-animate>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-text mb-2">Versleutelde Inloggegevens</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              Alle API-sleutels en tokens worden opgeslagen via Supabase Vault met PGP-encryptie. Er worden nooit onversleutelde secrets in de database bewaard.
-            </p>
-          </div>
 
-          <!-- Card 2: Row Level Security -->
-          <div class="card card-hover p-7" data-animate>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-text mb-2">Row Level Security</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              Elke databasetabel dwingt RLS-beleid af. Gebruikers hebben alleen toegang tot data van hun eigen organisatie — afgedwongen op databaseniveau, niet in de applicatie.
-            </p>
+        <div class="card card-hover p-6" data-animate style="transition-delay: 80ms">
+          <div class="w-12 h-12 rounded-xl bg-success/10 text-success flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
           </div>
+          <h3 class="text-lg font-bold text-text">Toegangscontrole op Databaseniveau</h3>
+          <p class="mt-2 text-sm text-text-secondary leading-relaxed">
+            Toegangscontrole wordt afgedwongen op databaseniveau, niet alleen in de applicatie. Gebruikers hebben alleen toegang tot data binnen hun eigen organisatie — zonder uitzonderingen.
+          </p>
+        </div>
 
-          <!-- Card 3: HMAC Webhook Validatie -->
-          <div class="card card-hover p-7" data-animate>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-text mb-2">HMAC Webhook-validatie</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              Inkomende webhooks van SendGrid en Twilio worden geverifieerd met HMAC-handtekeningvalidatie, zodat alleen authentieke payloads worden verwerkt.
-            </p>
+        <div class="card card-hover p-6" data-animate style="transition-delay: 160ms">
+          <div class="w-12 h-12 rounded-xl bg-warning/10 text-warning flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+            </svg>
           </div>
+          <h3 class="text-lg font-bold text-text">Webhook-handtekeningverificatie</h3>
+          <p class="mt-2 text-sm text-text-secondary leading-relaxed">
+            Elke inkomende webhook wordt cryptografisch geverifieerd voor verwerking. Verzoeken die de handtekeningvalidatie niet doorstaan worden afgewezen — er wordt geen data geschreven.
+          </p>
+        </div>
 
-          <!-- Card 4: Slack Handtekening Verificatie -->
-          <div class="card card-hover p-7" data-animate>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-text mb-2">Slack-verzoekondertekening</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              Elk Slack-verzoek wordt gevalideerd tegen het signing secret met tijdstempelcontroles, ter voorkoming van replay-aanvallen en vervalste verzoeken.
-            </p>
+        <div class="card card-hover p-6" data-animate style="transition-delay: 240ms">
+          <div class="w-12 h-12 rounded-xl bg-info/10 text-info flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+            </svg>
           </div>
+          <h3 class="text-lg font-bold text-text">Replay-aanvalbeveiliging</h3>
+          <p class="mt-2 text-sm text-text-secondary leading-relaxed">
+            Tijdstempelvalidatie op alle integratieverzoeken voorkomt replay-aanvallen. Verzoeken buiten het tolerantievenster worden automatisch afgewezen.
+          </p>
+        </div>
 
-          <!-- Card 5: Token Authenticatie -->
-          <div class="card card-hover p-7" data-animate>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-text mb-2">Inkomende E-mail Auth</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              Inkomende e-mail webhooks zijn beveiligd met unieke token-gebaseerde authenticatie, zodat alleen geverifieerde e-mailproviders berichten aan Nero kunnen afleveren.
-            </p>
+        <div class="card card-hover p-6" data-animate style="transition-delay: 320ms">
+          <div class="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
+            </svg>
           </div>
+          <h3 class="text-lg font-bold text-text">Organisatie-isolatie</h3>
+          <p class="mt-2 text-sm text-text-secondary leading-relaxed">
+            De data van elke organisatie is volledig geisoleerd. Inloggegevens, contacten, berichten en kennis zijn afgebakend — cross-organisatie toegang is onmogelijk.
+          </p>
+        </div>
 
-          <!-- Card 6: Data Isolatie -->
-          <div class="card card-hover p-7" data-animate>
-            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-text mb-2">Organisatie-isolatie</h3>
-            <p class="text-text-secondary text-sm leading-relaxed">
-              Volledige data-isolatie tussen organisaties. Elke query is beperkt tot de organisatie van de ingelogde gebruiker — er is geen cross-tenant datalekkage mogelijk.
-            </p>
+        <div class="card card-hover p-6" data-animate style="transition-delay: 400ms">
+          <div class="w-12 h-12 rounded-xl bg-error/10 text-error flex items-center justify-center mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+            </svg>
           </div>
+          <h3 class="text-lg font-bold text-text">Token-geauthenticeerde Inkomend</h3>
+          <p class="mt-2 text-sm text-text-secondary leading-relaxed">
+            Inkomende e-mail- en berichtenwebhooks vereisen een uniek authenticatietoken per organisatie. Ongeautoriseerde verzoeken worden afgewezen voor verwerking plaatsvindt.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Architecture section -->
-    <section class="py-20 px-6 bg-gradient-mesh" data-animate>
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-14">
-          <span class="section-label mb-4">Architectuur</span>
+    <!-- How it works -->
+    <section class="py-20 px-6 bg-surface-alt/50">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-14" data-animate>
+          <span class="section-label mb-4">Hoe het werkt</span>
           <h2 class="text-3xl md:text-4xl font-bold text-text mt-4">
-            Hoe integraties worden <span class="text-gradient">beveiligd</span>
+            Beveiliging bij <span class="text-gradient">elke stap</span>
           </h2>
         </div>
-        <div class="grid md:grid-cols-2 gap-10">
-          <div class="card p-8" data-animate>
-            <h3 class="text-xl font-semibold text-text mb-4">Edge Functions met Auth</h3>
-            <p class="text-text-secondary leading-relaxed mb-4">
-              Alle Nero-integraties draaien als Supabase Edge Functions. Elke functie verifieert de identiteit van de aanvrager via Supabase Auth voordat er logica wordt uitgevoerd.
-            </p>
-            <ul class="space-y-3 text-text-secondary text-sm">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                JWT-validatie bij elk verzoek
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                Service role keys beperkt tot server-side
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                Afgebakende rechten per functie
-              </li>
-            </ul>
+
+        <div class="space-y-6">
+          <div class="card p-6" data-animate>
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="text-sm font-bold">1</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-text">Verbind met vertrouwen</h3>
+                <p class="mt-1 text-sm text-text-secondary">Wanneer je een integratie koppelt, worden je inloggegevens direct versleuteld en veilig opgeslagen. Ze zijn daarna nooit meer zichtbaar — zelfs niet voor jou.</p>
+              </div>
+            </div>
           </div>
-          <div class="card p-8" data-animate>
-            <h3 class="text-xl font-semibold text-text mb-4">Levenscyclus van Inloggegevens</h3>
-            <p class="text-text-secondary leading-relaxed mb-4">
-              Secrets volgen een strikte levenscyclus: versleuteld in rust via Supabase Vault met PGP, alleen ontsleuteld tijdens uitvoering in Edge Functions, en nooit gelogd of blootgesteld.
-            </p>
-            <ul class="space-y-3 text-text-secondary text-sm">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                PGP-encryptie in rust via Vault
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                Alleen in geheugen ontsleuteld tijdens uitvoering
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                Nul onversleutelde secrets in de database
-              </li>
-            </ul>
+
+          <div class="card p-6" data-animate style="transition-delay: 100ms">
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="text-sm font-bold">2</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-text">Geverifieerd bij elk toegangspunt</h3>
+                <p class="mt-1 text-sm text-text-secondary">Elk inkomend bericht — of het nu e-mail, WhatsApp, SMS of Slack is — wordt cryptografisch geverifieerd voordat het Nero binnenkomt. Vervalste of gemanipuleerde verzoeken worden geblokkeerd.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card p-6" data-animate style="transition-delay: 200ms">
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="text-sm font-bold">3</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-text">Geisoleerd by design</h3>
+                <p class="mt-1 text-sm text-text-secondary">Je data vermengt nooit met andere organisaties. Toegangscontrole wordt afgedwongen op infrastructuurniveau — niet alleen in code, maar in hoe data wordt opgeslagen en opgevraagd.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card p-6" data-animate style="transition-delay: 300ms">
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="text-sm font-bold">4</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-text">Geauthenticeerd bij elk verzoek</h3>
+                <p class="mt-1 text-sm text-text-secondary">Elke API-aanroep wordt geauthenticeerd en geautoriseerd tegen de identiteit en organisatie van de gebruiker. Geen anonieme toegang, geen gedeelde tokens, geen shortcuts.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Trust bar -->
-    <section class="py-16 px-6" data-animate>
+    <section class="py-16 px-6 border-t border-border-subtle">
       <div class="max-w-4xl mx-auto">
-        <div class="card p-10 text-center">
-          <h3 class="text-2xl font-bold text-text mb-4">Onze beveiligingsbelofte</h3>
-          <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed mb-8">
-            Beveiliging is geen functie die we er achteraf aan hebben geplakt — het zit verweven in elke laag van Nero's architectuur. Van versleutelde inloggegevens tot verificatie op verzoekniveau, je data blijft beschermd.
-          </p>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-              </div>
-              <span class="text-sm font-medium text-text">Versleuteld in rust</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-              </div>
-              <span class="text-sm font-medium text-text">Geverifieerde webhooks</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-              </div>
-              <span class="text-sm font-medium text-text">RLS afgedwongen</span>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-              </div>
-              <span class="text-sm font-medium text-text">Tenant-geisoleerd</span>
-            </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-animate>
+          <div>
+            <div class="text-2xl font-extrabold text-gradient">Versleuteld</div>
+            <div class="mt-1 text-xs text-text-tertiary">Inloggegevens in rust</div>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-gradient">Geverifieerd</div>
+            <div class="mt-1 text-xs text-text-tertiary">Elke webhook</div>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-gradient">Geisoleerd</div>
+            <div class="mt-1 text-xs text-text-tertiary">Per organisatie</div>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-gradient">Nul</div>
+            <div class="mt-1 text-xs text-text-tertiary">Onversleutelde secrets</div>
           </div>
         </div>
       </div>

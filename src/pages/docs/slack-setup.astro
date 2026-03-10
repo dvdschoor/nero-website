@@ -32,7 +32,7 @@ import { docsSidebar } from '../../data/docs-sidebar';
   <ol>
     <li>A customer sends a message in a monitored Slack channel</li>
     <li>Slack sends an event to the Nero webhook</li>
-    <li>Nero validates the signature (HMAC-SHA256), checks if the channel is monitored, and filters out bot messages and internal team members</li>
+    <li>Nero validates the request signature, checks if the channel is monitored, and filters out bot messages and internal team members</li>
     <li>The sender is matched to a Nero contact (or auto-created)</li>
     <li>The message enters the <strong>debounce queue</strong> (30 seconds)</li>
     <li>After the quiet period, all messages from the same person are bundled into one task with AI classification</li>
@@ -191,8 +191,8 @@ import { docsSidebar } from '../../data/docs-sidebar';
 
   <h2 data-animate>Security</h2>
   <ul>
-    <li><strong>Signature validation</strong> &mdash; Every incoming Slack event is verified with HMAC-SHA256 using your Signing Secret. Requests older than 5 minutes are rejected (replay protection).</li>
-    <li><strong>Encrypted credentials</strong> &mdash; Bot Token and Signing Secret are encrypted with PGP before storage. Only server-side functions can decrypt them.</li>
+    <li><strong>Signature validation</strong> &mdash; Every incoming Slack event is cryptographically verified using your Signing Secret. Requests older than 5 minutes are rejected (replay protection).</li>
+    <li><strong>Encrypted credentials</strong> &mdash; Bot Token and Signing Secret are encrypted before storage. Only server-side functions can decrypt them at runtime.</li>
     <li><strong>Retry protection</strong> &mdash; Slack resends events if it doesn't get a 200 response. Nero detects retries via the <code>X-Slack-Retry-Num</code> header and responds immediately to prevent duplicates.</li>
   </ul>
 

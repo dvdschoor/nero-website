@@ -118,9 +118,9 @@ import { docsSidebar } from '../../data/docs-sidebar';
 
   <h2 data-animate>Security</h2>
   <ul>
-    <li><strong>Encrypted credentials</strong> &mdash; All API keys and tokens are encrypted with PGP before storage. Only server-side functions can decrypt them.</li>
-    <li><strong>Two-table separation</strong> &mdash; Credentials are stored in a separate, locked-down table. Even if the app's database access were compromised, credentials remain inaccessible.</li>
-    <li><strong>Signature validation</strong> &mdash; Every incoming webhook is verified (HMAC-SHA256 for Slack, HMAC-SHA1 for Twilio) to prevent spoofing.</li>
+    <li><strong>Encrypted credentials</strong> &mdash; All API keys and tokens are encrypted before storage. Only server-side functions can decrypt them at runtime.</li>
+    <li><strong>Isolated storage</strong> &mdash; Credentials are stored in a separate, locked-down layer. Even if the app's database access were compromised, credentials remain inaccessible.</li>
+    <li><strong>Signature validation</strong> &mdash; Every incoming webhook is cryptographically verified to prevent spoofing.</li>
     <li><strong>Per-workspace isolation</strong> &mdash; Each workspace has its own credentials and configuration. One workspace cannot access another's data.</li>
   </ul>
 
