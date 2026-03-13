@@ -1,0 +1,78 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Dashboard"
+  description="Je persoonlijke command center. Zie in één oogopslag wat er vandaag speelt, van urgente taken tot pipeline-waarde, met een dagelijkse AI-briefing."
+  sidebar={docsSidebar}
+  currentPath="/docs/dashboard"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Dashboard</span>
+    <h1 class="mt-4">Dashboard</h1>
+    <p class="text-lg !text-text-secondary">
+      Je persoonlijke command center. Zie in één oogopslag wat er vandaag speelt, van urgente taken tot pipeline-waarde, met een dagelijkse AI-briefing.
+    </p>
+  </div>
+
+  <h2 data-animate>Persoonlijke begroeting</h2>
+  <p>Het dashboard opent met een tijdgebonden begroeting ("Goedemorgen, Dylan") en een samenvatting van wat je aandacht nodig heeft: urgente items, openstaande goedkeuringen, lopende taken en deals die binnenkort sluiten.</p>
+
+  <h2 data-animate>AI Dagbriefing</h2>
+  <p>Nero genereert elke dag een AI-samenvatting van je belangrijkste zaken:</p>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Onderdeel</th>
+          <th>Wat je ziet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Focuspunten</strong></td>
+          <td>Items die vandaag prioriteit hebben</td>
+        </tr>
+        <tr>
+          <td><strong>Team werkbelasting</strong></td>
+          <td>Takenverdeling per teamlid en achterstallige items</td>
+        </tr>
+        <tr>
+          <td><strong>Aanbevelingen</strong></td>
+          <td>Concrete suggesties om je dag effectiever in te richten</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>De briefing is opvouwbaar op mobiel en kan op elk moment handmatig ververst worden.</p>
+
+  <h2 data-animate>Kerncijfers</h2>
+  <p>Vier statistiekkaarten geven je direct inzicht:</p>
+  <ul>
+    <li><strong>MRR</strong>: Maandelijks terugkerend inkomen</li>
+    <li><strong>Pipeline-waarde</strong>: Totale waarde van open deals</li>
+    <li><strong>In uitvoering</strong>: Aantal taken in bewerking</li>
+    <li><strong>Achterstallig</strong>: Items voorbij de deadline (pulserend als er actie nodig is)</li>
+  </ul>
+  <p>Elke kaart is klikbaar en brengt je direct naar het bijbehorende scherm.</p>
+
+  <h2 data-animate>Aandachtswachtrij</h2>
+  <p>Onder de kerncijfers toont Nero een lijst met items die nu actie vereisen:</p>
+  <ul>
+    <li>Urgente of verlopen taken met deadlines</li>
+    <li>Deals die binnenkort sluiten</li>
+    <li>Orders die wachten op goedkeuring</li>
+  </ul>
+  <p>Klik op een item om direct het detail te openen.</p>
+
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-end">
+    <a href="/docs/inbox" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      Next: Inbox
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </a>
+  </div>
+</DocsLayout>

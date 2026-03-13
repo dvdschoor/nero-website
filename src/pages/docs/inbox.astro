@@ -1,0 +1,118 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Inbox"
+  description="Al je inkomende berichten op één plek. Nero triageert automatisch emails en berichten, zodat jij alleen hoeft te beslissen wat ermee moet gebeuren."
+  sidebar={docsSidebar}
+  currentPath="/docs/inbox"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Inbox</span>
+    <h1 class="mt-4">Inbox</h1>
+    <p class="text-lg !text-text-secondary">
+      Al je inkomende berichten op één plek. Nero triageert automatisch emails en berichten, zodat jij alleen hoeft te beslissen wat ermee moet gebeuren.
+    </p>
+  </div>
+
+  <h2 data-animate>Wat is de Inbox?</h2>
+  <p>De inbox verzamelt alle inkomende communicatie: emails, Slack berichten en andere kanalen. Nero presenteert ze als taken die wachten op actie.</p>
+
+  <h2 data-animate>Overzicht</h2>
+  <p>Het inbox-scherm heeft twee tabs:</p>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Tab</th>
+          <th>Wat je ziet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Inkomend</strong></td>
+          <td>Nieuwe berichten die aandacht nodig hebben</td>
+        </tr>
+        <tr>
+          <td><strong>Gearchiveerd</strong></td>
+          <td>Afgehandelde items</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Per item zie je:</p>
+  <ul>
+    <li><strong>Urgentie-indicator</strong> met kleurcode</li>
+    <li><strong>Afzender</strong> en bedrijf</li>
+    <li><strong>Tijdstempel</strong> ("2 uur geleden")</li>
+    <li><strong>Berichtvoorbeeld</strong> met gespreksweergave</li>
+    <li><strong>AI-analyse</strong> en triageerstatus</li>
+    <li><strong>Waarschuwing</strong> bij onbekende contacten</li>
+  </ul>
+
+  <h2 data-animate>Berichten importeren</h2>
+  <p>Je kunt berichten op meerdere manieren in Nero krijgen:</p>
+  <ul>
+    <li><strong>Automatisch</strong> via de email of Slack-integratie</li>
+    <li><strong>Drag &amp; drop</strong>: sleep .eml bestanden in de inbox</li>
+    <li><strong>Uploaden</strong>: selecteer emailbestanden via de bestandskiezer</li>
+    <li><strong>Plakken</strong>: plak een bericht en laat Nero het triageren</li>
+  </ul>
+
+  <h2 data-animate>Acties</h2>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Actie</th>
+          <th>Hoe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Bekijken</strong></td>
+          <td>Klik om het volledige detail te openen</td>
+        </tr>
+        <tr>
+          <td><strong>Archiveren</strong></td>
+          <td>Swipe of klik om af te handelen</td>
+        </tr>
+        <tr>
+          <td><strong>Toewijzen</strong></td>
+          <td>Swipe om aan een teamlid toe te wijzen</td>
+        </tr>
+        <tr>
+          <td><strong>Verwijderen</strong></td>
+          <td>Swipe met bevestiging</td>
+        </tr>
+        <tr>
+          <td><strong>Nieuwe taak</strong></td>
+          <td>Maak handmatig een taak aan via de actieknop</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-animate>AI Triage</h2>
+  <p>Elk binnenkomend bericht wordt automatisch door Nero geanalyseerd:</p>
+  <ul>
+    <li><strong>Type</strong> wordt bepaald (support, sales, order, etc.)</li>
+    <li><strong>Urgentie</strong> wordt ingeschat</li>
+    <li><strong>Contact</strong> wordt automatisch gekoppeld</li>
+    <li><strong>Workflow</strong> wordt voorgesteld met concrete subtaken</li>
+    <li><strong>Concept-antwoord</strong> wordt opgesteld</li>
+  </ul>
+  <p>Bekijk de AI-analyse in het taakdetail en voer de voorgestelde workflow uit met één klik, of pas aan waar nodig.</p>
+
+  <div class="mt-12 pt-6 border-t border-border-subtle flex justify-end">
+    <a href="/docs/dashboard" class="text-sm font-medium text-primary hover:text-primary-700 transition flex items-center gap-1">
+      Next: Dashboard
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </a>
+  </div>
+</DocsLayout>

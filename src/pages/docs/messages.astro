@@ -1,0 +1,98 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Berichten"
+  description="Voer gesprekken met contacten via email en WhatsApp, rechtstreeks vanuit Nero. Alle communicatie op één plek."
+  sidebar={docsSidebar}
+  currentPath="/docs/messages"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Berichten</span>
+    <h1 class="mt-4">Berichten</h1>
+    <p class="text-lg !text-text-secondary">
+      Voer gesprekken met contacten via email en WhatsApp, rechtstreeks vanuit Nero. Alle communicatie op één plek, gekoppeld aan het juiste contact.
+    </p>
+  </div>
+
+  <h2 data-animate>Wat zijn Berichten?</h2>
+  <p>Het berichtenscherm is je communicatiecentrum. Hier voer je gesprekken met contacten via meerdere kanalen, zonder Nero te verlaten.</p>
+
+  <h2 data-animate>Ondersteunde kanalen</h2>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Kanaal</th>
+          <th>Beschikbaar wanneer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Email</strong></td>
+          <td>Altijd, via de email-integratie</td>
+        </tr>
+        <tr>
+          <td><strong>WhatsApp</strong></td>
+          <td>Wanneer het contact een telefoonnummer heeft</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-animate>Overzicht</h2>
+
+  <h3>Op desktop</h3>
+  <p>Een split-scherm zoals een email-client:</p>
+  <ul>
+    <li><strong>Links:</strong> Lijst van gesprekken met zoekbalk en tabs (Actief / Gearchiveerd)</li>
+    <li><strong>Rechts:</strong> Het geselecteerde gesprek met volledige berichtengeschiedenis</li>
+  </ul>
+
+  <h3>Op mobiel</h3>
+  <ul>
+    <li>Volledige gesprekkenlijst met tabs</li>
+    <li>Klik op een gesprek om het te openen</li>
+  </ul>
+
+  <h2 data-animate>Gesprek starten</h2>
+  <p>Start een nieuw gesprek via de actieknop:</p>
+  <ol>
+    <li>Selecteer een contact</li>
+    <li>Kies het kanaal (email of WhatsApp)</li>
+    <li>Schrijf je bericht</li>
+  </ol>
+  <p>Nero koppelt het gesprek automatisch aan het juiste contact in je CRM.</p>
+
+  <h2 data-animate>Gesprekken beheren</h2>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Actie</th>
+          <th>Beschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Zoeken</strong></td>
+          <td>Filter gesprekken op naam of inhoud</td>
+        </tr>
+        <tr>
+          <td><strong>Archiveren</strong></td>
+          <td>Verplaats afgehandelde gesprekken naar archief</td>
+        </tr>
+        <tr>
+          <td><strong>Verwijderen</strong></td>
+          <td>Verwijder een gesprek permanent (met bevestiging)</td>
+        </tr>
+        <tr>
+          <td><strong>Kanaal wisselen</strong></td>
+          <td>Schakel tussen email en WhatsApp voor hetzelfde contact</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocsLayout>

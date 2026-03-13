@@ -1,0 +1,100 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Sprint Planning"
+  description="Plan, organiseer en volg je sprints in een visueel bord. Sleep taken tussen sprints en bekijk voortgang per sprint."
+  sidebar={docsSidebar}
+  currentPath="/docs/sprint-planning"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Sprint Planning</span>
+    <h1 class="mt-4">Sprint Planning</h1>
+    <p class="text-lg !text-text-secondary">
+      Plan, organiseer en volg je sprints in een visueel bord. Sleep taken tussen sprints, bekijk voortgang per sprint, en bekijk een historisch overzicht van afgeronde taken.
+    </p>
+  </div>
+
+  <h2 data-animate>Wat is Sprint Planning?</h2>
+  <p>Sprint Planning is waar je development-taken organiseert in sprints. Je ziet in één oogopslag welke taken in welke sprint zitten, wat de status is, en hoeveel tijd er nog rest.</p>
+
+  <h2 data-animate>Twee weergaven</h2>
+  <p>Het sprint-scherm heeft twee hoofdmodi:</p>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Modus</th>
+          <th>Wat je ziet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Planning</strong></td>
+          <td>Actieve sprints en backlog met drag &amp; drop taakbeheer</td>
+        </tr>
+        <tr>
+          <td><strong>Afgerond</strong></td>
+          <td>Historisch overzicht van alle voltooide sprint-taken</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Wissel tussen de modi via de toggle-knop in de header.</p>
+
+  <h2 data-animate>Planning-modus</h2>
+
+  <h3>Board-weergave (Kanban)</h3>
+  <p>Taken worden getoond in verticale kolommen per sprint:</p>
+  <ul>
+    <li>Elke actieve sprint krijgt een eigen kolom met header</li>
+    <li>Onderaan staat altijd de <strong>Backlog:</strong> taken die nog niet aan een sprint zijn toegewezen</li>
+    <li>Alleen development-taken verschijnen hier</li>
+  </ul>
+
+  <p><strong>Per sprint-kolom zie je:</strong></p>
+  <ul>
+    <li>Sprintnaam en statusbadge (planning, actief, afgerond, geannuleerd)</li>
+    <li>Resterende tijd: "5 dagen over", "Laatste dag", of "Verlopen"</li>
+    <li>Voortgangsoverzicht (aantal taken voltooid / totaal)</li>
+    <li>Bewerken-knop voor sprintdetails</li>
+  </ul>
+
+  <h3>Lijst-weergave</h3>
+  <p>Dezelfde informatie, maar dan in tabelvorm. Op mobiel wordt automatisch de lijstweergave getoond.</p>
+
+  <h3>Acties in planning</h3>
+  <ul>
+    <li><strong>Drag &amp; drop</strong> taken tussen sprints en backlog</li>
+    <li><strong>Herorden</strong> taken binnen een sprint</li>
+    <li><strong>Herorden</strong> sprints zelf (sleep de headers)</li>
+    <li><strong>Taak toevoegen</strong> via de knop onderaan elke kolom</li>
+    <li><strong>AI-suggesties:</strong> laat Nero taken voorstellen voor een sprint</li>
+    <li><strong>Nieuwe sprint</strong> aanmaken via de floating action button</li>
+    <li><strong>Sprint bewerken:</strong> status, datums en naam aanpassen</li>
+  </ul>
+
+  <h3>Filters</h3>
+  <p>Filter taken op:</p>
+  <ul>
+    <li>Status (niet gestart, bezig, afgerond)</li>
+    <li>Urgentie (urgent, hoog, gemiddeld, laag)</li>
+    <li>Eigenaar/toegewezen persoon</li>
+  </ul>
+
+  <h2 data-animate>Afgerond-modus</h2>
+  <p>Een chronologisch overzicht van alle voltooide sprint-taken:</p>
+  <ul>
+    <li><strong>Gepagineerd</strong> met infinite scroll, laadt meer taken bij het scrollen</li>
+    <li><strong>Eigenaar-filter</strong> bovenaan om te filteren per teamlid</li>
+    <li>Per taak zie je: titel, wanneer afgerond, sprint, klant en eigenaar</li>
+    <li><strong>Heropenen:</strong> swipe of klik om een taak terug te zetten naar actief</li>
+  </ul>
+
+  <h2 data-animate>Realtime updates</h2>
+  <p>Alle data wordt realtime gesynchroniseerd. Als een teamgenoot een taak verplaatst of afrondt, zie je de wijziging direct, zonder de pagina te verversen.</p>
+</DocsLayout>

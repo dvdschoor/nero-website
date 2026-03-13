@@ -1,0 +1,80 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Sales Pipeline"
+  description="Beheer je verkoopproces visueel. Sleep deals door je pipeline, zie je forecast in één oogopslag."
+  sidebar={docsSidebar}
+  currentPath="/docs/deals"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Sales Pipeline</span>
+    <h1 class="mt-4">Sales Pipeline</h1>
+    <p class="text-lg !text-text-secondary">
+      Beheer je verkoopproces visueel. Sleep deals door je pipeline, zie je forecast in één oogopslag en houd grip op elke verkoopkans.
+    </p>
+  </div>
+
+  <h2 data-animate>Pipeline-overzicht</h2>
+  <p>De sales pipeline toont al je deals in een Kanban-bord, georganiseerd per fase (bijv. Prospect, Offerte, Onderhandeling, Gewonnen, Verloren).</p>
+
+  <h3>Wat je bovenaan ziet</h3>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Betekenis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Pipeline-waarde</strong></td>
+          <td>Totale waarde van alle open deals</td>
+        </tr>
+        <tr>
+          <td><strong>Gewogen forecast</strong></td>
+          <td>Dealwaarde x winkans per fase</td>
+        </tr>
+        <tr>
+          <td><strong>Open deals</strong></td>
+          <td>Aantal actieve verkoopkansen</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Per fase zie je</h3>
+  <ul>
+    <li>Winkans-percentage</li>
+    <li>Aantal deals in die fase</li>
+    <li>Totale waarde per fase</li>
+  </ul>
+
+  <h2 data-animate>Deals beheren</h2>
+  <p><strong>Drag &amp; drop:</strong> Sleep deals tussen fases om ze door je verkoopproces te bewegen.</p>
+  <p><strong>Lijst-weergave:</strong> Schakel over naar een tabelweergave op mobiel of wanneer je de voorkeur geeft aan een lijst.</p>
+  <p><strong>Filters:</strong> Toon of verberg afgeronde deals (gewonnen/verloren).</p>
+
+  <h2 data-animate>Dealdetail</h2>
+  <p>Klik op een deal om het volledige overzicht te zien:</p>
+  <ul>
+    <li><strong>Dealnaam en bedrag</strong></li>
+    <li><strong>Huidige fase</strong> in de pipeline</li>
+    <li><strong>Gekoppelde contacten en bedrijven</strong></li>
+    <li><strong>Activiteitentijdlijn</strong></li>
+  </ul>
+
+  <h3>Acties</h3>
+  <ul>
+    <li>Deal naar een andere fase verplaatsen</li>
+    <li>Markeren als gewonnen of verloren</li>
+    <li>Deal bewerken of archiveren</li>
+    <li>Deal verwijderen (met bevestiging)</li>
+  </ul>
+
+  <h2 data-animate>Aanpasbare pipeline</h2>
+  <p>Configureer je pipeline naar jouw verkoopproces: voeg fases toe, pas de volgorde aan en stel winkansen in per fase.</p>
+</DocsLayout>

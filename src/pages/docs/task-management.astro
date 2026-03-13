@@ -1,0 +1,182 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Task Management"
+  description="Beheer al je taken vanuit één overzicht. Nero triageert, organiseert en koppelt automatisch de juiste vervolgacties."
+  sidebar={docsSidebar}
+  currentPath="/docs/task-management"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Task Management</span>
+    <h1 class="mt-4">Task Management</h1>
+    <p class="text-lg !text-text-secondary">
+      Beheer al je taken vanuit één overzicht. Van inkomende klantvragen tot interne projecten, Nero triageert, organiseert en koppelt automatisch de juiste vervolgacties.
+    </p>
+  </div>
+
+  <h2 data-animate>Wat is Task Management?</h2>
+  <p>Tasks zijn het hart van Nero. Alles wat gedaan moet worden (klantvragen, orders, deals, development) wordt een task. Nero ondersteunt vijf taaktypes:</p>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Gebruik</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Support</strong></td>
+          <td>Klantvragen en tickets</td>
+        </tr>
+        <tr>
+          <td><strong>Project</strong></td>
+          <td>Interne projecttaken</td>
+        </tr>
+        <tr>
+          <td><strong>Order</strong></td>
+          <td>Inkooporders en bestellingen</td>
+        </tr>
+        <tr>
+          <td><strong>Dev</strong></td>
+          <td>Development en technische taken</td>
+        </tr>
+        <tr>
+          <td><strong>Sales</strong></td>
+          <td>Verkoopkansen en deals</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-animate>Taak-overzicht</h2>
+  <p>Het overzichtsscherm heeft drie weergaven:</p>
+
+  <h3>Standup (standaard)</h3>
+  <p>Taken gegroepeerd op urgentie in tijd:</p>
+  <ul>
+    <li><strong>Verlopen:</strong> taken voorbij de deadline (met waarschuwingsicoon)</li>
+    <li><strong>Vandaag:</strong> taken die vandaag af moeten</li>
+    <li><strong>Deze week:</strong> taken voor deze week</li>
+    <li><strong>Later:</strong> taken met een deadline verder weg</li>
+    <li><strong>Vandaag afgerond:</strong> wat je team vandaag heeft voltooid</li>
+  </ul>
+
+  <h3>Lijst</h3>
+  <p>Klassieke takenlijst met sortering en groepering op:</p>
+  <ul>
+    <li>Status (niet gestart, bezig, afgerond)</li>
+    <li>Type (support, order, dev, etc.)</li>
+    <li>Urgentie (urgent, hoog, gemiddeld, laag)</li>
+  </ul>
+
+  <h3>Afgerond</h3>
+  <p>Historisch overzicht van voltooide taken met eigenaar-filter en de mogelijkheid om taken te heropenen.</p>
+
+  <div class="card p-5 mb-6 border-l-3 border-l-primary-300">
+    <p class="text-sm font-semibold text-text mb-2">In alle weergaven</p>
+    <ul class="text-sm !text-text-secondary !mb-0">
+      <li>Bulk-selectie voor meerdere taken tegelijk</li>
+      <li>Pull-to-refresh op mobiel</li>
+      <li>Infinite scroll voor grote lijsten</li>
+    </ul>
+  </div>
+
+  <h2 data-animate>Taakdetail</h2>
+  <p>Klik op een taak om het volledige detail te zien. Wat je ziet hangt af van het type taak:</p>
+
+  <h3>Reguliere taken</h3>
+  <ul>
+    <li><strong>Titel</strong> met bewerkknop</li>
+    <li><strong>Metadata-balk:</strong> status, urgentie en deadline, allemaal direct aanpasbaar</li>
+    <li><strong>Beschrijving</strong> in markdown met link-ondersteuning</li>
+    <li><strong>Labels</strong> voor categorisatie</li>
+    <li><strong>Subtaken:</strong> uitklapbare lijst met voortgangsindicatoren</li>
+    <li><strong>Bestanden</strong> met previews</li>
+    <li><strong>Gerelateerde kennisartikelen</strong></li>
+    <li><strong>Details-paneel:</strong> klant, bron, deadline, tijdregistratie, eigenaar</li>
+    <li><strong>Gekoppelde order of deal</strong> (indien van toepassing)</li>
+    <li><strong>Activiteitenfeed</strong> met opmerkingen en geschiedenis</li>
+  </ul>
+
+  <h3>Inbox-taken (nieuw binnengekomen)</h3>
+  <p>Taken die via email, Slack of een ander kanaal binnenkomen, krijgen een speciale inbox-weergave:</p>
+  <ul>
+    <li><strong>Contextbalk:</strong> type, urgentie, kanaal en afzender in één regel</li>
+    <li><strong>Oorspronkelijk bericht</strong> van de klant</li>
+    <li><strong>AI Triage-analyse</strong> met:
+      <ul>
+        <li>Betrouwbaarheidsscore</li>
+        <li>Voorgestelde workflow met subtaken</li>
+        <li>"Voer workflow uit" knop om alle suggesties in één klik aan te maken</li>
+        <li>"Bekijk &amp; pas aan" knop om suggesties te bewerken</li>
+        <li>Concept-antwoord dat je kunt kopiëren of aanpassen</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 data-animate>Subtaken &amp; gekoppelde entiteiten</h2>
+  <p>Subtaken zijn krachtig in Nero. Afhankelijk van het type subtaak dat je aanmaakt, creëert Nero automatisch de bijbehorende entiteit:</p>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Subtaak-type</th>
+          <th>Wat wordt aangemaakt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Order</strong></td>
+          <td>Een draft order met leverancier en artikelregels</td>
+        </tr>
+        <tr>
+          <td><strong>Sales</strong></td>
+          <td>Een deal in de eerste fase van je standaard pipeline</td>
+        </tr>
+        <tr>
+          <td><strong>Overig</strong></td>
+          <td>Alleen de subtaak zelf</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Order-subtaak aanmaken</h3>
+  <p>Bij het aanmaken van een order-subtaak kun je direct:</p>
+  <ul>
+    <li>Leveranciersnaam invullen</li>
+    <li>Artikelregels toevoegen (naam, aantal, stukprijs)</li>
+    <li>Het totaalbedrag zien</li>
+    <li>De order wordt automatisch als draft aangemaakt en gekoppeld</li>
+  </ul>
+
+  <h3>Sales-subtaak aanmaken</h3>
+  <p>Bij een sales-subtaak:</p>
+  <ul>
+    <li>Vul het dealbedrag in</li>
+    <li>De deal wordt automatisch aangemaakt in de eerste open fase van je standaard pipeline</li>
+    <li>De deal is direct zichtbaar in het taakdetail</li>
+  </ul>
+
+  <h2 data-animate>AI Triage</h2>
+  <p>Wanneer een nieuw bericht binnenkomt (via email, Slack, etc.), analyseert Nero het automatisch:</p>
+
+  <div class="card p-5 mb-6 border-l-3 border-l-primary-300">
+    <p class="text-sm font-semibold text-text mb-2">Wat de triage oplevert</p>
+    <ul class="text-sm !text-text-secondary !mb-0">
+      <li>Automatische classificatie (support, sales, order, etc.)</li>
+      <li>Urgentie-inschatting met betrouwbaarheidsscore</li>
+      <li>Voorgestelde eigenaar op basis van expertise en beschikbaarheid</li>
+      <li>Workflow met concrete subtaken die je in één klik kunt uitvoeren</li>
+      <li>Concept-antwoord gebaseerd op je kennisbank en procedures</li>
+    </ul>
+  </div>
+
+  <p>Je behoudt altijd controle: bekijk de suggesties, pas aan waar nodig, en voer uit wanneer je klaar bent.</p>
+</DocsLayout>

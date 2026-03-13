@@ -1,0 +1,74 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Orders"
+  description="Volg je inkooporders van concept tot levering. Beheer leveranciers, artikelen en statussen."
+  sidebar={docsSidebar}
+  currentPath="/docs/orders"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Orders</span>
+    <h1 class="mt-4">Orders</h1>
+    <p class="text-lg !text-text-secondary">
+      Volg je inkooporders van concept tot levering. Beheer leveranciers, artikelen en statussen in een overzichtelijke pipeline.
+    </p>
+  </div>
+
+  <h2 data-animate>Order-overzicht</h2>
+  <p>Het orderscherm toont al je orders in een statuslijst die je kunt filteren:</p>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Betekenis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Concept</strong></td>
+          <td>Order is aangemaakt maar nog niet goedgekeurd</td>
+        </tr>
+        <tr>
+          <td><strong>Goedgekeurd</strong></td>
+          <td>Order is goedgekeurd en klaar om te bestellen</td>
+        </tr>
+        <tr>
+          <td><strong>Besteld</strong></td>
+          <td>Order is geplaatst bij de leverancier</td>
+        </tr>
+        <tr>
+          <td><strong>Geleverd</strong></td>
+          <td>Order is ontvangen</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Filter op status om snel te vinden wat je zoekt. Toon of verberg afgeronde orders.</p>
+
+  <h2 data-animate>Orders beheren</h2>
+  <ul>
+    <li><strong>Swipe</strong> op een order om de status door te schuiven (Concept, Goedgekeurd, Besteld, Geleverd)</li>
+    <li><strong>Klik</strong> om het orderdetail te openen</li>
+    <li><strong>Nieuwe order</strong> aanmaken via de actieknop</li>
+  </ul>
+
+  <h2 data-animate>Orderdetail</h2>
+  <p>Elke order toont:</p>
+  <ul>
+    <li><strong>Leverancier</strong> en orderinformatie</li>
+    <li><strong>Artikelregels</strong> met naam, aantal en stukprijs</li>
+    <li><strong>Totaalbedrag</strong></li>
+    <li><strong>Status</strong> met de mogelijkheid om door te schuiven</li>
+    <li><strong>Gekoppelde taak</strong> (indien aangemaakt als subtaak)</li>
+    <li><strong>Gekoppeld contact en bedrijf</strong></li>
+  </ul>
+
+  <h2 data-animate>Automatisch aangemaakt vanuit taken</h2>
+  <p>Wanneer je een subtaak van het type "Order" aanmaakt, wordt automatisch een concept-order aangemaakt met de ingevulde leverancier en artikelen. De order en taak blijven aan elkaar gekoppeld.</p>
+</DocsLayout>

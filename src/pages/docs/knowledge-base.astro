@@ -1,0 +1,117 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Kennisbank"
+  description="Bouw je bedrijfskennis op in Nero. Artikelen en procedures vormen samen de basis waarmee Nero je klanten helpt."
+  sidebar={docsSidebar}
+  currentPath="/docs/knowledge-base"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Kennisbank</span>
+    <h1 class="mt-4">Kennisbank</h1>
+    <p class="text-lg !text-text-secondary">
+      Bouw je bedrijfskennis op in Nero. Artikelen en procedures vormen samen de basis waarmee Nero je klanten helpt, berichten personaliseert en taken triageert.
+    </p>
+  </div>
+
+  <h2 data-animate>Twee soorten kennis</h2>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Artikelen</th>
+          <th>Procedures</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Wat is het?</strong></td>
+          <td>Feiten, handleidingen en FAQ's</td>
+          <td>Werkwijzen en bedrijfsprocessen</td>
+        </tr>
+        <tr>
+          <td><strong>Voorbeeld</strong></td>
+          <td>"Ons retourbeleid is 30 dagen"</td>
+          <td>"Begroet de klant, vraag het ordernummer, stuur het retourlabel"</td>
+        </tr>
+        <tr>
+          <td><strong>Gebruikt voor</strong></td>
+          <td>Inhoudelijke antwoorden en personalisatie</td>
+          <td>Bepalen hoe Nero berichten afhandelt</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Schakel tussen artikelen en procedures via de tabs bovenaan.</p>
+
+  <h2 data-animate>Artikelen beheren</h2>
+
+  <h3>Overzicht</h3>
+  <ul>
+    <li><strong>Categorieën</strong> in een boomstructuur aan de linkerkant (desktop)</li>
+    <li><strong>Artikellijst</strong> met titel, status en categorie</li>
+    <li><strong>Aantal artikelen</strong> per categorie zichtbaar</li>
+  </ul>
+
+  <h3>Artikelen aanmaken</h3>
+  <ul>
+    <li>Schrijf direct in Nero of importeer bestaande content</li>
+    <li><strong>Drag &amp; drop</strong> markdown-bestanden (.md) om te importeren</li>
+    <li><strong>Bestandskiezer</strong> voor bulk-import</li>
+  </ul>
+
+  <h3>Per artikel</h3>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Veld</th>
+          <th>Beschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Titel</strong></td>
+          <td>Naam van het artikel</td>
+        </tr>
+        <tr>
+          <td><strong>Inhoud</strong></td>
+          <td>Geschreven in markdown</td>
+        </tr>
+        <tr>
+          <td><strong>Status</strong></td>
+          <td>Concept, Gepubliceerd of Gearchiveerd</td>
+        </tr>
+        <tr>
+          <td><strong>Categorie</strong></td>
+          <td>Waar het artikel thuishoort</td>
+        </tr>
+        <tr>
+          <td><strong>Zichtbaarheid</strong></td>
+          <td>Organisatiebreed of bedrijfsspecifiek</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Acties per artikel</h3>
+  <ul>
+    <li>Bewerken, publiceren of archiveren</li>
+    <li>Kopiëren naar klembord</li>
+    <li>Downloaden als markdown-bestand</li>
+    <li>Verwijderen</li>
+  </ul>
+
+  <h2 data-animate>Hoe Nero je kennis gebruikt</h2>
+  <p>Je kennisbank is niet alleen een archief. Nero gebruikt het actief:</p>
+  <ul>
+    <li><strong>AI Triage:</strong> Bij binnenkomende berichten zoekt Nero relevante artikelen op om context te bieden</li>
+    <li><strong>Campaigns:</strong> Gepersonaliseerde berichten worden verrijkt met bedrijfsspecifieke kennisartikelen</li>
+    <li><strong>Sequences:</strong> Geautomatiseerde emails bevatten inhoud uit je kennisbank</li>
+    <li><strong>Concept-antwoorden:</strong> Nero baseert voorgestelde antwoorden op je procedures en artikelen</li>
+  </ul>
+</DocsLayout>

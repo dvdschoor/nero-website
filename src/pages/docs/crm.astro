@@ -1,0 +1,83 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="CRM"
+  description="Beheer al je bedrijfsrelaties op één plek. Van bedrijven en contactpersonen tot projecten en meeting notes, alles gekoppeld en altijd up-to-date."
+  sidebar={docsSidebar}
+  currentPath="/docs/crm"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">CRM</span>
+    <h1 class="mt-4">CRM</h1>
+    <p class="text-lg !text-text-secondary">
+      Beheer al je bedrijfsrelaties op één plek. Van bedrijven en contactpersonen tot projecten en meeting notes, alles gekoppeld en altijd up-to-date.
+    </p>
+  </div>
+
+  <h2 data-animate>Overzicht</h2>
+  <p>Het CRM-scherm heeft twee tabs:</p>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Tab</th>
+          <th>Wat je ziet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Bedrijven</strong></td>
+          <td>Alle klanten en organisaties waar je mee werkt</td>
+        </tr>
+        <tr>
+          <td><strong>Contacten</strong></td>
+          <td>Alle individuele contactpersonen</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Voeg nieuwe bedrijven of contacten toe met de actieknop.</p>
+
+  <h2 data-animate>Bedrijfsdetail</h2>
+  <p>Klik op een bedrijf om het volledige profiel te zien:</p>
+  <ul>
+    <li><strong>Bedrijfsnaam</strong> met type-badge (klant, prospect, partner, etc.)</li>
+    <li><strong>Gekoppelde contactpersonen</strong> die bij dit bedrijf horen</li>
+    <li><strong>Projecten</strong> die voor dit bedrijf lopen</li>
+    <li><strong>Deals</strong> in de pipeline</li>
+    <li><strong>Taken</strong> en activiteiten</li>
+    <li><strong>Kennisartikelen</strong> gekoppeld aan dit bedrijf</li>
+    <li><strong>Activiteitentijdlijn</strong> met volledige geschiedenis</li>
+  </ul>
+  <p>Bewerk bedrijfsgegevens, kopieer informatie of verwijder het bedrijf via het actiemenu.</p>
+
+  <h2 data-animate>Contactdetail</h2>
+  <p>Elk contact toont een rijke profielpagina:</p>
+  <ul>
+    <li><strong>Avatar</strong> met initialen en kleur op basis van lifecycle stage</li>
+    <li><strong>Naam, functietitel en contactgegevens</strong></li>
+    <li><strong>Gekoppelde bedrijven</strong> waar dit contact werkt</li>
+    <li><strong>Projecten, deals en taken</strong> gerelateerd aan dit contact</li>
+    <li><strong>Berichtengeschiedenis:</strong> start direct een gesprek</li>
+    <li><strong>Activiteitentijdlijn</strong></li>
+  </ul>
+
+  <h2 data-animate>Projecten</h2>
+  <p>Projecten koppelen werk aan klanten en bieden een compleet overzicht:</p>
+  <ul>
+    <li><strong>Projectnaam, status en eigenaar</strong></li>
+    <li><strong>Beschrijving</strong> en start/einddatum</li>
+    <li><strong>AI-projectsamenvatting:</strong> Nero genereert automatisch een overzicht</li>
+    <li><strong>Meeting notes</strong> op een tijdlijn</li>
+    <li><strong>Actiepunten</strong> vanuit meetings</li>
+    <li><strong>Gekoppelde sprints</strong> voor development-werk</li>
+  </ul>
+
+  <h2 data-animate>Alles gekoppeld</h2>
+  <p>De kracht van het CRM zit in de koppelingen. Een bedrijf is verbonden met contacten, die verbonden zijn met deals, taken en gesprekken. Wijzig iets op één plek en het is overal zichtbaar.</p>
+</DocsLayout>

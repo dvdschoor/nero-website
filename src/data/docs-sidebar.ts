@@ -3,6 +3,26 @@ export const docsSidebar = [
     label: 'Getting Started',
     items: [
       { title: 'Overview', href: '/docs/overview' },
+      { title: 'Dashboard', href: '/docs/dashboard' },
+      { title: 'Inbox', href: '/docs/inbox' },
+    ],
+  },
+  {
+    label: 'Core Features',
+    items: [
+      { title: 'Task Management', href: '/docs/task-management' },
+      { title: 'Berichten', href: '/docs/messages' },
+      { title: 'CRM', href: '/docs/crm' },
+      { title: 'Kennisbank', href: '/docs/knowledge-base' },
+    ],
+  },
+  {
+    label: 'Sales & Orders',
+    items: [
+      { title: 'Sales Pipeline', href: '/docs/deals' },
+      { title: 'Orders', href: '/docs/orders' },
+      { title: 'Campaigns', href: '/docs/campaigns' },
+      { title: 'Sequences', href: '/docs/sequences' },
     ],
   },
   {
@@ -24,6 +44,12 @@ export const docsSidebar = [
     items: [
       { title: 'AI Procedures', href: '/docs/ai-procedures' },
       { title: 'Nero Bot Commands', href: '/docs/nero-bot' },
+    ],
+  },
+  {
+    label: 'Development',
+    items: [
+      { title: 'Sprint Planning', href: '/docs/sprint-planning' },
     ],
   },
   {

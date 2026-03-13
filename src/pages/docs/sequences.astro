@@ -1,0 +1,85 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Sequences"
+  description="Automatiseer je outreach met stapsgewijze workflows. Stel een reeks berichten in, schrijf contacten in en laat Nero de rest doen."
+  sidebar={docsSidebar}
+  currentPath="/docs/sequences"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Sequences</span>
+    <h1 class="mt-4">Sequences</h1>
+    <p class="text-lg !text-text-secondary">
+      Automatiseer je outreach met stapsgewijze workflows. Stel een reeks berichten in, schrijf contacten in en laat Nero de rest doen.
+    </p>
+  </div>
+
+  <h2 data-animate>Wat zijn Sequences?</h2>
+  <p>Een sequence is een geautomatiseerde reeks stappen (meestal emails) die Nero uitvoert voor ingeschreven contacten. Denk aan follow-up flows, onboarding-reeksen of nurture-campagnes.</p>
+
+  <h2 data-animate>Hoe werkt het?</h2>
+  <ol>
+    <li><strong>Sequence aanmaken:</strong> Geef een naam en beschrijving</li>
+    <li><strong>Stappen toevoegen:</strong> Definieer de berichten en timing</li>
+    <li><strong>Contacten inschrijven:</strong> Selecteer wie de sequence doorloopt</li>
+    <li><strong>Activeren:</strong> Nero voert de stappen automatisch uit</li>
+  </ol>
+
+  <h2 data-animate>Sequence beheren</h2>
+
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Betekenis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Concept</strong></td>
+          <td>Sequence is in voorbereiding, nog niet actief</td>
+        </tr>
+        <tr>
+          <td><strong>Actief</strong></td>
+          <td>Nero voert de stappen uit voor ingeschreven contacten</td>
+        </tr>
+        <tr>
+          <td><strong>Gepauzeerd</strong></td>
+          <td>Tijdelijk gestopt, kan hervat worden</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Wissel tussen statussen met de play/pauze-knop.</p>
+
+  <h2 data-animate>Sequence-detail</h2>
+  <p>In het detailscherm zie je:</p>
+  <ul>
+    <li><strong>Naam en status</strong> van de sequence</li>
+    <li><strong>Stappen</strong> in volgorde, elke stap met zijn bericht en timing</li>
+    <li><strong>Ingeschreven contacten</strong> en hun voortgang</li>
+    <li><strong>Aantal stappen</strong> en <strong>aantal inschrijvingen</strong></li>
+  </ul>
+
+  <h3>Acties</h3>
+  <ul>
+    <li>Stappen toevoegen, bewerken of verwijderen</li>
+    <li>Contacten inschrijven</li>
+    <li>Sequence activeren, pauzeren of bewerken</li>
+  </ul>
+
+  <h2 data-animate>Gepersonaliseerde berichten</h2>
+  <p>Elke stap in een sequence genereert gepersonaliseerde berichten op basis van:</p>
+  <ul>
+    <li>Contactgegevens (naam, functie, bedrijf)</li>
+    <li>Bedrijfsspecifieke kennisartikelen</li>
+    <li>Je organisatie-brede kennisbank</li>
+    <li>De tone &amp; voice instellingen van de sequence</li>
+  </ul>
+  <p>Nero zoekt automatisch de meest relevante kennis op per contact, zodat elk bericht inhoudelijk op maat is.</p>
+</DocsLayout>

@@ -1,0 +1,230 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docsSidebar } from '../../data/docs-sidebar';
+---
+
+<DocsLayout
+  title="Campaigns"
+  description="Stuur gepersonaliseerde outbound campagnes vanuit Nero. AI genereert unieke berichten per contact op basis van je kennisbank."
+  sidebar={docsSidebar}
+  currentPath="/docs/campaigns"
+>
+  <div class="mb-10" data-animate>
+    <span class="section-label mb-4">Campaigns</span>
+    <h1 class="mt-4">Campaigns</h1>
+    <p class="text-lg !text-text-secondary">
+      Stuur gepersonaliseerde outbound campagnes vanuit Nero. AI genereert unieke berichten per contact op basis van je kennisbank, en jij behoudt volledige controle via een review en goedkeurflow.
+    </p>
+  </div>
+
+  <h2 data-animate>Wat zijn Campaigns?</h2>
+  <p>Met Campaigns verstuur je bulk outreach, maar dan slim. In plaats van dezelfde template naar iedereen te sturen, genereert Nero een uniek bericht per contact op basis van:</p>
+  <ul>
+    <li>De <strong>kennisbank</strong> van je organisatie (artikelen, procedures)</li>
+    <li><strong>Bedrijfsinformatie</strong> van het contact (branche, omzet, lifecycle stage)</li>
+    <li><strong>Contactgegevens</strong> (functie, eerdere interacties)</li>
+    <li>Jouw <strong>tone &amp; voice instellingen</strong> (professioneel, casual, formeel/informeel)</li>
+  </ul>
+
+  <h2 data-animate>Campagne-overzicht</h2>
+  <p>Het Outbound-scherm toont al je campagnes in een overzichtelijke lijst:</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Informatie</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Naam</strong></td>
+          <td>Q1 Upsell Healthcare</td>
+        </tr>
+        <tr>
+          <td><strong>Doel</strong></td>
+          <td>Bestaande klanten informeren over nieuwe module</td>
+        </tr>
+        <tr>
+          <td><strong>Status</strong></td>
+          <td>Draft, Generating, Review, Sending, Active, Completed</td>
+        </tr>
+        <tr>
+          <td><strong>Type</strong></td>
+          <td>Marketing, Sales, Support, Nurture</td>
+        </tr>
+        <tr>
+          <td><strong>Kanaal</strong></td>
+          <td>Email, SMS</td>
+        </tr>
+        <tr>
+          <td><strong>Aantal berichten</strong></td>
+          <td>48 contacten geselecteerd</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Klik op een campagne om het detail te openen. Side panel op desktop, full screen op mobiel.</p>
+
+  <h2 data-animate>Hoe werkt een campagne?</h2>
+  <p>Een campagne doorloopt een stapsgewijs proces:</p>
+  <ol>
+    <li><strong>Draft:</strong> Campagne aanmaken, contacten selecteren, AI-instellingen configureren</li>
+    <li><strong>Generating:</strong> Nero genereert per contact een gepersonaliseerd bericht</li>
+    <li><strong>Review:</strong> Berichten bekijken, goedkeuren, afwijzen of aanpassen</li>
+    <li><strong>Sending:</strong> Goedgekeurde berichten worden verstuurd</li>
+    <li><strong>Active:</strong> Berichten zijn onderweg, tracking begint</li>
+    <li><strong>Completed:</strong> Alle berichten verstuurd en afgerond</li>
+  </ol>
+
+  <h2 data-animate>Contacten selecteren</h2>
+  <p>In de draft-fase selecteer je je doelgroep:</p>
+  <ul>
+    <li>Filter contacten op lifecycle stage, lead status of lead score</li>
+    <li>Bekijk per contact: naam, bedrijf, functietitel, email, telefoonnummer</li>
+    <li>Selecteer individueel of in bulk</li>
+    <li>Contacten worden gekoppeld met hun bedrijfsinformatie voor personalisatie</li>
+  </ul>
+
+  <h2 data-animate>AI-instellingen</h2>
+  <p>Per campagne configureer je hoe Nero berichten genereert:</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Instelling</th>
+          <th>Opties</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Stijl</strong></td>
+          <td>Professioneel, casual, vriendelijk, etc.</td>
+        </tr>
+        <tr>
+          <td><strong>Formaliteit</strong></td>
+          <td>Formeel of informeel</td>
+        </tr>
+        <tr>
+          <td><strong>Taal</strong></td>
+          <td>Nederlands, Engels, of automatisch detecteren</td>
+        </tr>
+        <tr>
+          <td><strong>Goedkeuring</strong></td>
+          <td>Handmatig, automatisch, of steekproefsgewijs</td>
+        </tr>
+        <tr>
+          <td><strong>Regels</strong></td>
+          <td>Contentregels die Nero moet volgen bij het schrijven</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-animate>Berichten genereren &amp; reviewen</h2>
+  <p>Na het genereren toont Nero alle berichten in drie groepen:</p>
+
+  <h3>AI-gepersonaliseerd</h3>
+  <p>Berichten die verrijkt zijn met contactspecifieke context. Nero toont:</p>
+  <ul>
+    <li>Naam en bedrijf van het contact</li>
+    <li>Wat er gepersonaliseerd is (bijv. "Verwijzing naar branche en recente order")</li>
+    <li>Waarschuwingen als er informatie ontbreekt</li>
+    <li>Het volledige bericht (onderwerp + inhoud)</li>
+  </ul>
+
+  <h3>Standaard</h3>
+  <p>Berichten waarvoor onvoldoende context beschikbaar was. Deze gebruiken de standaard template.</p>
+
+  <h3>Concept</h3>
+  <p>Berichten die nog gegenereerd moeten worden.</p>
+
+  <h2 data-animate>Acties per bericht</h2>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Beschikbare acties</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Concept</strong></td>
+          <td>Genereren, verwijderen</td>
+        </tr>
+        <tr>
+          <td><strong>In review</strong></td>
+          <td>Goedkeuren, afwijzen, bewerken, opnieuw genereren, kopiëren</td>
+        </tr>
+        <tr>
+          <td><strong>Goedgekeurd</strong></td>
+          <td>Versturen, bewerken, opnieuw genereren, kopiëren</td>
+        </tr>
+        <tr>
+          <td><strong>Verstuurd</strong></td>
+          <td>Kopiëren</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-animate>Bulk-acties</h2>
+  <p>Voor efficiëntie kun je acties in bulk uitvoeren:</p>
+  <ul>
+    <li><strong>Alles genereren:</strong> Genereer alle conceptberichten in één keer</li>
+    <li><strong>Alles goedkeuren:</strong> Keur alle berichten in review goed</li>
+    <li><strong>Alles versturen:</strong> Verstuur alle goedgekeurde berichten (met bevestigingsdialoog)</li>
+  </ul>
+
+  <h2 data-animate>Statistieken</h2>
+  <p>Bovenaan het campagne-detail zie je realtime statistieken:</p>
+  <div class="overflow-x-auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Betekenis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Totaal</strong></td>
+          <td>Alle berichten in de campagne</td>
+        </tr>
+        <tr>
+          <td><strong>AI</strong></td>
+          <td>Berichten met rijke personalisatie</td>
+        </tr>
+        <tr>
+          <td><strong>Standaard</strong></td>
+          <td>Berichten met standaard template</td>
+        </tr>
+        <tr>
+          <td><strong>Review</strong></td>
+          <td>Wachtend op goedkeuring</td>
+        </tr>
+        <tr>
+          <td><strong>Klaar</strong></td>
+          <td>Goedgekeurd, klaar om te versturen</td>
+        </tr>
+        <tr>
+          <td><strong>Verstuurd</strong></td>
+          <td>Succesvol afgeleverd</td>
+        </tr>
+        <tr>
+          <td><strong>Concept</strong></td>
+          <td>Nog niet gegenereerd</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-animate>Kennisbank-integratie</h2>
+  <p>Nero gebruikt je kennisbank om berichten te verrijken:</p>
+  <ul>
+    <li><strong>Bedrijfsspecifieke artikelen</strong> worden automatisch meegenomen als het contact aan een bedrijf gekoppeld is</li>
+    <li><strong>RAG-zoekopdrachten</strong> vinden relevante kennisartikelen op basis van branche, functie en campagnedoel</li>
+    <li>Dit zorgt ervoor dat berichten inhoudelijk relevant zijn, niet alleen gepersonaliseerd op naam</li>
+  </ul>
+</DocsLayout>
