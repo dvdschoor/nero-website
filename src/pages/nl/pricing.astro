@@ -17,7 +17,8 @@ const plans = [
       'Tot 3 teamleden',
       'Taakoperaties & uniforme inbox',
       'Contact- & bedrijfsbeheer',
-      'Basis AI-triage & prioritering',
+      'AI-triage & prioritering (25/maand)',
+      'Email-integratie',
       '1 workspace',
     ],
     cta: 'Aan de slag',
@@ -26,22 +27,40 @@ const plans = [
   },
   {
     name: 'Pro',
-    price: '\u20AC29',
+    price: '\u20AC19',
     period: '/gebruiker/maand',
-    description: 'Voor groeiende teams die het volledige ops-platform nodig hebben.',
+    description: 'Voor groeiende teams met volledige AI en multi-channel.',
     features: [
-      'Onbeperkt teamleden',
+      'Tot 10 teamleden',
       'Alles in Starter',
+      'AI-triage, concepten & dagbriefings (200/dag)',
+      'Operationele kennisbank',
       'Deal-pipelines & forecasting',
       'Sprint planning & AI-taaksuggesties',
-      'Volledige AI ops-suite (triage, concepten, dagelijkse briefings)',
-      'Operationele kennisbank',
-      'Multi-channel integraties',
-      'Prioriteit support',
+      'Slack, WhatsApp & SMS integraties',
+      'Email support',
     ],
     cta: 'Start gratis proefperiode',
     href: `https://${appDomain}/login`,
     highlighted: true,
+  },
+  {
+    name: 'Business',
+    price: '\u20AC59',
+    period: '/gebruiker/maand',
+    description: 'Voor teams die AI hun operaties willen laten sturen.',
+    features: [
+      'Onbeperkt teamleden',
+      'Alles in Pro',
+      'AI-campaigns & sequences (1.000/dag)',
+      'AI-gepersonaliseerde outreach per contact',
+      'Custom AI-procedures & workflows',
+      'Onbeperkt workspaces',
+      'Prioriteit support',
+    ],
+    cta: 'Start gratis proefperiode',
+    href: `https://${appDomain}/login`,
+    highlighted: false,
   },
   {
     name: 'Enterprise',
@@ -49,8 +68,8 @@ const plans = [
     period: '',
     description: 'Voor organisaties met geavanceerde behoeften.',
     features: [
-      'Alles in Pro',
-      'Onbeperkt workspaces',
+      'Alles in Business',
+      'Onbeperkte AI-operaties',
       'Maatwerk integraties',
       'SSO & geavanceerde beveiliging',
       'Toegewijd accountmanager',
@@ -80,7 +99,7 @@ const plans = [
     </section>
 
     <section class="pb-24 px-6">
-      <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {plans.map((plan) => (
           <div class={`card p-7 flex flex-col ${
             plan.highlighted

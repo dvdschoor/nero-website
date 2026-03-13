@@ -17,7 +17,8 @@ const plans = [
       'Up to 3 team members',
       'Task operations & unified inbox',
       'Contact & company management',
-      'Basic AI triage & prioritization',
+      'AI triage & prioritization (25/month)',
+      'Email integration',
       '1 workspace',
     ],
     cta: 'Get started',
@@ -26,22 +27,40 @@ const plans = [
   },
   {
     name: 'Pro',
-    price: '\u20AC29',
+    price: '\u20AC19',
     period: '/user/month',
-    description: 'For growing teams that need the full ops platform.',
+    description: 'For growing teams that need full AI and multi-channel.',
     features: [
-      'Unlimited team members',
+      'Up to 10 team members',
       'Everything in Starter',
+      'AI triage, drafts & daily briefings (200/day)',
+      'Operational knowledge base',
       'Deal pipelines & forecasting',
       'Sprint planning & AI task suggestions',
-      'Full AI ops suite (triage, drafts, daily briefings)',
-      'Operational knowledge base',
-      'Multi-channel integrations',
-      'Priority support',
+      'Slack, WhatsApp & SMS integrations',
+      'Email support',
     ],
     cta: 'Start free trial',
     href: `https://${appDomain}/login`,
     highlighted: true,
+  },
+  {
+    name: 'Business',
+    price: '\u20AC59',
+    period: '/user/month',
+    description: 'For teams that want AI to drive their operations.',
+    features: [
+      'Unlimited team members',
+      'Everything in Pro',
+      'AI campaigns & sequences (1,000/day)',
+      'AI-personalized outreach per contact',
+      'Custom AI procedures & workflows',
+      'Unlimited workspaces',
+      'Priority support',
+    ],
+    cta: 'Start free trial',
+    href: `https://${appDomain}/login`,
+    highlighted: false,
   },
   {
     name: 'Enterprise',
@@ -49,8 +68,8 @@ const plans = [
     period: '',
     description: 'For organizations with advanced needs.',
     features: [
-      'Everything in Pro',
-      'Unlimited workspaces',
+      'Everything in Business',
+      'Unlimited AI operations',
       'Custom integrations',
       'SSO & advanced security',
       'Dedicated account manager',
@@ -82,7 +101,7 @@ const plans = [
 
     <!-- Plans -->
     <section class="pb-24 px-6">
-      <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {plans.map((plan) => (
           <div class={`card p-7 flex flex-col ${
             plan.highlighted
